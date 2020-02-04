@@ -51,10 +51,11 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
     <link rel=\"stylesheet\" href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css\">
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
+    <link rel=\"stylesheet\" href=\"assets/css/main.css\">
     ";
-        // line 10
-        $this->displayBlock('css', $context, $blocks);
         // line 11
+        $this->displayBlock('css', $context, $blocks);
+        // line 12
         echo "
 <body>
 
@@ -74,14 +75,14 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                     ";
-        // line 29
-        $context["articlenbre"] = [0 => "Exemple 1", 1 => "Exemple 2", 2 => "Exemple 3"];
         // line 30
+        $context["articlenbre"] = [0 => "Exemple 1", 1 => "Exemple 2", 2 => "Exemple 3"];
+        // line 31
         echo "                    ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articlenbre"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 31
+            // line 32
             echo "                    <a class=\"dropdown-item text-secondary\" href=\"/\">";
             echo twig_escape_filter($this->env, $context["article"]);
             echo "</a>
@@ -90,28 +91,28 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 34
         echo "                </div>
             </li>
             <li class=\"nav-item col-6\">
-                <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
+                <a class=\"nav-link\" href=\"/Article/Add\">Tout les Articles</a>
             </li>
 
             <li class=\"nav-item col-11\"></li>
             <li class=\"nav-item col-6\"></li>
 
             ";
-        // line 42
-        $context["connected"] = 0;
         // line 43
+        $context["connected"] = 0;
+        // line 44
         echo "            ";
         if (0 === twig_compare(($context["connected"] ?? null), 1)) {
-            // line 44
+            // line 45
             echo "                <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         ";
-            // line 46
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "nom", [], "any", false, false, false, 46), "html", null, true);
+            // line 47
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "nom", [], "any", false, false, false, 47), "html", null, true);
             echo " 
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
@@ -122,12 +123,12 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
             ";
         }
-        // line 55
+        // line 56
         echo "
             ";
-        // line 56
+        // line 57
         if (0 === twig_compare(($context["connected"] ?? null), 0)) {
-            // line 57
+            // line 58
             echo "                <li class=\"nav-item col-2\">
                   <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                 </li>
@@ -137,7 +138,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
             ";
         }
-        // line 65
+        // line 66
         echo "        </ul>
 
     </div>
@@ -149,15 +150,15 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
 
 ";
-        // line 75
+        // line 76
         $this->displayBlock('body', $context, $blocks);
-        // line 77
+        // line 78
         echo "
 
 ";
-        // line 79
+        // line 80
         $this->displayBlock('footer', $context, $blocks);
-        // line 129
+        // line 132
         echo "
 
 <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
@@ -167,9 +168,9 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 137
+        // line 140
         $this->displayBlock('javascript', $context, $blocks);
-        // line 138
+        // line 141
         echo "</body>
 </html>
 ";
@@ -182,23 +183,23 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
         echo "CESI BLOG";
     }
 
-    // line 10
+    // line 11
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 75
+    // line 76
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 79
+    // line 80
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 80
+        // line 81
         echo " 
 <footer class=\"page-footer font-small pt-4 footer\">
 
@@ -237,8 +238,11 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 </footer>
 
 <style>
+html{
+    overflow-x: hidden;
+}
 .footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     background: linear-gradient(-45deg, #343a40, #343a40);
@@ -246,11 +250,10 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
   
 }
 </style>
-
 ";
     }
 
-    // line 137
+    // line 140
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -268,7 +271,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
     public function getDebugInfo()
     {
-        return array (  254 => 137,  202 => 80,  198 => 79,  192 => 75,  186 => 10,  179 => 5,  173 => 138,  171 => 137,  161 => 129,  159 => 79,  155 => 77,  153 => 75,  141 => 65,  131 => 57,  129 => 56,  126 => 55,  114 => 46,  110 => 44,  107 => 43,  105 => 42,  94 => 33,  85 => 31,  80 => 30,  78 => 29,  58 => 11,  56 => 10,  48 => 5,  42 => 1,);
+        return array (  257 => 140,  203 => 81,  199 => 80,  193 => 76,  187 => 11,  180 => 5,  174 => 141,  172 => 140,  162 => 132,  160 => 80,  156 => 78,  154 => 76,  142 => 66,  132 => 58,  130 => 57,  127 => 56,  115 => 47,  111 => 45,  108 => 44,  106 => 43,  95 => 34,  86 => 32,  81 => 31,  79 => 30,  59 => 12,  57 => 11,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -282,6 +285,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
     <link rel=\"stylesheet\" href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css\">
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
+    <link rel=\"stylesheet\" href=\"assets/css/main.css\">
     {% block css %}{% endblock %}
 
 <body>
@@ -308,7 +312,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </div>
             </li>
             <li class=\"nav-item col-6\">
-                <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
+                <a class=\"nav-link\" href=\"/Article/Add\">Tout les Articles</a>
             </li>
 
             <li class=\"nav-item col-11\"></li>
@@ -390,8 +394,11 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 </footer>
 
 <style>
+html{
+    overflow-x: hidden;
+}
 .footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     background: linear-gradient(-45deg, #343a40, #343a40);
@@ -399,7 +406,6 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
   
 }
 </style>
-
 {% endblock %}
 
 

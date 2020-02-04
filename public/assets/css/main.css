@@ -1,0 +1,18 @@
+/*------[CSS SCROLLBAR]--------*/
+::-webkit-scrollbar {
+    width: 12px;
+    background: linear-gradient(-45deg, #44494e, #2f3438);
+    }
+    
+  
+    /* Curseur */
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(-45deg, #292e33, #23282e);
+        animation: gradientBG 15s ease infinite;
+        width: 14px;
+        height: 50%;
+        max-height: 50%;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+    }
+  /*------[FIN CSS SCROLLBAR]--------*/
