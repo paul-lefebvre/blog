@@ -66,6 +66,14 @@ class UserController extends  AbstractController {
         header('Location:/');
     }
 
+
+
+
+
+
+
+
+
     public function inscription(){
 
         return $this->twig->render('User/membre.html.twig');
@@ -88,4 +96,10 @@ class UserController extends  AbstractController {
         }
     }
 
+
+
+
+
+
+    
 }
