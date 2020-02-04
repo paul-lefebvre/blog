@@ -13,8 +13,22 @@ class User {
 
 
 
-    function inscrire($bdd): bool
+    function inscrire()
     {
+        $hostname="localhost";
+        $username="root";
+        $password="";
+        $dbname="cesiblog";
+        try
+            {
+                $bdd = new PDO('mysql:host='.$hostname.';dbname='.$dbname.';charset=utf8', $username, $password);
+                $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }
+            catch (Exception $e)
+            {
+                die('Erreur : ' . $e->getMessage());
+            }
+
         $pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
      
         $requete=$bdd->prepare("INSERT INTO `cesiblog`.`t_membre` (`MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`) VALUES (':MEM_NOM', ':MEM_PRENOM', ':MEM_EMAIL', ':MEM_MDP')");

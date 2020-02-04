@@ -89,7 +89,7 @@ class UserController extends  AbstractController {
                 }   else {                
                     inscrire();                
      
-                    header('Location: index.php?action=inscription');
+                    header('Location:/');
      
                     exit();
                 }
