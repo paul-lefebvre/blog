@@ -77,24 +77,26 @@ class UserController extends  AbstractController {
     public function inscription(){
 
         return $this->twig->render('User/inscription.html.twig');
-        if(!filter_var(
-            $_POST['password'],
-            FILTER_VALIDATE_REGEXP,
-            array(
-                "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
-            )
-        )){
-            $_SESSION['errorlogin'] = "Mpd mini 3 caractères";
-            header('Location:/Login');
-            return;
-        }
-
-        if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-            $_SESSION['errorlogin'] = "Mail invalide";
-            header('Location:/Login');
-            return;
-        }
+       
+        if (isset($_POST['PRENOM']) && isset($_POST['NOM']) && isset($_POST['EMAIL']) 
+        && isset($_POST['MDP'])) {
+     
+            if (empty($_POST['lastName']) || empty($_POST['firstName'])  || 
+            empty($_POST['email'])  || empty($_POST['mdp'])) {
+     
+                    $alerte = "Veuillez remplir tous les champs correctement.";
+     
+                }   else {                
+                    inscrire();                
+     
+                    header('Location: index.php?action=inscription');
+     
+                    exit();
+                }
+            }
+     
     }
+    
 
 
 
