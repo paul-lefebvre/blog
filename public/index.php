@@ -39,6 +39,7 @@ $router->post('/Login', 'User#loginCheck');
 $router->get('/Logout', 'User#logout');
 $router->get('/inscrption', 'User#inscription');
 
+$router->post('/Article/Search/','Article#search');
 
 
 echo $router->run();

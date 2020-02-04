@@ -13,7 +13,7 @@ use Twig\Source;
 use Twig\Template;
 
 /* index.html.twig */
-class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539c3845 extends Template
+class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c09b7db extends Template
 {
     private $source;
     private $macros = [];
@@ -79,10 +79,13 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 
         </ul>
 
-        
 
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
+        // line 38
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 38), "html", null, true);
+        echo "\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
@@ -165,9 +168,14 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
         return "index.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  158 => 80,  152 => 70,  146 => 10,  139 => 5,  133 => 81,  131 => 80,  120 => 71,  118 => 70,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  161 => 80,  155 => 70,  149 => 10,  142 => 5,  136 => 81,  134 => 80,  123 => 71,  121 => 70,  86 => 38,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -207,10 +215,10 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 
         </ul>
 
-        
 
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/{{ post.search }}\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
@@ -254,6 +262,6 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 {% block javascript %}{% endblock %}
 </body>
 </html>
-", "index.html.twig", "C:\\Users\\samso\\Desktop\\Cours\\Projet PHP\\templates\\index.html.twig");
+", "index.html.twig", "C:\\Users\\Ankam\\OneDrive\\Bureau\\blog\\templates\\index.html.twig");
     }
 }
