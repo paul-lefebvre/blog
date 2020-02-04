@@ -68,6 +68,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
         <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">
             <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Menu</a>
+            </li>
+            <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/ListAll\">Liste des articles</a>
             </li>
             <li class=\"nav-item\">
@@ -76,19 +79,25 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
         </ul>
 
+        
 
+<<<<<<< HEAD
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+=======
 
         <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
-        // line 35
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 35), "html", null, true);
+        // line 38
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 38), "html", null, true);
         echo "\">
             <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
+>>>>>>> denis
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
 
 </nav>
-<!--
+
 <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
     <a class=\"navbar-brand\" href=\"#\">Menu</a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -109,14 +118,14 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
             </li>
         </ul>
     </div>
-</nav>-->
+</nav>
 
 
 
     ";
-        // line 67
+        // line 70
         $this->displayBlock('body', $context, $blocks);
-        // line 68
+        // line 71
         echo "
 
 
@@ -127,9 +136,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 77
+        // line 80
         $this->displayBlock('javascript', $context, $blocks);
-        // line 78
+        // line 81
         echo "</body>
 </html>
 ";
@@ -148,13 +157,13 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
         $macros = $this->macros;
     }
 
-    // line 67
+    // line 70
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 77
+    // line 80
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -165,14 +174,13 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
         return "index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  158 => 77,  152 => 67,  146 => 10,  139 => 5,  133 => 78,  131 => 77,  120 => 68,  118 => 67,  83 => 35,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+<<<<<<< HEAD
+        return array (  158 => 80,  152 => 70,  146 => 10,  139 => 5,  133 => 81,  131 => 80,  120 => 71,  118 => 70,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+=======
+        return array (  161 => 80,  155 => 70,  149 => 10,  142 => 5,  136 => 81,  134 => 80,  123 => 71,  121 => 70,  86 => 38,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+>>>>>>> denis
     }
 
     public function getSourceContext()
@@ -201,6 +209,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
         <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">
             <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Menu</a>
+            </li>
+            <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/ListAll\">Liste des articles</a>
             </li>
             <li class=\"nav-item\">
@@ -209,16 +220,16 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
         </ul>
 
+        
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/{{ post.search }}\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
 
 </nav>
-<!--
+
 <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
     <a class=\"navbar-brand\" href=\"#\">Menu</a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -239,7 +250,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
             </li>
         </ul>
     </div>
-</nav>-->
+</nav>
 
 
 
