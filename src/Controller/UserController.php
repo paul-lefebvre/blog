@@ -4,7 +4,11 @@ namespace src\Controller;
 class UserController extends  AbstractController {
 
     public function loginForm(){
+<<<<<<< HEAD
         //var_dump($_SESSION['errorlogin']);
+=======
+        
+>>>>>>> denis
         return $this->twig->render('User/login.html.twig');
     }
 
@@ -66,4 +70,40 @@ class UserController extends  AbstractController {
         header('Location:/');
     }
 
+
+
+
+
+
+
+
+
+    public function inscription(){
+
+        return $this->twig->render('User/membre.html.twig');
+        if(!filter_var(
+            $_POST['password'],
+            FILTER_VALIDATE_REGEXP,
+            array(
+                "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
+            )
+        )){
+            $_SESSION['errorlogin'] = "Mpd mini 3 caractères";
+            header('Location:/Login');
+            return;
+        }
+
+        if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+            $_SESSION['errorlogin'] = "Mail invalide";
+            header('Location:/Login');
+            return;
+        }
+    }
+
+
+
+
+
+
+    
 }
