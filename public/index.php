@@ -44,4 +44,3 @@ $router->post('/Article/Search/','Article#search');
 
 echo $router->run();
 
-
