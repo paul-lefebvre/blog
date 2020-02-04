@@ -57,24 +57,38 @@ class __TwigTemplate_22329ba2de2cddeb768bc8fb2b19d524acce229308753c01783058d2f54
         $macros = $this->macros;
         // line 4
         echo "
-    <div class=\"container-fluid mt-2\">
+
         ";
         // line 6
         if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", true, true, false, 6)) {
             // line 7
-            echo "            <div class=\"alert alert-danger\">";
+            echo "            <div class=\"alert alert-danger text-center\">Erreur de connexion : ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 7), "html", null, true);
             echo "</div>
         ";
         }
         // line 9
-        echo "        <form method=\"post\" action=\"/Login\">
-            <input type=\"email\" name=\"email\">
-            <input type=\"password\" name=\"password\">
-            <input type=\"submit\">
-        </form>
-    </div>
+        echo "
 
+
+    <div class=\"container-fluid\">
+    <br><br><br><br><br><br>
+        <div class=\"mx-auto col-5\">
+        <h1 class=\"text-center\">Connexion</h1>
+        <form method=\"post\" action=\"/Login\">
+            <div class=\"form-group\">
+                <label for=\"exampleInputEmail1\">Email</label>
+                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+            </div>
+            <div class=\"form-group\">
+                <label for=\"exampleInputPassword1\">Mot de passe</label>
+                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+            </div>
+            <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
+        </form>
+        </div>
+        <br><br><br><br><br><br><br>
+    </div>
 ";
     }
 
@@ -99,17 +113,31 @@ class __TwigTemplate_22329ba2de2cddeb768bc8fb2b19d524acce229308753c01783058d2f54
 {% block title %}{{ parent() }} - Connectez vous {% endblock %}
 {% block body %}
 
-    <div class=\"container-fluid mt-2\">
-        {% if session.errorlogin is defined %}
-            <div class=\"alert alert-danger\">{{ session.errorlogin }}</div>
-        {% endif %}
-        <form method=\"post\" action=\"/Login\">
-            <input type=\"email\" name=\"email\">
-            <input type=\"password\" name=\"password\">
-            <input type=\"submit\">
-        </form>
-    </div>
 
+        {% if session.errorlogin is defined %}
+            <div class=\"alert alert-danger text-center\">Erreur de connexion : {{ session.errorlogin }}</div>
+        {% endif %}
+
+
+
+    <div class=\"container-fluid\">
+    <br><br><br><br><br><br>
+        <div class=\"mx-auto col-5\">
+        <h1 class=\"text-center\">Connexion</h1>
+        <form method=\"post\" action=\"/Login\">
+            <div class=\"form-group\">
+                <label for=\"exampleInputEmail1\">Email</label>
+                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+            </div>
+            <div class=\"form-group\">
+                <label for=\"exampleInputPassword1\">Mot de passe</label>
+                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+            </div>
+            <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
+        </form>
+        </div>
+        <br><br><br><br><br><br><br>
+    </div>
 {% endblock %}", "User/login.html.twig", "C:\\Users\\samso\\Desktop\\Cours\\Projet PHP\\templates\\User\\login.html.twig");
     }
 }
