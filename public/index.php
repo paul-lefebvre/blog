@@ -38,6 +38,7 @@ $router->get('/Login', 'User#loginForm');
 $router->post('/Login', 'User#loginCheck');
 $router->get('/Logout', 'User#logout');
 $router->post('/Article/Search/','Article#search');
+$router->get('/dashboard/:user', 'User#dashboard');
 
 
 echo $router->run();
