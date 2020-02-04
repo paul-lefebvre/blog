@@ -41,5 +41,4 @@ $router->get('/Logout', 'User#logout');
 
 echo $router->run();
 
-// denis le petit batard
 
