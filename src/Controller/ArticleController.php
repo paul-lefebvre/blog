@@ -189,7 +189,8 @@ class ArticleController extends AbstractController {
         return $this->twig->render(
             'Article/list.html.twig',[
                 'articleData' => $articleData,
-                'pageResultat' => 1
+                'pageResultat' => 1,
+                'searchResult' => $_POST['search']
             ]
         );
 

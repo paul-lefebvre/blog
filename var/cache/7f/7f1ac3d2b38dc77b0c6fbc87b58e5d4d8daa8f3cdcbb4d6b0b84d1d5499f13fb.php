@@ -62,7 +62,9 @@ class __TwigTemplate_06732359d41d7e9642469824786f8e21abe28b29bb3ad1f9e013d042309
         // line 7
         if (0 === twig_compare(($context["pageResultat"] ?? null), 1)) {
             // line 8
-            echo "            <h1 class=\"display-4\">Résultat de la recherche</h1>
+            echo "            <h1 class=\"display-4\">Résultat de la recherche : ";
+            echo twig_escape_filter($this->env, ($context["searchResult"] ?? null), "html", null, true);
+            echo "</h1>
         ";
         } else {
             // line 10
@@ -209,7 +211,7 @@ class __TwigTemplate_06732359d41d7e9642469824786f8e21abe28b29bb3ad1f9e013d042309
 
     public function getDebugInfo()
     {
-        return array (  191 => 59,  180 => 54,  175 => 52,  171 => 51,  167 => 50,  161 => 47,  157 => 46,  153 => 45,  147 => 44,  144 => 43,  139 => 42,  128 => 37,  123 => 35,  119 => 34,  115 => 33,  109 => 30,  105 => 29,  101 => 28,  95 => 27,  92 => 26,  88 => 25,  73 => 12,  69 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  193 => 59,  182 => 54,  177 => 52,  173 => 51,  169 => 50,  163 => 47,  159 => 46,  155 => 45,  149 => 44,  146 => 43,  141 => 42,  130 => 37,  125 => 35,  121 => 34,  117 => 33,  111 => 30,  107 => 29,  103 => 28,  97 => 27,  94 => 26,  90 => 25,  75 => 12,  71 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -221,7 +223,7 @@ class __TwigTemplate_06732359d41d7e9642469824786f8e21abe28b29bb3ad1f9e013d042309
 
     <div class=\"jumbotron\">
         {% if pageResultat == 1 %}
-            <h1 class=\"display-4\">Résultat de la recherche</h1>
+            <h1 class=\"display-4\">Résultat de la recherche : {{ searchResult }}</h1>
         {% else %}
             <h1 class=\"display-4\">Liste des articles</h1>
         {% endif %}
