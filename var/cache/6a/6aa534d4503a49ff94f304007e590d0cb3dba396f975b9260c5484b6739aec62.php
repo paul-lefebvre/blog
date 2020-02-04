@@ -84,16 +84,16 @@ class __TwigTemplate_ae898f5f2e32a27050afe1a03a8dc19c9adac5bdefc2430b76207ea58e1
             echo "            <div class=\"jumbotron\">
                 <h1 class=\"display-4\">";
             // line 17
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Titre", [], "any", false, false, false, 17), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 17), "html", null, true);
             echo "</h1>
                 <p class=\"lead\">";
             // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Description", [], "any", false, false, false, 18), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 18), "html", null, true);
             echo "</p>
                 <hr class=\"my-4\">
                 <p>";
             // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Auteur", [], "any", false, false, false, 20), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 20), "html", null, true);
             echo "</p>
                 <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
             </div>
@@ -120,22 +120,22 @@ class __TwigTemplate_ae898f5f2e32a27050afe1a03a8dc19c9adac5bdefc2430b76207ea58e1
             <div class=\"jumbotron\">
                 <h1 class=\"display-4\">";
             // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Titre", [], "any", false, false, false, 32), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 32), "html", null, true);
             echo "</h1>
                 <div class=\"\"> <img src=\"";
             // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ImageRepository", [], "any", false, false, false, 33), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEREPOSITORY", [], "any", false, false, false, 33), "html", null, true);
             echo "\" class=\"rounded\" alt=\"\" width=\"304\" height=\"236\"> </div>
                 <p class=\"lead\">";
             // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Description", [], "any", false, false, false, 34), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 34), "html", null, true);
             echo "</p>
                 <hr class=\"my-4\">
                 <p>";
             // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Auteur", [], "any", false, false, false, 36), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 36), "html", null, true);
             echo " - ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "DateAjout", [], "any", false, false, false, 36), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DATEAJOUT", [], "any", false, false, false, 36), "html", null, true);
             echo "</p>
                 <a class=\"btn btn-secondary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
             </div></div>
@@ -186,10 +186,10 @@ class __TwigTemplate_ae898f5f2e32a27050afe1a03a8dc19c9adac5bdefc2430b76207ea58e1
         {# ==========================================[RESULTAT DE RECHERCHE]================================================= #}
         {% for article in articleData %}
             <div class=\"jumbotron\">
-                <h1 class=\"display-4\">{{ article.Titre }}</h1>
-                <p class=\"lead\">{{ article.Description }}</p>
+                <h1 class=\"display-4\">{{ article.ART_TITRE }}</h1>
+                <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
                 <hr class=\"my-4\">
-                <p>{{ article.Auteur }}</p>
+                <p>{{ article.ART_AUTEUR }}</p>
                 <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
             </div>
         {% endfor %}
@@ -201,11 +201,11 @@ class __TwigTemplate_ae898f5f2e32a27050afe1a03a8dc19c9adac5bdefc2430b76207ea58e1
         {% for article in articleList %}
             <div class=\"row\"><div class=\"mx-auto\">
             <div class=\"jumbotron\">
-                <h1 class=\"display-4\">{{ article.Titre }}</h1>
-                <div class=\"\"> <img src=\"{{ article.ImageRepository }}\" class=\"rounded\" alt=\"\" width=\"304\" height=\"236\"> </div>
-                <p class=\"lead\">{{ article.Description }}</p>
+                <h1 class=\"display-4\">{{ article.ART_TITRE }}</h1>
+                <div class=\"\"> <img src=\"{{ article.ART_IMAGEREPOSITORY }}\" class=\"rounded\" alt=\"\" width=\"304\" height=\"236\"> </div>
+                <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
                 <hr class=\"my-4\">
-                <p>{{ article.Auteur }} - {{ article.DateAjout }}</p>
+                <p>{{ article.ART_AUTEUR }} - {{ article.ART_DATEAJOUT }}</p>
                 <a class=\"btn btn-secondary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
             </div></div>
             </div>

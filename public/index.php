@@ -41,6 +41,7 @@ $router->get('/inscription', 'User#inscription');
 $router->post('/inscription', 'User#inscription');
 
 $router->post('/Article/Search/','Article#search');
+$router->get('/dashboard/:user', 'User#dashboard');
 
 
 echo $router->run();
