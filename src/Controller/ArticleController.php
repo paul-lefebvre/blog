@@ -18,7 +18,8 @@ class ArticleController extends AbstractController {
         //Lancer la vue TWIG
         return $this->twig->render(
             'Article/list.html.twig',[
-                'articleList' => $listArticle
+                'articleList' => $listArticle,
+                'pageResultat' => 0
             ]
         );
     }
@@ -179,6 +180,20 @@ class ArticleController extends AbstractController {
         file_put_contents('./uploads/file/'.$file, json_encode($articleData));
 
         header('location:/Article/');
+    }
+    public function search(){
+        $search = $_POST['search'];
+        $article = new Article();
+        $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
+
+        return $this->twig->render(
+            'Article/list.html.twig',[
+                'articleData' => $articleData,
+                'pageResultat' => 1
+            ]
+        );
+
+        
     }
 
     public function test($param1,$param2){

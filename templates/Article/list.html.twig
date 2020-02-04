@@ -4,7 +4,11 @@
 {% block body %}
 
     <div class="jumbotron">
-        <h1 class="display-4">Liste des articles</h1>
+        {% if pageResultat == 1 %}
+            <h1 class="display-4">Résultat de la recherche</h1>
+        {% else %}
+            <h1 class="display-4">Liste des articles</h1>
+        {% endif %}
     </div>
     <div class="container">
     <table class="table table-striped">
@@ -18,6 +22,23 @@
         </tr>
         </thead>
         <tbody>
+        {% for article in articleData %}
+            <tr>
+                <th scope="row"><a href="/Article/Show/{{ article.id }}">#{{ article.id }}</a></th>
+                <td>{{ article.Titre }}</td>
+                <td>{{ article.Auteur }}</td>
+                <td>{{ article.DateAjout | date("d/m/Y") }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-success" href="/Article/Show/{{ article.id }}"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-warning" href="/Article/Update/{{ article.id }}"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger" href="/Article/Delete/{{ article.id }}"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                    <a class="btn btn-secondary" href="/Article/WriteOne/{{ article.id }}"><i class="fas fa-file-download"></i></a>
+
+                </td>
+            </tr>
+        {% endfor %}
         {% for article in articleList %}
             <tr>
                 <th scope="row"><a href="/Article/Show/{{ article.id }}">#{{ article.id }}</a></th>
