@@ -37,6 +37,7 @@ $router->post('/Contact/sendMail', 'Contact#sendMail');
 $router->get('/Login', 'User#loginForm');
 $router->post('/Login', 'User#loginCheck');
 $router->get('/Logout', 'User#logout');
+$router->post('/Article/Search/','Article#search');
 
 
 echo $router->run();

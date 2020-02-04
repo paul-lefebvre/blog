@@ -127,6 +127,25 @@ class Article extends Contenu implements \JsonSerializable {
             ,'Auteur' => $this->getAuteur()
         ];
     }
+    public function sqlSearch(\PDO $bdd,$search){
+
+        try{
+            
+            $search = '%'.$search.'%';
+            
+            $requete = $bdd->prepare("SELECT * FROM articles WHERE Titre like ? ORDER BY id DESC LIMIT 10 ");
+            
+            $requete->execute(array($search));
+
+            $arrayArticle = $requete->fetchAll();
+            return $arrayArticle;
+
+        }
+        catch(\Exception $e){
+            return false;
+        }
+
+    }
 
 
     /**
