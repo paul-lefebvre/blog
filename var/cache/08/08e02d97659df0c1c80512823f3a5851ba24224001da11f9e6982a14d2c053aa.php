@@ -52,10 +52,11 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
     <link rel=\"stylesheet\" href=\"assets/css/main.css\">
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
     ";
-        // line 11
-        $this->displayBlock('css', $context, $blocks);
         // line 12
+        $this->displayBlock('css', $context, $blocks);
+        // line 13
         echo "
 <body>
 
@@ -75,14 +76,14 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                     ";
-        // line 30
-        $context["articlenbre"] = [0 => "Exemple 1", 1 => "Exemple 2", 2 => "Exemple 3"];
         // line 31
+        $context["articlenbre"] = [0 => "Exemple 1", 1 => "Exemple 2", 2 => "Exemple 3"];
+        // line 32
         echo "                    ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articlenbre"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 32
+            // line 33
             echo "                    <a class=\"dropdown-item text-secondary\" href=\"/\">";
             echo twig_escape_filter($this->env, $context["article"]);
             echo "</a>
@@ -91,7 +92,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 35
         echo "                </div>
             </li>
             <li class=\"nav-item col-6\">
@@ -102,17 +103,17 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
             <li class=\"nav-item col-6\"></li>
 
             ";
-        // line 43
-        $context["connected"] = 0;
         // line 44
+        $context["connected"] = 0;
+        // line 45
         echo "            ";
         if (0 === twig_compare(($context["connected"] ?? null), 1)) {
-            // line 45
+            // line 46
             echo "                <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         ";
-            // line 47
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "nom", [], "any", false, false, false, 47), "html", null, true);
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "nom", [], "any", false, false, false, 48), "html", null, true);
             echo " 
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
@@ -123,12 +124,12 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                 </li>
             ";
         }
-        // line 56
+        // line 57
         echo "
             ";
-        // line 57
+        // line 58
         if (0 === twig_compare(($context["connected"] ?? null), 0)) {
-            // line 58
+            // line 59
             echo "                <li class=\"nav-item col-2\">
                   <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                 </li>
@@ -138,7 +139,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                 </li>
             ";
         }
-        // line 66
+        // line 67
         echo "        </ul>
 
     </div>
@@ -150,15 +151,15 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
 
 ";
-        // line 76
+        // line 77
         $this->displayBlock('body', $context, $blocks);
-        // line 78
+        // line 79
         echo "
 
 ";
-        // line 80
+        // line 81
         $this->displayBlock('footer', $context, $blocks);
-        // line 132
+        // line 133
         echo "
 
 <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
@@ -168,9 +169,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 140
-        $this->displayBlock('javascript', $context, $blocks);
         // line 141
+        $this->displayBlock('javascript', $context, $blocks);
+        // line 142
         echo "</body>
 </html>
 ";
@@ -183,23 +184,23 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
         echo "CESI BLOG";
     }
 
-    // line 11
+    // line 12
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 76
+    // line 77
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 80
+    // line 81
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 81
+        // line 82
         echo " 
 <footer class=\"page-footer font-small pt-4 footer\">
 
@@ -253,7 +254,7 @@ html{
 ";
     }
 
-    // line 140
+    // line 141
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -271,7 +272,7 @@ html{
 
     public function getDebugInfo()
     {
-        return array (  257 => 140,  203 => 81,  199 => 80,  193 => 76,  187 => 11,  180 => 5,  174 => 141,  172 => 140,  162 => 132,  160 => 80,  156 => 78,  154 => 76,  142 => 66,  132 => 58,  130 => 57,  127 => 56,  115 => 47,  111 => 45,  108 => 44,  106 => 43,  95 => 34,  86 => 32,  81 => 31,  79 => 30,  59 => 12,  57 => 11,  48 => 5,  42 => 1,);
+        return array (  258 => 141,  204 => 82,  200 => 81,  194 => 77,  188 => 12,  181 => 5,  175 => 142,  173 => 141,  163 => 133,  161 => 81,  157 => 79,  155 => 77,  143 => 67,  133 => 59,  131 => 58,  128 => 57,  116 => 48,  112 => 46,  109 => 45,  107 => 44,  96 => 35,  87 => 33,  82 => 32,  80 => 31,  60 => 13,  58 => 12,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -286,6 +287,7 @@ html{
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
     <link rel=\"stylesheet\" href=\"assets/css/main.css\">
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
     {% block css %}{% endblock %}
 
 <body>

@@ -78,6 +78,7 @@ class __TwigTemplate_f29adc7882057f7df3d3bfdcf7761a45c7385cb5b50cf8edf01cc0c046a
         \t<div class=\"footer\">
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
+                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
         </form>
   
 
@@ -126,6 +127,7 @@ class __TwigTemplate_f29adc7882057f7df3d3bfdcf7761a45c7385cb5b50cf8edf01cc0c046a
         \t<div class=\"footer\">
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
+                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
         </form>
   
 
