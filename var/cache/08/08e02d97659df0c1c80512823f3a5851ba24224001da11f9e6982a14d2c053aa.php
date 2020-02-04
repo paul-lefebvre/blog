@@ -79,13 +79,10 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
         </ul>
 
+        
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
-        // line 38
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 38), "html", null, true);
-        echo "\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
@@ -168,14 +165,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
         return "index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  161 => 80,  155 => 70,  149 => 10,  142 => 5,  136 => 81,  134 => 80,  123 => 71,  121 => 70,  86 => 38,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  158 => 80,  152 => 70,  146 => 10,  139 => 5,  133 => 81,  131 => 80,  120 => 71,  118 => 70,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -215,10 +207,10 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
         </ul>
 
+        
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/{{ post.search }}\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
