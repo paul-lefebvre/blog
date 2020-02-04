@@ -99,11 +99,11 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             </li>
 
             <li class=\"nav-item col-11\"></li>
-            <li class=\"nav-item col-6\"></li>
+            <li class=\"nav-item col-8\"></li>
 
             ";
         // line 43
-        $context["connected"] = 0;
+        $context["connected"] = 1;
         // line 44
         echo "            ";
         if (0 === twig_compare(($context["connected"] ?? null), 1)) {
@@ -116,7 +116,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             echo " 
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                        <a class=\"dropdown-item text-success\" href=\"/\">Panel Administrateur</a>
+                        <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
                         <div class=\"dropdown-divider\"></div>
                         <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                     </div>
@@ -316,16 +316,16 @@ html{
             </li>
 
             <li class=\"nav-item col-11\"></li>
-            <li class=\"nav-item col-6\"></li>
+            <li class=\"nav-item col-8\"></li>
 
-            {% set connected = 0 %}
+            {% set connected = 1 %}
             {% if connected == 1 %}
                 <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         {{ User.nom }} 
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                        <a class=\"dropdown-item text-success\" href=\"/\">Panel Administrateur</a>
+                        <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
                         <div class=\"dropdown-divider\"></div>
                         <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                     </div>

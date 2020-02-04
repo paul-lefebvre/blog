@@ -17,7 +17,7 @@ class UserController extends  AbstractController {
                 "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
             )
         )){
-            $_SESSION['errorlogin'] = "Mpd mini 3 caractères";
+            $_SESSION['errorlogin'] = "Le mot de passe doit contenir minimum 3 caractères";
             header('Location:/Login');
             return;
         }
@@ -28,6 +28,7 @@ class UserController extends  AbstractController {
             return;
         }
 
+        // A MODIFIER POUR LE CHECK LOGIN
         if($_POST["email"]=="admin@admin.com"
             AND $_POST["password"] == "password"
         ){
@@ -76,7 +77,7 @@ class UserController extends  AbstractController {
 
     public function inscription(){
 
-        return $this->twig->render('User/membre.html.twig');
+        return $this->twig->render('User/inscription.html.twig');
         if(!filter_var(
             $_POST['password'],
             FILTER_VALIDATE_REGEXP,
@@ -97,7 +98,17 @@ class UserController extends  AbstractController {
     }
 
 
-
+    public function pageDashboard(){
+    
+        
+    
+        //AJOUTER LES INFOS DE L'UTILISATEUR
+        return $this->twig->render(
+            'Dashboard/dashboard.html.twig',[
+                'user' => 0,
+            ]
+        );
+    }
 
 
 

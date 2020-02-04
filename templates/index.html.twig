@@ -38,16 +38,16 @@
             </li>
 
             <li class="nav-item col-11"></li>
-            <li class="nav-item col-6"></li>
+            <li class="nav-item col-8"></li>
 
-            {% set connected = 0 %}
+            {% set connected = 1 %}
             {% if connected == 1 %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ User.nom }} 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-success" href="/">Panel Administrateur</a>
+                        <a class="dropdown-item text-success" href="/dashboard">Panel Administrateur</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" href="/logout">Déconnexion</a>
                     </div>
