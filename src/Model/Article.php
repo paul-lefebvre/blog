@@ -16,7 +16,7 @@ class Article extends Contenu implements \JsonSerializable {
 
 
     //=======================================================
-    //                      [REQUETES SQL ICI]              =
+    //                [REQUETES SQL ICI]                    =
     //=======================================================
     
 
