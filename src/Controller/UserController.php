@@ -76,7 +76,7 @@ class UserController extends  AbstractController {
 
     public function inscription(){
 
-        return $this->twig->render('User/membre.html.twig');
+        return $this->twig->render('User/inscription.html.twig');
         if(!filter_var(
             $_POST['password'],
             FILTER_VALIDATE_REGEXP,
