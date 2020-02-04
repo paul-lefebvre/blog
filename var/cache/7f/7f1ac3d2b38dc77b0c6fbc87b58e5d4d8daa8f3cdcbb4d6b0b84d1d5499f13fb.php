@@ -47,7 +47,7 @@ class __TwigTemplate_06732359d41d7e9642469824786f8e21abe28b29bb3ad1f9e013d042309
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo " Liste des articles - ";
+        echo " Accueil - ";
         $this->displayParentBlock("title", $context, $blocks);
     }
 
@@ -68,131 +68,85 @@ class __TwigTemplate_06732359d41d7e9642469824786f8e21abe28b29bb3ad1f9e013d042309
         ";
         } else {
             // line 10
-            echo "            <h1 class=\"display-4\">Liste des articles</h1>
+            echo "            <h1 class=\"display-4 text-center\">Articles</h1>
         ";
         }
         // line 12
         echo "    </div>
     <div class=\"container\">
-    <table class=\"table table-striped\">
-        <thead>
-        <tr>
-            <th scope=\"col\">#</th>
-            <th scope=\"col\">Titre</th>
-            <th scope=\"col\">Auteur</th>
-            <th scope=\"col\">Date</th>
-            <th scope=\"col\">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
         ";
-        // line 25
+        // line 15
+        echo "        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articleData"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 26
-            echo "            <tr>
-                <th scope=\"row\"><a href=\"/Article/Show/";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27), "html", null, true);
-            echo "\">#";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27), "html", null, true);
-            echo "</a></th>
-                <td>";
-            // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Titre", [], "any", false, false, false, 28), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Auteur", [], "any", false, false, false, 29), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 30
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "DateAjout", [], "any", false, false, false, 30), "d/m/Y"), "html", null, true);
-            echo "</td>
-                <td>
-                    <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                        <a class=\"btn btn-success\" href=\"/Article/Show/";
-            // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 33), "html", null, true);
-            echo "\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"/Article/Update/";
-            // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 34), "html", null, true);
-            echo "\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"/Article/Delete/";
-            // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 35), "html", null, true);
-            echo "\"><i class=\"far fa-trash-alt\"></i></a>
-                    </div>
-                    <a class=\"btn btn-secondary\" href=\"/Article/WriteOne/";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 37), "html", null, true);
-            echo "\"><i class=\"fas fa-file-download\"></i></a>
-
-                </td>
-            </tr>
+            // line 16
+            echo "            <div class=\"jumbotron\">
+                <h1 class=\"display-4\">";
+            // line 17
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 17), "html", null, true);
+            echo "</h1>
+                <p class=\"lead\">";
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 18), "html", null, true);
+            echo "</p>
+                <hr class=\"my-4\">
+                <p>";
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 20), "html", null, true);
+            echo "</p>
+                <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+            </div>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 42
+        // line 24
         echo "        ";
+        // line 25
+        echo "
+
+        ";
+        // line 28
+        echo "        
+        ";
+        // line 29
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articleList"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 43
-            echo "            <tr>
-                <th scope=\"row\"><a href=\"/Article/Show/";
-            // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 44), "html", null, true);
-            echo "\">#";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 44), "html", null, true);
-            echo "</a></th>
-                <td>";
-            // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Titre", [], "any", false, false, false, 45), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 46
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Auteur", [], "any", false, false, false, 46), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 47
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "DateAjout", [], "any", false, false, false, 47), "d/m/Y"), "html", null, true);
-            echo "</td>
-                <td>
-                    <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                        <a class=\"btn btn-success\" href=\"/Article/Show/";
-            // line 50
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 50), "html", null, true);
-            echo "\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"/Article/Update/";
-            // line 51
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 51), "html", null, true);
-            echo "\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"/Article/Delete/";
-            // line 52
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 52), "html", null, true);
-            echo "\"><i class=\"far fa-trash-alt\"></i></a>
-                    </div>
-                    <a class=\"btn btn-secondary\" href=\"/Article/WriteOne/";
-            // line 54
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 54), "html", null, true);
-            echo "\"><i class=\"fas fa-file-download\"></i></a>
-
-                </td>
-            </tr>
+            // line 30
+            echo "            <div class=\"row\"><div class=\"mx-auto\">
+            <div class=\"jumbotron\">
+                <h1 class=\"display-4\">";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 32), "html", null, true);
+            echo "</h1>
+                <div class=\"\"> <img src=\"";
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEREPOSITORY", [], "any", false, false, false, 33), "html", null, true);
+            echo "\" class=\"rounded\" alt=\"\" width=\"304\" height=\"236\"> </div>
+                <p class=\"lead\">";
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 34), "html", null, true);
+            echo "</p>
+                <hr class=\"my-4\">
+                <p>";
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 36), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DATEAJOUT", [], "any", false, false, false, 36), "html", null, true);
+            echo "</p>
+                <a class=\"btn btn-secondary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+            </div></div>
+            </div>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 59
-        echo "
-        </tbody>
-    </table>
+        // line 41
+        echo "        
     </div>
 
 
@@ -211,13 +165,13 @@ class __TwigTemplate_06732359d41d7e9642469824786f8e21abe28b29bb3ad1f9e013d042309
 
     public function getDebugInfo()
     {
-        return array (  193 => 59,  182 => 54,  177 => 52,  173 => 51,  169 => 50,  163 => 47,  159 => 46,  155 => 45,  149 => 44,  146 => 43,  141 => 42,  130 => 37,  125 => 35,  121 => 34,  117 => 33,  111 => 30,  107 => 29,  103 => 28,  97 => 27,  94 => 26,  90 => 25,  75 => 12,  71 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  149 => 41,  136 => 36,  131 => 34,  127 => 33,  123 => 32,  119 => 30,  115 => 29,  112 => 28,  108 => 25,  106 => 24,  96 => 20,  91 => 18,  87 => 17,  84 => 16,  79 => 15,  75 => 12,  71 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
-{% block title %} Liste des articles - {{ parent() }}{% endblock %}
+{% block title %} Accueil - {{ parent() }}{% endblock %}
 
 {% block body %}
 
@@ -225,58 +179,38 @@ class __TwigTemplate_06732359d41d7e9642469824786f8e21abe28b29bb3ad1f9e013d042309
         {% if pageResultat == 1 %}
             <h1 class=\"display-4\">Résultat de la recherche : {{ searchResult }}</h1>
         {% else %}
-            <h1 class=\"display-4\">Liste des articles</h1>
+            <h1 class=\"display-4 text-center\">Articles</h1>
         {% endif %}
     </div>
     <div class=\"container\">
-    <table class=\"table table-striped\">
-        <thead>
-        <tr>
-            <th scope=\"col\">#</th>
-            <th scope=\"col\">Titre</th>
-            <th scope=\"col\">Auteur</th>
-            <th scope=\"col\">Date</th>
-            <th scope=\"col\">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+        {# ==========================================[RESULTAT DE RECHERCHE]================================================= #}
         {% for article in articleData %}
-            <tr>
-                <th scope=\"row\"><a href=\"/Article/Show/{{ article.id }}\">#{{ article.id }}</a></th>
-                <td>{{ article.Titre }}</td>
-                <td>{{ article.Auteur }}</td>
-                <td>{{ article.DateAjout | date(\"d/m/Y\") }}</td>
-                <td>
-                    <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                        <a class=\"btn btn-success\" href=\"/Article/Show/{{ article.id }}\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"/Article/Update/{{ article.id }}\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.id }}\"><i class=\"far fa-trash-alt\"></i></a>
-                    </div>
-                    <a class=\"btn btn-secondary\" href=\"/Article/WriteOne/{{ article.id }}\"><i class=\"fas fa-file-download\"></i></a>
-
-                </td>
-            </tr>
+            <div class=\"jumbotron\">
+                <h1 class=\"display-4\">{{ article.ART_TITRE }}</h1>
+                <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
+                <hr class=\"my-4\">
+                <p>{{ article.ART_AUTEUR }}</p>
+                <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+            </div>
         {% endfor %}
+        {# =================================================================================================================== #}
+
+
+        {# ==========================================[AFFICHAGE DES ARTICLES]================================================= #}
+        
         {% for article in articleList %}
-            <tr>
-                <th scope=\"row\"><a href=\"/Article/Show/{{ article.id }}\">#{{ article.id }}</a></th>
-                <td>{{ article.Titre }}</td>
-                <td>{{ article.Auteur }}</td>
-                <td>{{ article.DateAjout | date(\"d/m/Y\") }}</td>
-                <td>
-                    <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                        <a class=\"btn btn-success\" href=\"/Article/Show/{{ article.id }}\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"/Article/Update/{{ article.id }}\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.id }}\"><i class=\"far fa-trash-alt\"></i></a>
-                    </div>
-                    <a class=\"btn btn-secondary\" href=\"/Article/WriteOne/{{ article.id }}\"><i class=\"fas fa-file-download\"></i></a>
-
-                </td>
-            </tr>
+            <div class=\"row\"><div class=\"mx-auto\">
+            <div class=\"jumbotron\">
+                <h1 class=\"display-4\">{{ article.ART_TITRE }}</h1>
+                <div class=\"\"> <img src=\"{{ article.ART_IMAGEREPOSITORY }}\" class=\"rounded\" alt=\"\" width=\"304\" height=\"236\"> </div>
+                <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
+                <hr class=\"my-4\">
+                <p>{{ article.ART_AUTEUR }} - {{ article.ART_DATEAJOUT }}</p>
+                <a class=\"btn btn-secondary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+            </div></div>
+            </div>
         {% endfor %}
-
-        </tbody>
-    </table>
+        
     </div>
 
 
