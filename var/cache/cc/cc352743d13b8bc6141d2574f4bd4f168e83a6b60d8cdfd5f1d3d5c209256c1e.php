@@ -138,13 +138,10 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
         // line 64
         echo "        </ul>
 
+        
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
-        // line 68
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 68), "html", null, true);
-        echo "\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
@@ -214,7 +211,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
     public function getDebugInfo()
     {
-        return array (  200 => 90,  194 => 80,  188 => 10,  181 => 5,  175 => 91,  173 => 90,  162 => 81,  160 => 80,  145 => 68,  139 => 64,  129 => 56,  127 => 55,  124 => 54,  112 => 45,  108 => 43,  105 => 42,  103 => 41,  93 => 33,  84 => 31,  79 => 30,  77 => 29,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  197 => 90,  191 => 80,  185 => 10,  178 => 5,  172 => 91,  170 => 90,  159 => 81,  157 => 80,  139 => 64,  129 => 56,  127 => 55,  124 => 54,  112 => 45,  108 => 43,  105 => 42,  103 => 41,  93 => 33,  84 => 31,  79 => 30,  77 => 29,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -284,10 +281,10 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             {% endif %}
         </ul>
 
+        
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/{{ post.search }}\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
     </div>
