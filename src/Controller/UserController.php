@@ -81,8 +81,8 @@ class UserController extends  AbstractController {
         if (isset($_POST['PRENOM']) && isset($_POST['NOM']) && isset($_POST['EMAIL']) 
         && isset($_POST['MDP'])) {
      
-            if (empty($_POST['lastName']) || empty($_POST['firstName'])  || 
-            empty($_POST['email'])  || empty($_POST['mdp'])) {
+            if (empty($_POST['PRENOM']) && empty($_POST['NOM']) && empty($_POST['EMAIL']) 
+            && empty($_POST['MDP'])) {
      
                     $alerte = "Veuillez remplir tous les champs correctement.";
      

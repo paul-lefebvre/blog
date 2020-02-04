@@ -13,17 +13,17 @@ class User {
 
 
 
-    function inscrire(): bool
+    function inscrire($bdd): bool
     {
         $pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
      
-        $db=dbConnect();
-        $req = $db->prepare("");
+        $requete=$bdd->prepare("INSERT INTO `cesiblog`.`t_membre` (`MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`) VALUES (':MEM_NOM', ':MEM_PRENOM', ':MEM_EMAIL', ':MEM_MDP')");
+        
      
-        $req->execute([
-        'lastName'=> $_POST['lastName'],
-        'firstName' => $_POST['firstName'],
-        'email'=> $_POST['email'],
+        $requete->execute([
+        'MEM_NOM'=> $_POST['MEM_NOM'],
+        'MEM_PRENOM' => $_POST['MEM_PRENOM'],
+        'MEM_EMAIL'=> $_POST['MEM_EMAIL'],
         'mdp'=> $pass_hache
         ]);
      
