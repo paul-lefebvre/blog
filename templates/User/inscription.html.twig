@@ -1,16 +1,29 @@
 {% extends "index.html.twig" %}
-{% block title %}{{ parent() }} - Connectez vous {% endblock %}
+{% block title %}{{ parent() }} - Inscription {% endblock %}
 {% block body %}
 
-    <div class="container-fluid mt-2">
-        {% if session.errorlogin is defined %}
-            <div class="alert alert-danger">{{ session.errorlogin }}</div>
-        {% endif %}
-        <form method="post" action="/Login">
-            <input type="email" name="email">
-            <input type="password" name="password">
-            <input type="submit">
+<form id="register-form" class="form" action="" method="POST">
+            <legend>inscription</legend>
+                    <hr>
+        	<div class="body">
+                    
+                    <label for="name">Nom</label>
+                    <input name="nom" class="input-huge" type="text">
+                    
+                    <label for="surname">Prénom</label>
+                    <input name="prenom" class="input-huge" type="text">   
+                     
+                    <label for="surname">Email</label>
+                    <input name="email" class="input-huge" type="text">
+
+                    <label for="surname">Mot de passe</label>
+                    <input name="tel" class="input-huge" type="text">
+            	</div>
+ 
+        	<div class="footer">
+                    <button type="submit"  name="submit" class="btn btn-success">Enregistrer</button>
+        	</div>
         </form>
-    </div>
+  
 
 {% endblock %}
