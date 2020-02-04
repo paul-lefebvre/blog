@@ -42,6 +42,3 @@ $router->post('/Article/Search/','Article#search');
 
 echo $router->run();
 
-//BRANCHE DE PAUL
-// A UPDATE
-

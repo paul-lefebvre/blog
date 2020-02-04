@@ -57,7 +57,7 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
         $macros = $this->macros;
         // line 4
         echo "
-    <div class=\"container-fluid mt-2\">
+
         ";
         // line 6
         if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", true, true, false, 6)) {
@@ -68,13 +68,23 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
         ";
         }
         // line 9
-        echo "        <form method=\"post\" action=\"/Login\">
-            <input type=\"email\" name=\"email\">
-            <input type=\"password\" name=\"password\">
-            <input type=\"submit\">
-        </form>
-    </div>
+        echo "
 
+    <div class=\"container-fluid\">
+        <div class=\"mx-auto col-5\">
+        <form method=\"post\" action=\"/Login\">
+            <div class=\"form-group\">
+                <label for=\"exampleInputEmail1\">Email</label>
+                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+            </div>
+            <div class=\"form-group\">
+                <label for=\"exampleInputPassword1\">Mot de passe</label>
+                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+            </div>
+            <button type=\"submit\" class=\"btn btn-primary\">Connexion</button>
+        </form>
+        </div>
+    </div>
 ";
     }
 
@@ -99,17 +109,27 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
 {% block title %}{{ parent() }} - Connectez vous {% endblock %}
 {% block body %}
 
-    <div class=\"container-fluid mt-2\">
+
         {% if session.errorlogin is defined %}
             <div class=\"alert alert-danger\">{{ session.errorlogin }}</div>
         {% endif %}
-        <form method=\"post\" action=\"/Login\">
-            <input type=\"email\" name=\"email\">
-            <input type=\"password\" name=\"password\">
-            <input type=\"submit\">
-        </form>
-    </div>
 
+
+    <div class=\"container-fluid\">
+        <div class=\"mx-auto col-5\">
+        <form method=\"post\" action=\"/Login\">
+            <div class=\"form-group\">
+                <label for=\"exampleInputEmail1\">Email</label>
+                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+            </div>
+            <div class=\"form-group\">
+                <label for=\"exampleInputPassword1\">Mot de passe</label>
+                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+            </div>
+            <button type=\"submit\" class=\"btn btn-primary\">Connexion</button>
+        </form>
+        </div>
+    </div>
 {% endblock %}", "User/login.html.twig", "C:\\Users\\Ankam\\OneDrive\\Bureau\\blog\\templates\\User\\login.html.twig");
     }
 }

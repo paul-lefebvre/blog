@@ -30,6 +30,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             'title' => [$this, 'block_title'],
             'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
+            'footer' => [$this, 'block_footer'],
             'javascript' => [$this, 'block_javascript'],
         ];
     }
@@ -97,19 +98,20 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             </li>
 
             <li class=\"nav-item col-11\"></li>
+            <li class=\"nav-item col-6\"></li>
 
             ";
-        // line 41
-        $context["connected"] = 0;
         // line 42
+        $context["connected"] = 0;
+        // line 43
         echo "            ";
         if (0 === twig_compare(($context["connected"] ?? null), 1)) {
-            // line 43
+            // line 44
             echo "                <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         ";
-            // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "nom", [], "any", false, false, false, 45), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "nom", [], "any", false, false, false, 46), "html", null, true);
             echo " 
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
@@ -120,12 +122,12 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
             ";
         }
-        // line 54
+        // line 55
         echo "
             ";
-        // line 55
+        // line 56
         if (0 === twig_compare(($context["connected"] ?? null), 0)) {
-            // line 56
+            // line 57
             echo "                <li class=\"nav-item col-2\">
                   <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                 </li>
@@ -135,15 +137,9 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
             ";
         }
-        // line 64
+        // line 65
         echo "        </ul>
 
-        
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
-            <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
-        </form>
     </div>
 
 </nav>
@@ -152,12 +148,17 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
 
 
-    ";
-        // line 80
+";
+        // line 75
         $this->displayBlock('body', $context, $blocks);
-        // line 81
+        // line 77
         echo "
 
+";
+        // line 79
+        $this->displayBlock('footer', $context, $blocks);
+        // line 129
+        echo "
 
 <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>
@@ -166,9 +167,9 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 90
+        // line 137
         $this->displayBlock('javascript', $context, $blocks);
-        // line 91
+        // line 138
         echo "</body>
 </html>
 ";
@@ -187,13 +188,69 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
         $macros = $this->macros;
     }
 
-    // line 80
+    // line 75
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 90
+    // line 79
+    public function block_footer($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 80
+        echo " 
+<footer class=\"page-footer font-small pt-4 footer\">
+
+  <!-- Footer Elements -->
+  <div class=\"container\">
+
+    <!--Grid row-->
+    <div class=\"row\">
+
+      <!--Grid column-->
+      <div class=\"col-md-6 mb-4\">
+
+        <!-- Form -->
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+            <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
+        </form>
+        <!-- Form -->
+
+      </div>
+      <!--Grid column-->
+
+
+    </div>
+    <!--Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class=\"footer-copyright text-center py-3\">© 2020 Copyright:
+    <a href=\"/\"> BlogCesi.fr</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+<style>
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(-45deg, #343a40, #343a40);
+    color: #b9b9b9;
+  
+}
+</style>
+
+";
+    }
+
+    // line 137
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -211,7 +268,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
     public function getDebugInfo()
     {
-        return array (  197 => 90,  191 => 80,  185 => 10,  178 => 5,  172 => 91,  170 => 90,  159 => 81,  157 => 80,  139 => 64,  129 => 56,  127 => 55,  124 => 54,  112 => 45,  108 => 43,  105 => 42,  103 => 41,  93 => 33,  84 => 31,  79 => 30,  77 => 29,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  254 => 137,  202 => 80,  198 => 79,  192 => 75,  186 => 10,  179 => 5,  173 => 138,  171 => 137,  161 => 129,  159 => 79,  155 => 77,  153 => 75,  141 => 65,  131 => 57,  129 => 56,  126 => 55,  114 => 46,  110 => 44,  107 => 43,  105 => 42,  94 => 33,  85 => 31,  80 => 30,  78 => 29,  58 => 11,  56 => 10,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -255,6 +312,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             </li>
 
             <li class=\"nav-item col-11\"></li>
+            <li class=\"nav-item col-6\"></li>
 
             {% set connected = 0 %}
             {% if connected == 1 %}
@@ -281,12 +339,6 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             {% endif %}
         </ul>
 
-        
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
-            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
-            <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
-        </form>
     </div>
 
 </nav>
@@ -295,8 +347,60 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
 
 
-    {% block body %}{% endblock %}
+{% block body %}
+{% endblock %}
 
+
+{% block footer %}
+ 
+<footer class=\"page-footer font-small pt-4 footer\">
+
+  <!-- Footer Elements -->
+  <div class=\"container\">
+
+    <!--Grid row-->
+    <div class=\"row\">
+
+      <!--Grid column-->
+      <div class=\"col-md-6 mb-4\">
+
+        <!-- Form -->
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
+            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+            <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
+        </form>
+        <!-- Form -->
+
+      </div>
+      <!--Grid column-->
+
+
+    </div>
+    <!--Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class=\"footer-copyright text-center py-3\">© 2020 Copyright:
+    <a href=\"/\"> BlogCesi.fr</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+<style>
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(-45deg, #343a40, #343a40);
+    color: #b9b9b9;
+  
+}
+</style>
+
+{% endblock %}
 
 
 <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>

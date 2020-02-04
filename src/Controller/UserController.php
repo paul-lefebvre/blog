@@ -4,7 +4,7 @@ namespace src\Controller;
 class UserController extends  AbstractController {
 
     public function loginForm(){
-        var_dump($_SESSION['errorlogin']);
+        //var_dump($_SESSION['errorlogin']);
         return $this->twig->render('User/login.html.twig');
     }
 
