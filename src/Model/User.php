@@ -20,7 +20,7 @@ class User {
 
         try{
             // On hash le mot de passe saisie
-            $pass_hach = password_hash($mdp, PASSWORD_BCRYPT);
+            $pass_hash = password_hash($mdp, PASSWORD_BCRYPT);
                 
             $requete=$bdd->prepare("INSERT 
             INTO t_membre (`MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`) 
@@ -29,10 +29,10 @@ class User {
                 'nom' => $nom,
                 'prenom' => $prenom,
                 'email' => $email,
-                'mdp' => $mdp
+                'mdp' => $pass_hash
             ]);
                
-            $requete->execute(array($nom, $prenom, $email, $pass_hach));
+            $requete->execute(array($nom, $prenom, $email, $pass_hash));
 
             return true;
             
