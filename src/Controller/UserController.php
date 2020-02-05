@@ -50,7 +50,7 @@ class UserController extends  AbstractController {
                 ,'Prénom' => 'Sylvain'
                 ,'roles' => array('admin', 'redacteur')
                 );
-                header('Location:/');
+                header('Location:/Login');
             }else{
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
