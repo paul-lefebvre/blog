@@ -21,18 +21,8 @@ class UserController extends  AbstractController {
 
     public function loginCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
-
-            if(!filter_var(
-                $_POST['password'],
-                FILTER_VALIDATE_REGEXP,
-                array(
-                    "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
-                )
-            )){
-                $_SESSION['errorlogin'] = "Le mot de passe doit contenir minimum 3 caractères";
-                header('Location:/Login');
-                return;
-            }
+            var_dump($_POST['password']);
+            
 
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
                 $_SESSION['errorlogin'] = "Mail invalide";
@@ -41,10 +31,12 @@ class UserController extends  AbstractController {
             }
 
             // A MODIFIER POUR LE CHECK LOGIN
+            
             if($_POST["email"]=="admin@admin.com"
                 AND $_POST["password"] == "password"
             ){
-
+                
+                
                 $_SESSION['login'] = array(
                     'Nom' => 'Administrateur'
                 ,'Prénom' => 'Sylvain'
@@ -52,8 +44,10 @@ class UserController extends  AbstractController {
                 );
                 header('Location:/');
             }else{
+                die;
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
+
             }
 
         }else{
