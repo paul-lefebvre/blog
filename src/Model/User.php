@@ -12,12 +12,15 @@ class User {
     private $MEM_MDP;
     private $MEM_ROLE;
 
+    //      =======================================================
+    //  [Récupérer les informations de l'utilisateur lors de l'inscription]
+    //      =======================================================
 
     function inscrireUser(\PDO $bdd, $nom, $prenom, $email, $mdp){
 
         try{
-
-            $pass_hach = password_hash($mdp, PASSWORD_DEFAULT);
+            // On hash le mot de passe saisie
+            $pass_hach = password_hash($mdp, PASSWORD_BCRYPT);
                 
             $requete=$bdd->prepare("INSERT 
             INTO t_membre (`MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`) 

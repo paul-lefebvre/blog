@@ -93,20 +93,8 @@ class UserController extends  AbstractController {
 
     }
 
+    // quand l'user à terminé son inscription
 
-
-
-
-
-
-
-
-
-
-
-
-
-    //quand l'user à terminé son inscription
     public function inscription(){
 
        
@@ -145,16 +133,7 @@ class UserController extends  AbstractController {
      
              
     }
-    
-
-
-
-
-
-
-
-
-    public function pageDashboard(){
+        public function pageDashboard(){
     
         $userId = 1;
 
