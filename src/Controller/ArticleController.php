@@ -3,6 +3,7 @@ namespace src\Controller;
 
 use src\Model\Article;
 use src\Model\Bdd;
+use src\Model\User;
 use DateTime;
 
 class ArticleController extends AbstractController {
@@ -15,11 +16,18 @@ class ArticleController extends AbstractController {
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
+        //id de l'user s'il est connecté pour afficher ses données
+        $userId = 1;
+
+        $user = new User();
+        $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
+
         //Lancer la vue TWIG
         return $this->twig->render(
             'Article/list.html.twig',[
                 'articleList' => $listArticle,
-                'pageResultat' => 0
+                'pageResultat' => 0,
+                'userData' => $listUser
             ]
         );
     }

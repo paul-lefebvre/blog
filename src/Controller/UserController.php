@@ -1,6 +1,11 @@
 <?php
 namespace src\Controller;
 
+use src\Model\Article;
+use src\Model\User;
+use src\Model\Bdd;
+use DateTime;
+
 class UserController extends  AbstractController {
 
     public function loginForm(){
@@ -17,7 +22,7 @@ class UserController extends  AbstractController {
                 "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
             )
         )){
-            $_SESSION['errorlogin'] = "Mpd mini 3 caractères";
+            $_SESSION['errorlogin'] = "Le mot de passe doit contenir minimum 3 caractères";
             header('Location:/Login');
             return;
         }
@@ -28,6 +33,7 @@ class UserController extends  AbstractController {
             return;
         }
 
+        // A MODIFIER POUR LE CHECK LOGIN
         if($_POST["email"]=="admin@admin.com"
             AND $_POST["password"] == "password"
         ){
@@ -39,7 +45,7 @@ class UserController extends  AbstractController {
             );
             header('Location:/');
         }else{
-            $_SESSION['errorlogin'] = "Erreur Authent.";
+            $_SESSION['errorlogin'] = "Erreur d'Authentification";
             header('Location:/Login');
         }
 
@@ -50,11 +56,11 @@ class UserController extends  AbstractController {
     public static function roleNeed($roleATester){
         if(isset($_SESSION['login'])){
             if(!in_array($roleATester,$_SESSION['login']['roles'])){
-                $_SESSION['errorlogin'] = "Manque le role : ".$roleATester;
+                $_SESSION['errorlogin'] = "Vous ne possédez pas le rôle : ".$roleATester;
                 header('Location:/Contact');
             }
         }else{
-            $_SESSION['errorlogin'] = "Veuillez vous identifier";
+            $_SESSION['errorlogin'] = "Veuillez vous identifier !";
             header('Location:/Login');
         }
     }
@@ -100,6 +106,28 @@ class UserController extends  AbstractController {
 
 
 
+
+
+
+
+
+    public function pageDashboard(){
+    
+        $userId = 1;
+
+        $user = new User();
+        $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
+
+
+
+
+        //AJOUTER LES INFOS DE L'UTILISATEUR
+        return $this->twig->render(
+            'Dashboard/dashboard.html.twig',[
+                'user' => $listUser
+            ]
+        );
+    }
 
 
 
