@@ -9,14 +9,27 @@ use src\Model\Categorie;
 
 class UserController extends  AbstractController {
 
+
+
     public function loginForm(){
-        
-        return $this->twig->render('User/login.html.twig');
+
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['token'] = $token;    
+
+        return $this->twig->render('User/login.html.twig',[
+            'token'=>$token
+        ]);
+
     }
 
+
+
+
     public function loginCheck(){
+
         if($_POST AND $_SESSION['token'] == $_POST['token']){
 
+            //Si la connexion échoue :
             if(!filter_var(
                 $_POST['password'],
                 FILTER_VALIDATE_REGEXP,
@@ -35,8 +48,8 @@ class UserController extends  AbstractController {
                 return;
             }
 
-            // A MODIFIER POUR LE CHECK LOGIN
-            if($_POST["email"]=="admin@admin.com"
+            // Si la connexion a été effectué :
+            if($_POST["email"]=="login@gmail.com"
                 AND $_POST["password"] == "password"
             ){
 
@@ -45,7 +58,7 @@ class UserController extends  AbstractController {
                 ,'Prénom' => 'Sylvain'
                 ,'roles' => array('admin', 'redacteur')
                 );
-                header('Location:/');
+                header('Location:/Dashboard');
             }else{
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
@@ -128,7 +141,14 @@ class UserController extends  AbstractController {
         }
              
     }
-        public function pageDashboard(){
+
+
+
+
+
+
+
+    public function pageDashboard(){
     
         $userId = 1;
 
@@ -139,9 +159,6 @@ class UserController extends  AbstractController {
         $user = new User();
         $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
 
-
-
-
         //AJOUTER LES INFOS DE L'UTILISATEUR
         return $this->twig->render(
             'Dashboard/dashboard.html.twig',[
@@ -149,6 +166,9 @@ class UserController extends  AbstractController {
                 'listCategorie' => $listCategorie
             ]
         );
+
+
+
     }
 
 

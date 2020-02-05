@@ -30,21 +30,24 @@ class ArticleController extends AbstractController {
         $articleAll = $article->getAllArticles(Bdd::GetInstance());
 
 
+        
         //vérification : est-ce que l'utilisateur à une session valide ?
-        if(isset($_SESSION['email'])){
+        if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
+
+            //id de l'user s'il est connecté pour afficher ses données || A CHANGER LORS DU SYSTEME DE SESSION ET LOGIN TERMINE
+            $userId = 1;
+
+            $user = new User();
+            $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
+
             $isConnected = 1;
+
         }else{
             $isConnected = 0;
+            $listUser = "";
         }
 
 
-
-
-        //id de l'user s'il est connecté pour afficher ses données || A CHANGER LORS DU SYSTEME DE SESSION ET LOGIN TERMINE
-        $userId = 1;
-
-        $user = new User();
-        $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
 
         //Lancement de Twig
         return $this->twig->render(
@@ -57,6 +60,8 @@ class ArticleController extends AbstractController {
                 'isConnected' => $isConnected
             ]
         );
+
+
     }
 
 

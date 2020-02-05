@@ -47,15 +47,15 @@
                 <li class="nav-item p-2 col-12"></li>
 
 
-                {% set connected = 1 %}
 
-                {% if connected == 1 %}
+
+                {% if isConnected == 1 %}
                     <li class="nav-item dropdown ml-auto p-2">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-user">   </i>   {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-success" href="/dashboard">Panel Administrateur</a>
+                            <a class="dropdown-item text-success" href="/dashboard">Panel</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger" href="/logout">Déconnexion</a>
                         </div>
@@ -67,7 +67,7 @@
                         <a type="button" class="btn btn-light btn-sm" href="/Login">Connexion</a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item ml-auto p-2">
                         <a type="button" class="btn btn-secondary btn-sm" href="/Inscription">S'inscrire</a>
                     </li>
                 {% endif %}
