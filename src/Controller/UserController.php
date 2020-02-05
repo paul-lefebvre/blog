@@ -121,7 +121,7 @@ class UserController extends  AbstractController {
             // Génération d'un TOKEN
             $token = bin2hex(random_bytes(32));
             $_SESSION['token'] = $token;
-            return $this->twig->render('User/login.html.twig',
+            return $this->twig->render('User/inscription.html.twig',
                 [
                     'token' => $token
                 ]);
