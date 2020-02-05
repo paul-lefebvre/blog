@@ -97,40 +97,49 @@ class UserController extends  AbstractController {
 
     public function inscription(){
 
-       
-        if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) 
-        && isset($_POST['pass'])) {
-                           
-            $userModel = new user();
-            $verifInscriptionUser = $userModel->inscrireUser(Bdd::GetInstance(), $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pass']);
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+            
+            if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) 
+            && isset($_POST['pass'])) {
+                            
+                $userModel = new user();
+                $verifInscriptionUser = $userModel->inscrireUser(Bdd::GetInstance(), $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pass']);
 
-            if($verifInscriptionUser){
+                if($verifInscriptionUser){
 
-                $inscrit = 1;
+                    $inscrit = 1;
 
-                return $this->twig->render('User/inscription.html.twig', [
+                    return $this->twig->render('User/inscription.html.twig', [
 
-                    'inscrit'=>$inscrit
+                        'inscrit'=>$inscrit
 
-                ]);
+                    ]);
+
+                }else{
+
+                    $inscrit = 0;
+
+                    return $this->twig->render('User/inscription.html.twig',[
+
+                        'inscrit'=>$inscrit
+
+                    ]);
+
+                }
+
 
             }else{
 
-                $inscrit = 0;
-
-                return $this->twig->render('User/inscription.html.twig',[
-
-                    'inscrit'=>$inscrit
-
-                ]);
-
             }
-
-
         }else{
-
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('User/login.html.twig',
+                [
+                    'token' => $token
+                ]);
         }
-     
              
     }
         public function pageDashboard(){
