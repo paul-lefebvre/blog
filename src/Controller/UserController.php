@@ -36,7 +36,7 @@ class UserController extends  AbstractController {
 
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
                 $_SESSION['errorlogin'] = "Mail invalide";
-                header('Location:/Login');
+                header('Location:/');
                 return;
             }
 
