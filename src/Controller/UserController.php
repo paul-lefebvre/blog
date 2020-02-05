@@ -9,19 +9,6 @@ use src\Model\Categorie;
 
 class UserController extends  AbstractController {
 
-<<<<<<< HEAD
-
-
-    public function loginForm(){
-
-        $token = bin2hex(random_bytes(32));
-        $_SESSION['token'] = $token;    
-
-        return $this->twig->render('User/login.html.twig',[
-            'token'=>$token
-        ]);
-
-=======
     
     public function loginForm()
     {
@@ -30,7 +17,6 @@ class UserController extends  AbstractController {
         return $this->twig->render('User/login.html.twig', [
             'token' => $token
         ]);
->>>>>>> ef6c8b8035c5d26b2c60863ee7759f8fd2b3a010
     }
 
 
@@ -39,24 +25,8 @@ class UserController extends  AbstractController {
     public function loginCheck(){
 
         if($_POST AND $_SESSION['token'] == $_POST['token']){
-<<<<<<< HEAD
-
-            //Si la connexion échoue :
-            if(!filter_var(
-                $_POST['password'],
-                FILTER_VALIDATE_REGEXP,
-                array(
-                    "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
-                )
-            )){
-                $_SESSION['errorlogin'] = "Le mot de passe doit contenir minimum 3 caractères";
-                header('Location:/Login');
-                return;
-            }
-=======
             var_dump($_POST['password']);
             
->>>>>>> e5fd5d782dfe8b005d3acf99218760f37e0c6f5a
 
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
                 $_SESSION['errorlogin'] = "Mail invalide";
@@ -64,14 +34,9 @@ class UserController extends  AbstractController {
                 return;
             }
 
-<<<<<<< HEAD
-            // Si la connexion a été effectué :
-            if($_POST["email"]=="login@gmail.com"
-=======
             // A MODIFIER POUR LE CHECK LOGIN
             
             if($_POST["email"]=="admin@admin.com"
->>>>>>> e5fd5d782dfe8b005d3acf99218760f37e0c6f5a
                 AND $_POST["password"] == "password"
             ){
                 
