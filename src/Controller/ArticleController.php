@@ -18,6 +18,7 @@ class ArticleController extends AbstractController {
         $categorie = new Categorie();
         $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
 
+        $nbreAffichageAccueil = 5;
 
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
@@ -172,7 +173,6 @@ class ArticleController extends AbstractController {
 
 
     public function Write(){
-
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 

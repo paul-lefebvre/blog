@@ -51,9 +51,9 @@ class Article extends Categorie implements \JsonSerializable {
 
 
 
-    public function SqlGetAll(\PDO $bdd, $limitNbr){
-            $requete = $bdd->prepare('SELECT * FROM t_articles LIMIT ?');
-            $requete->execute(array($limitNbr));
+    public function SqlGetAll(\PDO $bdd){
+            $requete = $bdd->prepare('SELECT * FROM t_articles LIMIT 5');
+            $requete->execute();
             $arrayArticle = $requete->fetchAll();
 
             $listArticle = [];
