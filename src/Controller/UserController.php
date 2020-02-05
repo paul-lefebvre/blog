@@ -39,6 +39,7 @@ class UserController extends  AbstractController {
     public function loginCheck(){
 
         if($_POST AND $_SESSION['token'] == $_POST['token']){
+<<<<<<< HEAD
 
             //Si la connexion échoue :
             if(!filter_var(
@@ -52,6 +53,10 @@ class UserController extends  AbstractController {
                 header('Location:/Login');
                 return;
             }
+=======
+            var_dump($_POST['password']);
+            
+>>>>>>> e5fd5d782dfe8b005d3acf99218760f37e0c6f5a
 
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
                 $_SESSION['errorlogin'] = "Mail invalide";
@@ -59,11 +64,18 @@ class UserController extends  AbstractController {
                 return;
             }
 
+<<<<<<< HEAD
             // Si la connexion a été effectué :
             if($_POST["email"]=="login@gmail.com"
+=======
+            // A MODIFIER POUR LE CHECK LOGIN
+            
+            if($_POST["email"]=="admin@admin.com"
+>>>>>>> e5fd5d782dfe8b005d3acf99218760f37e0c6f5a
                 AND $_POST["password"] == "password"
             ){
-
+                
+                
                 $_SESSION['login'] = array(
                     'Nom' => 'Administrateur'
                 ,'Prénom' => 'Sylvain'
@@ -71,8 +83,10 @@ class UserController extends  AbstractController {
                 );
                 header('Location:/Dashboard');
             }else{
+                die;
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
+
             }
 
         }else{
