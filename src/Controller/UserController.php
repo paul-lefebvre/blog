@@ -73,6 +73,13 @@ class UserController extends  AbstractController {
     }
 
 
+    public function pageInscription(){
+
+        return $this->twig->render('User/inscription.html.twig',[
+            'inscrit'=>1
+        ]);
+
+    }
 
 
 
@@ -80,27 +87,51 @@ class UserController extends  AbstractController {
 
 
 
+
+
+
+
+
+
+
+    //quand l'user à terminé son inscription
     public function inscription(){
 
-        return $this->twig->render('User/inscription.html.twig');
        
-        if (isset($_POST['PRENOM']) && isset($_POST['NOM']) && isset($_POST['EMAIL']) 
-        && isset($_POST['MDP'])) {
-     
-            if (empty($_POST['PRENOM']) && empty($_POST['NOM']) && empty($_POST['EMAIL']) 
-            && empty($_POST['MDP'])) {
-     
-                    $alerte = "Veuillez remplir tous les champs correctement.";
-     
-                }   else {                
-                    inscrire();                
-     
-                    header('Location:/');
-     
-                    exit();
-                }
+        if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) 
+        && isset($_POST['pass'])) {
+                           
+            $userModel = new user();
+            $verifInscriptionUser = $userModel->inscrireUser(Bdd::GetInstance(), $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pass']);
+
+            if($verifInscriptionUser){
+
+                $inscrit = 1;
+
+                return $this->twig->render('User/inscription.html.twig', [
+
+                    'inscrit'=>$inscrit
+
+                ]);
+
+            }else{
+
+                $inscrit = 0;
+
+                return $this->twig->render('User/inscription.html.twig',[
+
+                    'inscrit'=>$inscrit
+
+                ]);
+
             }
+
+
+        }else{
+
+        }
      
+             
     }
     
 

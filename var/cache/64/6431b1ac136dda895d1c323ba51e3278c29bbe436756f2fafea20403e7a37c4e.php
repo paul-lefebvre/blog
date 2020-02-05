@@ -43,7 +43,7 @@ class __TwigTemplate_f29adc7882057f7df3d3bfdcf7761a45c7385cb5b50cf8edf01cc0c046a
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -51,36 +51,50 @@ class __TwigTemplate_f29adc7882057f7df3d3bfdcf7761a45c7385cb5b50cf8edf01cc0c046a
         echo " - Inscription ";
     }
 
-    // line 3
+    // line 8
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 4
+        // line 9
         echo "
-<form id=\"register-form\" class=\"form\" action=\"\" method=\"POST\">
-            <legend>inscription</legend>
-                    <hr>
-        \t<div class=\"body\">
-                    
-                    <label for=\"name\">Nom</label>
+        ";
+        // line 10
+        if (0 === twig_compare(($context["inscrit"] ?? null), 0)) {
+            // line 11
+            echo "        <div class=\"alert alert-danger text-center\" role=\"alert\">
+                Erreur lors de l'inscription
+        </div>
+        ";
+        }
+        // line 15
+        echo "
+        <form id=\"register-form\" class=\"form\" action=\"\" method=\"POST\">
+                <br>
+                <h1 class=\"text-center\">inscription</h1>
+                <br>
+
+        \t<div class=\"text-center\">
+                    <label for=\"nom\">Nom</label>
                     <input name=\"nom\" class=\"input-huge\" type=\"text\">
                     
-                    <label for=\"surname\">Prénom</label>
+                    <label for=\"prenom\">Prénom</label>
                     <input name=\"prenom\" class=\"input-huge\" type=\"text\">   
                      
-                    <label for=\"surname\">Email</label>
-                    <input name=\"email\" class=\"input-huge\" type=\"text\">
+                    <label for=\"email\">Email</label>
+                    <input name=\"email\" class=\"input-huge\" type=\"email\">
 
-                    <label for=\"surname\">Mot de passe</label>
-                    <input name=\"tel\" class=\"input-huge\" type=\"text\">
+                    <label for=\"pass\">Mot de passe</label>
+                    <input name=\"pass\" class=\"input-huge\" type=\"password\">
             \t</div>
+
                 <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
-        \t<div class=\"footer\">
+        \t<div>
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
                 
         </form>
   
+        <br><br><br><br><br><br><br><br><br>
 
 ";
     }
@@ -97,39 +111,53 @@ class __TwigTemplate_f29adc7882057f7df3d3bfdcf7761a45c7385cb5b50cf8edf01cc0c046a
 
     public function getDebugInfo()
     {
-        return array (  59 => 4,  55 => 3,  47 => 2,  36 => 1,);
+        return array (  70 => 15,  64 => 11,  62 => 10,  59 => 9,  55 => 8,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
+
 {% block title %}{{ parent() }} - Inscription {% endblock %}
+
+
+
+
 {% block body %}
 
-<form id=\"register-form\" class=\"form\" action=\"\" method=\"POST\">
-            <legend>inscription</legend>
-                    <hr>
-        \t<div class=\"body\">
-                    
-                    <label for=\"name\">Nom</label>
+        {% if inscrit == 0 %}
+        <div class=\"alert alert-danger text-center\" role=\"alert\">
+                Erreur lors de l'inscription
+        </div>
+        {% endif %}
+
+        <form id=\"register-form\" class=\"form\" action=\"\" method=\"POST\">
+                <br>
+                <h1 class=\"text-center\">inscription</h1>
+                <br>
+
+        \t<div class=\"text-center\">
+                    <label for=\"nom\">Nom</label>
                     <input name=\"nom\" class=\"input-huge\" type=\"text\">
                     
-                    <label for=\"surname\">Prénom</label>
+                    <label for=\"prenom\">Prénom</label>
                     <input name=\"prenom\" class=\"input-huge\" type=\"text\">   
                      
-                    <label for=\"surname\">Email</label>
-                    <input name=\"email\" class=\"input-huge\" type=\"text\">
+                    <label for=\"email\">Email</label>
+                    <input name=\"email\" class=\"input-huge\" type=\"email\">
 
-                    <label for=\"surname\">Mot de passe</label>
-                    <input name=\"tel\" class=\"input-huge\" type=\"text\">
+                    <label for=\"pass\">Mot de passe</label>
+                    <input name=\"pass\" class=\"input-huge\" type=\"password\">
             \t</div>
+
                 <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
-        \t<div class=\"footer\">
+        \t<div>
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
                 
         </form>
   
+        <br><br><br><br><br><br><br><br><br>
 
 {% endblock %}", "User/inscription.html.twig", "E:\\dev\\Tp\\blog\\templates\\User\\inscription.html.twig");
     }

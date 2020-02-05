@@ -100,11 +100,11 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
             </li>
 
             <li class=\"nav-item col-11\"></li>
-            <li class=\"nav-item col-6\"></li>
+            <li class=\"nav-item col-8\"></li>
 
             ";
         // line 44
-        $context["connected"] = 0;
+        $context["connected"] = 1;
         // line 45
         echo "            ";
         if (0 === twig_compare(($context["connected"] ?? null), 1)) {
@@ -113,11 +113,13 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         ";
             // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "nom", [], "any", false, false, false, 48), "html", null, true);
-            echo " 
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["userData"] ?? null), "MEM_NOM", [], "any", false, false, false, 48), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["userData"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 48), "html", null, true);
+            echo "
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                        <a class=\"dropdown-item text-success\" href=\"/\">Panel Administrateur</a>
+                        <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
                         <div class=\"dropdown-divider\"></div>
                         <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                     </div>
@@ -272,7 +274,7 @@ html{
 
     public function getDebugInfo()
     {
-        return array (  258 => 141,  204 => 82,  200 => 81,  194 => 77,  188 => 12,  181 => 5,  175 => 142,  173 => 141,  163 => 133,  161 => 81,  157 => 79,  155 => 77,  143 => 67,  133 => 59,  131 => 58,  128 => 57,  116 => 48,  112 => 46,  109 => 45,  107 => 44,  96 => 35,  87 => 33,  82 => 32,  80 => 31,  60 => 13,  58 => 12,  48 => 5,  42 => 1,);
+        return array (  260 => 141,  206 => 82,  202 => 81,  196 => 77,  190 => 12,  183 => 5,  177 => 142,  175 => 141,  165 => 133,  163 => 81,  159 => 79,  157 => 77,  145 => 67,  135 => 59,  133 => 58,  130 => 57,  116 => 48,  112 => 46,  109 => 45,  107 => 44,  96 => 35,  87 => 33,  82 => 32,  80 => 31,  60 => 13,  58 => 12,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -318,16 +320,16 @@ html{
             </li>
 
             <li class=\"nav-item col-11\"></li>
-            <li class=\"nav-item col-6\"></li>
+            <li class=\"nav-item col-8\"></li>
 
-            {% set connected = 0 %}
+            {% set connected = 1 %}
             {% if connected == 1 %}
                 <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                        {{ User.nom }} 
+                        {{ userData.MEM_NOM }} {{ userData.MEM_PRENOM }}
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                        <a class=\"dropdown-item text-success\" href=\"/\">Panel Administrateur</a>
+                        <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
                         <div class=\"dropdown-divider\"></div>
                         <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                     </div>

@@ -13,35 +13,34 @@ class User {
     private $MEM_ROLE;
 
 
-    function inscrire()
-    {
-        $hostname="localhost";
-        $username="root";
-        $password="";
-        $dbname="cesiblog";
-        try
-            {
-                $bdd = new PDO('mysql:host='.$hostname.';dbname='.$dbname.';charset=utf8', $username, $password);
-                $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }
-            catch (Exception $e)
-            {
-                die('Erreur : ' . $e->getMessage());
-            }
+    function inscrireUser(\PDO $bdd, $nom, $prenom, $email, $mdp){
 
-        $pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+        try{
+
+            $pass_hach = password_hash($mdp, PASSWORD_DEFAULT);
+                
+            $requete=$bdd->prepare("INSERT 
+            INTO t_membre (`MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`) 
+            VALUES (:nom, :prenom, :email, :mdp);");
+            $requete->execute([
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'mdp' => $mdp
+            ]);
+               
+            $requete->execute(array($nom, $prenom, $email, $pass_hach));
+
+            return true;
+            
+        }catch (\Exception $e){
+
+                die('Erreur : ' . $e->getMessage());
+
+        }
+
+    
      
-        $requete=$bdd->prepare("INSERT INTO `cesiblog`.`t_membre` (`MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`) VALUES (':MEM_NOM', ':MEM_PRENOM', ':MEM_EMAIL', ':MEM_MDP')");
-        
-     
-        $requete->execute([
-        'MEM_NOM'=> $_POST['MEM_NOM'],
-        'MEM_PRENOM' => $_POST['MEM_PRENOM'],
-        'MEM_EMAIL'=> $_POST['MEM_EMAIL'],
-        'mdp'=> $pass_hache
-        ]);
-     
-        return true;
     }
 
 

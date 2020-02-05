@@ -68,7 +68,7 @@ class __TwigTemplate_df6b3319244cf892ca1f3e2c5956e329245b522bf454d5e1ab1f85ec949
         ";
         } else {
             // line 10
-            echo "            <h1 class=\"display-4 text-center\">Articles</h1>
+            echo "            <h1 class=\"display-4 text-center\">Accueil</h1>
         ";
         }
         // line 12
@@ -179,7 +179,7 @@ class __TwigTemplate_df6b3319244cf892ca1f3e2c5956e329245b522bf454d5e1ab1f85ec949
         {% if pageResultat == 1 %}
             <h1 class=\"display-4\">Résultat de la recherche : {{ searchResult }}</h1>
         {% else %}
-            <h1 class=\"display-4 text-center\">Articles</h1>
+            <h1 class=\"display-4 text-center\">Accueil</h1>
         {% endif %}
     </div>
     <div class=\"container\">
