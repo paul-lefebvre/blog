@@ -85,43 +85,64 @@ class UserController extends  AbstractController {
     }
 
 
+    public function pageInscription(){
 
+        return $this->twig->render('User/inscription.html.twig',[
+            'inscrit'=>1
+        ]);
 
+    }
 
-
-
-
+    // quand l'user à terminé son inscription
 
     public function inscription(){
 
-        return $this->twig->render('User/inscription.html.twig');
-        if(!filter_var(
-            $_POST['password'],
-            FILTER_VALIDATE_REGEXP,
-            array(
-                "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
-            )
-        )){
-            $_SESSION['errorlogin'] = "Mpd mini 3 caractères";
-            header('Location:/Login');
-            return;
-        }
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+            
+            if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) 
+            && isset($_POST['pass'])) {
+                            
+                $userModel = new user();
+                $verifInscriptionUser = $userModel->inscrireUser(Bdd::GetInstance(), $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pass']);
 
-        if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-            $_SESSION['errorlogin'] = "Mail invalide";
-            header('Location:/Login');
-            return;
+                if($verifInscriptionUser){
+
+                    $inscrit = 1;
+
+                    return $this->twig->render('User/inscription.html.twig', [
+
+                        'inscrit'=>$inscrit
+
+                    ]);
+
+                }else{
+
+                    $inscrit = 0;
+
+                    return $this->twig->render('User/inscription.html.twig',[
+
+                        'inscrit'=>$inscrit
+
+                    ]);
+
+                }
+
+
+            }else{
+
+            }
+        }else{
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('User/login.html.twig',
+                [
+                    'token' => $token
+                ]);
         }
+             
     }
-
-
-
-
-
-
-
-
-    public function pageDashboard(){
+        public function pageDashboard(){
     
         $userId = 1;
 

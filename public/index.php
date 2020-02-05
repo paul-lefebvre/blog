@@ -70,6 +70,7 @@ $router->get('/Logout', 'User#logout');
 
 //Page d'inscription
 $router->get('/inscription', 'User#inscription');
+$router->get('/inscription', 'User#pageInscription');
 $router->post('/inscription', 'User#inscription');
 
 //Moteur de recherche

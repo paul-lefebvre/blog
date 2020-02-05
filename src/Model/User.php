@@ -12,22 +12,38 @@ class User {
     private $MEM_MDP;
     private $MEM_ROLE;
 
+    //      =======================================================
+    //  [Récupérer les informations de l'utilisateur lors de l'inscription]
+    //      =======================================================
 
-    function inscrire(): bool
-    {
-        $pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+    function inscrireUser(\PDO $bdd, $nom, $prenom, $email, $mdp){
+
+        try{
+            // On hash le mot de passe saisie
+            $pass_hach = password_hash($mdp, PASSWORD_BCRYPT);
+                
+            $requete=$bdd->prepare("INSERT 
+            INTO t_membre (`MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`) 
+            VALUES (:nom, :prenom, :email, :mdp);");
+            $requete->execute([
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'mdp' => $mdp
+            ]);
+               
+            $requete->execute(array($nom, $prenom, $email, $pass_hach));
+
+            return true;
+            
+        }catch (\Exception $e){
+
+                die('Erreur : ' . $e->getMessage());
+
+        }
+
+    
      
-        $db=dbConnect();
-        $req = $db->prepare("");
-     
-        $req->execute([
-        'lastName'=> $_POST['lastName'],
-        'firstName' => $_POST['firstName'],
-        'email'=> $_POST['email'],
-        'mdp'=> $pass_hache
-        ]);
-     
-        return true;
     }
 
 

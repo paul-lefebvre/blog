@@ -1,30 +1,44 @@
 {% extends "index.html.twig" %}
+
 {% block title %}{{ parent() }} - Inscription {% endblock %}
+
+
+
+
 {% block body %}
 
-<form id="register-form" class="form" action="" method="POST">
-            <legend>inscription</legend>
-                    <hr>
-        	<div class="body">
-                    
-                    <label for="name">Nom</label>
+        {% if inscrit == 0 %}
+        <div class="alert alert-danger text-center" role="alert">
+                Erreur lors de l'inscription
+        </div>
+        {% endif %}
+
+        <form id="register-form" class="form" action="" method="POST">
+                <br>
+                <h1 class="text-center">inscription</h1>
+                <br>
+
+        	<div class="text-center">
+                    <label for="nom">Nom</label>
                     <input name="nom" class="input-huge" type="text">
                     
-                    <label for="surname">Prénom</label>
+                    <label for="prenom">Prénom</label>
                     <input name="prenom" class="input-huge" type="text">   
                      
-                    <label for="surname">Email</label>
-                    <input name="email" class="input-huge" type="text">
+                    <label for="email">Email</label>
+                    <input name="email" class="input-huge" type="email">
 
-                    <label for="surname">Mot de passe</label>
-                    <input name="tel" class="input-huge" type="text">
+                    <label for="pass">Mot de passe</label>
+                    <input name="pass" class="input-huge" type="password">
             	</div>
+                <input type="hidden" name="token" value="{{ token }}">
                 <div class="g-recaptcha" data-sitekey="6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI"></div>
-        	<div class="footer">
+        	<div>
                     <button type="submit"  name="submit" class="btn btn-success">Enregistrer</button>
         	</div>
                 
         </form>
   
+        <br><br><br><br><br><br><br><br><br>
 
 {% endblock %}
