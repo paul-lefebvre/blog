@@ -5,6 +5,7 @@ use src\Model\Article;
 use src\Model\User;
 use src\Model\Bdd;
 use DateTime;
+use src\Model\Categorie;
 
 class UserController extends  AbstractController {
 
@@ -113,6 +114,10 @@ class UserController extends  AbstractController {
     
         $userId = 1;
 
+        $categorie = new Categorie();
+        $listCategorie = $categorie->getAllCategories(Bdd::GetInstance(), $userId);
+
+
         $user = new User();
         $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
 
@@ -122,7 +127,8 @@ class UserController extends  AbstractController {
         //AJOUTER LES INFOS DE L'UTILISATEUR
         return $this->twig->render(
             'Dashboard/dashboard.html.twig',[
-                'user' => $listUser
+                'user' => $listUser,
+                'listCategorie' => $listCategorie
             ]
         );
     }

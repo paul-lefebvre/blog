@@ -9,66 +9,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    {% block css %}{% endblock %}
+{% block css %}
+{% endblock %}
 
 <body>
 
-<nav class="navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-dark d-flex flex-row">
 
-    <a class="navbar-brand" href="/">Blog du CESI</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <!--<div class="row">-->
+        <a class="navbar-brand p-2" href="/">Blog du CESI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Rubriques
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {% set articlenbre = ["Exemple 1", "Exemple 2", "Exemple 3"] %}
-                    {% for article in articlenbre %}
-                    <a class="dropdown-item text-secondary" href="/">{{ article|e }}</a>
-                    {% endfor %}
-                </div>
-            </li>
-            <li class="nav-item col-6">
-                <a class="nav-link" href="/Article/Add">Tout les Articles</a>
-            </li>
+        <div class="collapse navbar-collapse d-flex" id="navbarTogglerDemo02">
 
-            <li class="nav-item col-11"></li>
-            <li class="nav-item col-8"></li>
+            <ul class="navbar-nav">
 
-            {% set connected = 1 %}
-            {% if connected == 1 %}
-                <li class="nav-item dropdown">
+
+                <li class="nav-item dropdown p-2">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ userData.MEM_NOM }} {{ userData.MEM_PRENOM }}
+                        Rubriques
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-success" href="/dashboard">Panel Administrateur</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="/logout">Déconnexion</a>
+                        {#{% set articlenbre = ["Exemple 1", "Exemple 2", "Exemple 3"] %}#}
+                        {% for categorie in listCategorie %}
+                        <a class="dropdown-item text-secondary" href="/">{#{{ article|e }}#}{{ categorie.CAT_NOM }}</a>
+                        {% endfor %}
                     </div>
                 </li>
-            {% endif %}
 
-            {% if connected == 0 %}
-                <li class="nav-item col-2">
-                  <a type="button" class="btn btn-light btn-sm" href="/Login">Connexion</a>
+
+                <li class="nav-item p-2 col-12">
+                    <a class="nav-link p-2" href="/Article/Add">Tout les Articles</a>
                 </li>
 
-                <li class="nav-item col-3">
-                  <a type="button" class="btn btn-secondary btn-sm" href="/Inscription">S'inscrire</a>
-                </li>
-            {% endif %}
-        </ul>
 
-    </div>
+                <li class="nav-item p-2 col-12"></li>
 
-</nav>
+
+                {% set connected = 1 %}
+
+                {% if connected == 1 %}
+                    <li class="nav-item dropdown ml-auto p-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user">   </i>   {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-success" href="/dashboard">Panel Administrateur</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="/logout">Déconnexion</a>
+                        </div>
+                    </li>
+                {% endif %}
+
+                {% if connected == 0 %}
+                    <li class="nav-item ml-auto p-2">
+                        <a type="button" class="btn btn-light btn-sm" href="/Login">Connexion</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a type="button" class="btn btn-secondary btn-sm" href="/Inscription">S'inscrire</a>
+                    </li>
+                {% endif %}
+
+
+            </ul>
+        </div>
+    </nav>
 
 
 
@@ -80,64 +87,57 @@
 
 {% block footer %}
  
-<footer class="page-footer font-small pt-4 footer">
+    <footer class="page-footer font-small pt-4 footer">
 
-  <!-- Footer Elements -->
-  <div class="container">
+        <div class="container">
 
-    <!--Grid row-->
-    <div class="row">
+            <div class="row">
 
-      <!--Grid column-->
-      <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-4">
 
-        <!-- Form -->
-        <form class="form-inline" method="post" action="/Article/Search/">
-            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un article" name="search" >
-            <input type="submit" class="btn btn-outline-light my-2 my-sm-0" value="Rechercher" name="searchSubmit">
-        </form>
-        <!-- Form -->
+                    <!-- Form -->
+                    <form class="form-inline" method="post" action="/Article/Search/">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un article" name="search" >
+                        <input type="submit" class="btn btn-outline-light my-2 my-sm-0" value="Rechercher" name="searchSubmit">
+                    </form>
+                    <!-- Form -->
 
-      </div>
-      <!--Grid column-->
+                </div>
+            </div>
+        </div>
 
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="/"> BlogCesi.fr</a>
+            </div>
 
-    </div>
-    <!--Grid row-->
+    </footer>
 
-  </div>
-  <!-- Footer Elements -->
+    <style>
+        html{
+            overflow-x: hidden;
+        }
+        .footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(-45deg, #343a40, #343a40);
+            color: #b9b9b9;
+        
+        }
+    </style>
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="/"> BlogCesi.fr</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-
-<style>
-html{
-    overflow-x: hidden;
-}
-.footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(-45deg, #343a40, #343a40);
-    color: #b9b9b9;
-  
-}
-</style>
 {% endblock %}
 
 
-<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
-{% block javascript %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
+{% block javascript %}
+{% endblock %}
+
 </body>
 </html>

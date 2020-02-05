@@ -9,8 +9,24 @@ class Categorie {
 
   
 
+    //Function : récupère toutes les catégories de la bdd
+    public function getAllCategories(\PDO $bdd){
 
+        $requete = $bdd->prepare('SELECT * FROM t_categorie;');
+        $requete->execute();
+        $arrayCategorie = $requete->fetchAll();
 
+        $listCategorie = [];
+
+        foreach ($arrayCategorie as $categorieSQL){
+            $categorie = new Article();
+            $categorie->setID_CATEGORIE($categorieSQL['ID_CATEGORIE']);
+            $categorie->setCAT_NOM($categorieSQL['CAT_NOM']);
+
+            $listCategorie[] = $categorie;
+        }   
+        return $listCategorie;
+    }
 
 
 

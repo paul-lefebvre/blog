@@ -5,6 +5,7 @@ use src\Model\Article;
 use src\Model\Bdd;
 use src\Model\User;
 use DateTime;
+use src\Model\Categorie;
 
 class ArticleController extends AbstractController {
 
@@ -13,6 +14,11 @@ class ArticleController extends AbstractController {
     }
 
     public function ListAll(){
+
+        $categorie = new Categorie();
+        $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
+
+
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
@@ -27,7 +33,8 @@ class ArticleController extends AbstractController {
             'Article/list.html.twig',[
                 'articleList' => $listArticle,
                 'pageResultat' => 0,
-                'userData' => $listUser
+                'user' => $listUser,
+                'listCategorie' => $listCategorie
             ]
         );
     }
