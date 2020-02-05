@@ -68,10 +68,8 @@
                 </div>
             </div>
 
-            <input type="hidden" name="imageAncienne"
-            value="{{ article.ImageRepository }}/{{ article.ImageFileName }}"
-            >
-
+            <input type="hidden" name="imageAncienne" value="{{ article.ImageRepository }}/{{ article.ImageFileName }}">
+            <input type="hidden" name="token" value="{{ token }}">
             <input type="submit" class="btn btn-primary my-1">
         </form>
     </div>

@@ -20,20 +20,31 @@ class ContactController extends AbstractController{
     }
 
     public function sendMail(){
-        $mail = (new \Swift_Message('Contact depuis le formulaire'))
-            ->setFrom([$_POST["email"] => $_POST["nom"]])
-            ->setTo('contact@monsite.fr')
-            ->setBody(
-                $this->twig->render('Contact/mail.html.twig',
-                    [
-                        'message' => $_POST["content"]
-                    ])
-                ,'text/html'
-            );
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+            $mail = (new \Swift_Message('Contact depuis le formulaire'))
+                ->setFrom([$_POST["email"] => $_POST["nom"]])
+                ->setTo('contact@monsite.fr')
+                ->setBody(
+                    $this->twig->render('Contact/mail.html.twig',
+                        [
+                            'message' => $_POST["content"]
+                        ])
+                    ,'text/html'
+                );
 
-        $result = $this->mailer->send($mail);
 
-        return $result;
+            $result = $this->mailer->send($mail);
+
+            return $result;
+        }else{
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('Contact/form.html.twig',
+                [
+                    'token' => $token
+                ]);
+        }
     }
 
 }
