@@ -1,7 +1,7 @@
 <?php
 namespace src\Model;
 
-class Article extends Contenu implements \JsonSerializable {
+class Article extends Categorie implements \JsonSerializable {
     private $ID_ARTICLE;
     private $ID_MEMBRE;
     private $ID_CATEGORIE;

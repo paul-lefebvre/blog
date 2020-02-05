@@ -62,9 +62,9 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
         echo "
     <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. ";
         // line 11
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "nom", [], "any", false, false, false, 11), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 11), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prenom", [], "any", false, false, false, 11), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 11), "html", null, true);
         echo "</div>
 
     <div class=\"sidebar-sticky col-2\" style=\"background-color: #f5f5f5\">
@@ -163,7 +163,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
 
     {# TEMPLATE DU MENU DASHBOARD #}
 
-    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.nom }} {{ user.prenom }}</div>
+    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
 
     <div class=\"sidebar-sticky col-2\" style=\"background-color: #f5f5f5\">
         <br>

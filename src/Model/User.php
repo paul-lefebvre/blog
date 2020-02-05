@@ -5,12 +5,12 @@ namespace src\Model;
  
 class User {
  
-    private $id_user;
-    private $nom_user;
-    private $prenom_user;
-    private $email_user;
-    private $mdp;
-
+    private $ID_MEMBRE;
+    private $MEM_NOM;
+    private $MEM_PRENOM;
+    private $MEM_EMAIL;
+    private $MEM_MDP;
+    private $MEM_ROLE;
 
 
     function inscrire(): bool
@@ -31,9 +31,30 @@ class User {
     }
 
 
+    //=======================================================
+    //  [Récupérer les informations de l'utilisateur]       =
+    //=======================================================
 
 
 
+    function getUserData(\PDO $bdd, $userId){
+
+        try{
+            $requete = $bdd->prepare('SELECT * FROM t_membre WHERE ID_MEMBRE = ?');
+            $requete->execute([$userId]);
+            $arrayUserData = $requete->fetch();
+
+
+            return $arrayUserData;
+        
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+
+
+
+
+    }
 
 
 
@@ -60,101 +81,121 @@ class User {
 
 
     /**
-     * Get the value of id_user
+     * Get the value of ID_MEMBRE
      */ 
-    public function getId_user()
+    public function getID_MEMBRE()
     {
-        return $this->id_user;
+        return $this->ID_MEMBRE;
     }
 
     /**
-     * Set the value of id_user
+     * Set the value of ID_MEMBRE
      *
      * @return  self
      */ 
-    public function setId_user($id_user)
+    public function setID_MEMBRE($ID_MEMBRE)
     {
-        $this->id_user = $id_user;
+        $this->ID_MEMBRE = $ID_MEMBRE;
 
         return $this;
     }
 
     /**
-     * Get the value of nom_user
+     * Get the value of MEM_NOM
      */ 
-    public function getNom_user()
+    public function getMEM_NOM()
     {
-        return $this->nom_user;
+        return $this->MEM_NOM;
     }
 
     /**
-     * Set the value of nom_user
+     * Set the value of MEM_NOM
      *
      * @return  self
      */ 
-    public function setNom_user($nom_user)
+    public function setMEM_NOM($MEM_NOM)
     {
-        $this->nom_user = $nom_user;
+        $this->MEM_NOM = $MEM_NOM;
 
         return $this;
     }
 
     /**
-     * Get the value of prenom_user
+     * Get the value of MEM_PRENOM
      */ 
-    public function getPrenom_user()
+    public function getMEM_PRENOM()
     {
-        return $this->prenom_user;
+        return $this->MEM_PRENOM;
     }
 
     /**
-     * Set the value of prenom_user
+     * Set the value of MEM_PRENOM
      *
      * @return  self
      */ 
-    public function setPrenom_user($prenom_user)
+    public function setMEM_PRENOM($MEM_PRENOM)
     {
-        $this->prenom_user = $prenom_user;
+        $this->MEM_PRENOM = $MEM_PRENOM;
 
         return $this;
     }
 
     /**
-     * Get the value of email_user
+     * Get the value of MEM_EMAIL
      */ 
-    public function getEmail_user()
+    public function getMEM_EMAIL()
     {
-        return $this->email_user;
+        return $this->MEM_EMAIL;
     }
 
     /**
-     * Set the value of email_user
+     * Set the value of MEM_EMAIL
      *
      * @return  self
      */ 
-    public function setEmail_user($email_user)
+    public function setMEM_EMAIL($MEM_EMAIL)
     {
-        $this->email_user = $email_user;
+        $this->MEM_EMAIL = $MEM_EMAIL;
 
         return $this;
     }
 
     /**
-     * Get the value of mdp
+     * Get the value of MEM_MDP
      */ 
-    public function getMdp()
+    public function getMEM_MDP()
     {
-        return $this->mdp;
+        return $this->MEM_MDP;
     }
 
     /**
-     * Set the value of mdp
+     * Set the value of MEM_MDP
      *
      * @return  self
      */ 
-    public function setMdp($mdp)
+    public function setMEM_MDP($MEM_MDP)
     {
-        $this->mdp = $mdp;
+        $this->MEM_MDP = $MEM_MDP;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of MEM_ROLE
+     */ 
+    public function getMEM_ROLE()
+    {
+        return $this->MEM_ROLE;
+    }
+
+    /**
+     * Set the value of MEM_ROLE
+     *
+     * @return  self
+     */ 
+    public function setMEM_ROLE($MEM_ROLE)
+    {
+        $this->MEM_ROLE = $MEM_ROLE;
 
         return $this;
     }
