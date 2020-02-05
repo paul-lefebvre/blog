@@ -84,7 +84,7 @@ class UserController extends  AbstractController {
         header('Location:/');
     }
 
-
+    // affichage de la page d'inscription
     public function pageInscription(){
 
         return $this->twig->render('User/inscription.html.twig',[
@@ -105,32 +105,19 @@ class UserController extends  AbstractController {
             $verifInscriptionUser = $userModel->inscrireUser(Bdd::GetInstance(), $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pass']);
 
             if($verifInscriptionUser){
-
                 $inscrit = 1;
-
                 return $this->twig->render('User/inscription.html.twig', [
-
                     'inscrit'=>$inscrit
-
                 ]);
-
             }else{
-
                 $inscrit = 0;
-
                 return $this->twig->render('User/inscription.html.twig',[
-
                     'inscrit'=>$inscrit
-
                 ]);
-
             }
-
-
         }else{
 
         }
-     
              
     }
         public function pageDashboard(){
