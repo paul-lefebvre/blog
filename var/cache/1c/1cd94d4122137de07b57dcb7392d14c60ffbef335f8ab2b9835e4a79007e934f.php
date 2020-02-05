@@ -74,10 +74,11 @@ class __TwigTemplate_995be771f85a18d37455cd5d9b2ad0d30e9132d95534a2af7fb7510102d
                     <label for=\"surname\">Mot de passe</label>
                     <input name=\"tel\" class=\"input-huge\" type=\"text\">
             \t</div>
- 
+                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
         \t<div class=\"footer\">
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
+                
         </form>
   
 
@@ -122,10 +123,11 @@ class __TwigTemplate_995be771f85a18d37455cd5d9b2ad0d30e9132d95534a2af7fb7510102d
                     <label for=\"surname\">Mot de passe</label>
                     <input name=\"tel\" class=\"input-huge\" type=\"text\">
             \t</div>
- 
+                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
         \t<div class=\"footer\">
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
+                
         </form>
   
 
