@@ -84,6 +84,10 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
                 <label for=\"exampleInputPassword1\">Mot de passe</label>
                 <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
             </div>
+            <input type=\"hidden\" name=\"token\" value=\"";
+        // line 25
+        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        echo "\">
             <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
         </form>
         </div>
@@ -104,7 +108,7 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
 
     public function getDebugInfo()
     {
-        return array (  71 => 9,  65 => 7,  63 => 6,  59 => 4,  55 => 3,  47 => 2,  36 => 1,);
+        return array (  89 => 25,  71 => 9,  65 => 7,  63 => 6,  59 => 4,  55 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -133,6 +137,7 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
                 <label for=\"exampleInputPassword1\">Mot de passe</label>
                 <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
             </div>
+            <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
             <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
         </form>
         </div>

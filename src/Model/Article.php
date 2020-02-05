@@ -2,6 +2,7 @@
 namespace src\Model;
 
 class Article extends Categorie implements \JsonSerializable {
+
     private $ID_ARTICLE;
     private $ID_MEMBRE;
     private $ID_CATEGORIE;
@@ -13,14 +14,10 @@ class Article extends Categorie implements \JsonSerializable {
     private $ART_IMAGEFILENAME;
 
 
-
-
     //=======================================================
-    //                [REQUETES SQL ICI]                    =
+    //                [FONCTION INCONNUE]                   =
     //=======================================================
     
-
-
     
     public function firstXwords($nb){
         $phrase = $this->getART_DESCRIPTION();
@@ -30,7 +27,11 @@ class Article extends Categorie implements \JsonSerializable {
     }
 
 
-    //REQUETE A MODIFIER
+
+
+    //=======================================================
+    //                [AJOUT D'UN ARTICLE]                  =
+    //=======================================================
     public function SqlAdd(\PDO $bdd) {
         try{
             $requete = $bdd->prepare('INSERT INTO t_articles (Titre, Description, DateAjout, Auteur, ImageRepository, ImageFileName) VALUES(:Titre, :Description, :DateAjout, :Auteur, :ImageRepository, :ImageFileName)');
@@ -51,29 +52,57 @@ class Article extends Categorie implements \JsonSerializable {
 
 
 
-    public function SqlGetAll(\PDO $bdd){
-            $requete = $bdd->prepare('SELECT * FROM t_articles LIMIT 5');
+
+    //=======================================================
+    //          [RECUPERER TOUT LES ARTICLES]               =
+    //=======================================================
+    public function getAllArticles(\PDO $bdd){
+        $requete = $bdd->prepare('SELECT * FROM t_articles');
+        $requete->execute();
+        $arrayArticle = $requete->fetchAll();
+
+        $listArticle = [];
+        foreach ($arrayArticle as $articleSQL){
+            $article = new Article();
+            $article->setID_ARTICLE($articleSQL['ID_ARTICLE']);
+            $article->setART_TITRE($articleSQL['ART_TITRE']);
+            $article->setART_AUTEUR($articleSQL['ART_AUTEUR']);
+            $article->setART_DESCRIPTION($articleSQL['ART_DESCRIPTION']);
+            $article->setART_DATEAJOUT($articleSQL['ART_DATEAJOUT']);
+            $article->setART_IMAGEREPOSITORY($articleSQL['ART_IMAGEREPOSITORY']);
+            $article->setART_IMAGEFILENAME($articleSQL['ART_IMAGEFILENAME']);
+
+            $listArticle[] = $article;
+        }
+        return $listArticle;
+}
+
+
+
+
+
+    //=======================================================
+    //         [RECUPERER LES 5 DERNIERS ARTICLES]          =
+    //=======================================================
+    public function ArticleGetFiveLast(\PDO $bdd){
+
+            $requete = $bdd->prepare('SELECT * FROM t_articles LIMIT 5;');
             $requete->execute();
             $arrayArticle = $requete->fetchAll();
 
-            $listArticle = [];
-            foreach ($arrayArticle as $articleSQL){
-                $article = new Article();
-                $article->setID_ARTICLE($articleSQL['ID_ARTICLE']);
-                $article->setART_TITRE($articleSQL['ART_TITRE']);
-                $article->setART_AUTEUR($articleSQL['ART_AUTEUR']);
-                $article->setART_DESCRIPTION($articleSQL['ART_DESCRIPTION']);
-                $article->setART_DATEAJOUT($articleSQL['ART_DATEAJOUT']);
-                $article->setART_IMAGEREPOSITORY($articleSQL['ART_IMAGEREPOSITORY']);
-                $article->setART_IMAGEFILENAME($articleSQL['ART_IMAGEFILENAME']);
+            return $arrayArticle;
 
-                $listArticle[] = $article;
-            }
-            return $listArticle;
     }
 
 
 
+
+
+
+
+    //=======================================================
+    //           [RECUPERER 1 ARTICLE SELON L'ID]           =
+    //=======================================================
     public function SqlGet(\PDO $bdd,$idArticle){
         $requete = $bdd->prepare('SELECT * FROM t_articles where ID_ARTICLE = :idArticle');
         $requete->execute([
@@ -83,35 +112,35 @@ class Article extends Categorie implements \JsonSerializable {
         $datas =  $requete->fetch();
 
         $article = new Article();
-        $article->setId($datas['ID_ARTICLE']);
-        $article->setTitre($datas['ART_TITRE']);
+        $article->setID_ARTICLE($datas['ID_ARTICLE']);
+        $article->setART_TITRE($datas['ART_TITRE']);
         $article->setART_AUTEUR($datas['ART_AUTEUR']);
-        $article->setDescription($datas['ART_DESCRIPTION']);
+        $article->setART_DESCRIPTION($datas['ART_DESCRIPTION']);
         $article->setART_DATEAJOUT($datas['ART_DATEAJOUT']);
         $article->setART_IMAGEREPOSITORY($datas['ART_IMAGEREPOSITORY']);
         $article->setART_IMAGEFILENAME($datas['ART_IMAGEFILENAME']);
 
         return $article;
-
-
     }
 
 
 
-    //requête sql à modifier
+    //=======================================================
+    //          [UPDATE DES ATTRIBUTS D'ARTICLES]           =
+    //=======================================================
     public function SqlUpdate(\PDO $bdd){
         try{
             $requete = $bdd->prepare('UPDATE t_articles set Titre=:Titre, Description=:Description, DateAjout=:DateAjout, Auteur=:Auteur, ImageRepository=:ImageRepository, ImageFileName=:ImageFileName WHERE id=:IDARTICLE');
             $requete->execute([
-                'Titre' => $this->getTitre()
-                ,'Description' => $this->getDescription()
+                'Titre' => $this->getART_TITRE()
+                ,'Description' => $this->getART_DESCRIPTION()
                 ,'DateAjout' => $this->getART_DATEAJOUT()
                 ,'Auteur' => $this->getART_AUTEUR()
                 ,'ImageRepository' => $this->getART_IMAGEREPOSITORY()
-                ,'ImageFileName' => $this->getART_IMAGEFILENAME()
-                ,'IDARTICLE' => $this->getId()
+                ,'ImageFilename' => $this->getART_IMAGEFILENAME()
+                ,'IDARTICLE' => $this->getID_ARTICLE()
             ]);
-            return array("0", "[OK] Update");
+            return array("0", "[UPDATE] VALIDE");
         }catch (\Exception $e){
             return array("1", "[ERREUR] ".$e->getMessage());
         }
@@ -119,6 +148,10 @@ class Article extends Categorie implements \JsonSerializable {
 
 
 
+
+    //=======================================================
+    //                [DELETE D'UN ARTICLE]                 =
+    //=======================================================
     public function SqlDelete (\PDO $bdd,$idArticle){
         try{
             $requete = $bdd->prepare('DELETE FROM t_articles where ID_ARTICLE = :idArticle');
@@ -132,7 +165,9 @@ class Article extends Categorie implements \JsonSerializable {
     }
 
 
-
+    //=======================================================
+    //                   [VIDE TOUTE UNE TABLE]             =
+    //=======================================================
     public function SqlTruncate (\PDO $bdd){
         try{
             $requete = $bdd->prepare('TRUNCATE TABLE t_articles');
@@ -144,7 +179,8 @@ class Article extends Categorie implements \JsonSerializable {
     }
 
 
-    //return à modifier
+
+    //Fonction inconnue ??
     public function jsonSerialize()
     {
         return [
@@ -159,7 +195,9 @@ class Article extends Categorie implements \JsonSerializable {
     }
 
 
-
+    //=======================================================
+    //[RECHERCHER 10 ARTICLES CORRESPONDANT A UNE RECHERCHE]=
+    //=======================================================
     public function sqlSearch(\PDO $bdd,$search){
 
         try{
@@ -173,8 +211,7 @@ class Article extends Categorie implements \JsonSerializable {
             $arrayArticle = $requete->fetchAll();
             return $arrayArticle;
 
-        }
-        catch(\Exception $e){
+        }catch(\Exception $e){
             return false;
         }
 

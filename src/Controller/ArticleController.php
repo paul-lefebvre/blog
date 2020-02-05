@@ -9,36 +9,59 @@ use src\Model\Categorie;
 
 class ArticleController extends AbstractController {
 
+
+
     public function Index(){
         return $this->ListAll();
     }
 
+
+
+    //Fonction : 
     public function ListAll(){
 
+        //Ajout du model + liste toutes les catégories
         $categorie = new Categorie();
         $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
 
-        $nbreAffichageAccueil = 5;
-
+        //ajout du model + liste tout les article ET les 5 premiers
         $article = new Article();
-        $listArticle = $article->SqlGetAll(Bdd::GetInstance());
+        $listArticleFiveLast = $article->ArticleGetFiveLast(Bdd::GetInstance());
+        $articleAll = $article->getAllArticles(Bdd::GetInstance());
 
-        //id de l'user s'il est connecté pour afficher ses données
+
+        //vérification : est-ce que l'utilisateur à une session valide ?
+        if(isset($_SESSION['email'])){
+            $isConnected = 1;
+        }else{
+            $isConnected = 0;
+        }
+
+
+
+
+        //id de l'user s'il est connecté pour afficher ses données || A CHANGER LORS DU SYSTEME DE SESSION ET LOGIN TERMINE
         $userId = 1;
 
         $user = new User();
         $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
 
-        //Lancer la vue TWIG
+        //Lancement de Twig
         return $this->twig->render(
             'Article/list.html.twig',[
-                'articleList' => $listArticle,
+                'articleList' => $listArticleFiveLast,
+                'articleListAll' => $articleAll,
                 'pageResultat' => 0,
                 'user' => $listUser,
-                'listCategorie' => $listCategorie
+                'listCategorie' => $listCategorie,
+                'isConnected' => $isConnected
             ]
         );
     }
+
+
+
+
 
     public function add(){
         UserController::roleNeed('redacteur');
@@ -174,7 +197,7 @@ class ArticleController extends AbstractController {
 
     public function Write(){
         $article = new Article();
-        $listArticle = $article->SqlGetAll(Bdd::GetInstance());
+        $listArticle = $article->ArticleGetFiveLast(Bdd::GetInstance());
 
         $file = 'article.json';
         if(!is_dir('./uploads/file/')){
