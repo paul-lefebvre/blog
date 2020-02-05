@@ -9,6 +9,7 @@ use src\Model\Categorie;
 
 class UserController extends  AbstractController {
 
+<<<<<<< HEAD
 
 
     public function loginForm(){
@@ -20,6 +21,16 @@ class UserController extends  AbstractController {
             'token'=>$token
         ]);
 
+=======
+    
+    public function loginForm()
+    {
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['token'] = $token;
+        return $this->twig->render('User/login.html.twig', [
+            'token' => $token
+        ]);
+>>>>>>> ef6c8b8035c5d26b2c60863ee7759f8fd2b3a010
     }
 
 
@@ -67,6 +78,8 @@ class UserController extends  AbstractController {
         }else{
             // Génération d'un TOKEN
             $token = bin2hex(random_bytes(32));
+            var_dump($token);
+            var_dump($_SESSION['token']);
             $_SESSION['token'] = $token;
             return $this->twig->render('User/login.html.twig',
                 [
@@ -100,8 +113,11 @@ class UserController extends  AbstractController {
     // affichage de la page d'inscription
     public function pageInscription(){
 
-        return $this->twig->render('User/inscription.html.twig',[
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('User/inscription.html.twig',[
             'inscrit'=>1
+            ,'token' => $token
         ]);
 
     }
@@ -109,9 +125,10 @@ class UserController extends  AbstractController {
     // quand l'user à terminé son inscription
 
     public function inscription(){
+        
 
         if($_POST AND $_SESSION['token'] == $_POST['token']){
-            
+
             if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) 
             && isset($_POST['pass'])) {
                             
@@ -132,7 +149,10 @@ class UserController extends  AbstractController {
             }
         }else{
             // Génération d'un TOKEN
+            
+            var_dump($_SESSION['token']);
             $token = bin2hex(random_bytes(32));
+            var_dump($token);
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription.html.twig',
                 [
