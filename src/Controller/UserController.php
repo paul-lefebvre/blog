@@ -5,6 +5,7 @@ use src\Model\Article;
 use src\Model\User;
 use src\Model\Bdd;
 use DateTime;
+use src\Model\Categorie;
 
 class UserController extends  AbstractController {
 
@@ -14,39 +15,50 @@ class UserController extends  AbstractController {
     }
 
     public function loginCheck(){
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
 
-        if(!filter_var(
-            $_POST['password'],
-            FILTER_VALIDATE_REGEXP,
-            array(
-                "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
-            )
-        )){
-            $_SESSION['errorlogin'] = "Le mot de passe doit contenir minimum 3 caractères";
-            header('Location:/Login');
-            return;
-        }
+            if(!filter_var(
+                $_POST['password'],
+                FILTER_VALIDATE_REGEXP,
+                array(
+                    "options" => array("regexp"=>"/[a-zA-Z]{3,}/")
+                )
+            )){
+                $_SESSION['errorlogin'] = "Le mot de passe doit contenir minimum 3 caractères";
+                header('Location:/Login');
+                return;
+            }
 
-        if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-            $_SESSION['errorlogin'] = "Mail invalide";
-            header('Location:/Login');
-            return;
-        }
+            if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+                $_SESSION['errorlogin'] = "Mail invalide";
+                header('Location:/Login');
+                return;
+            }
 
-        // A MODIFIER POUR LE CHECK LOGIN
-        if($_POST["email"]=="admin@admin.com"
-            AND $_POST["password"] == "password"
-        ){
+            // A MODIFIER POUR LE CHECK LOGIN
+            if($_POST["email"]=="admin@admin.com"
+                AND $_POST["password"] == "password"
+            ){
 
-            $_SESSION['login'] = array(
-                'Nom' => 'Administrateur'
-            ,'Prénom' => 'Sylvain'
-            ,'roles' => array('admin', 'redacteur')
-            );
-            header('Location:/');
+                $_SESSION['login'] = array(
+                    'Nom' => 'Administrateur'
+                ,'Prénom' => 'Sylvain'
+                ,'roles' => array('admin', 'redacteur')
+                );
+                header('Location:/');
+            }else{
+                $_SESSION['errorlogin'] = "Erreur d'Authentification";
+                header('Location:/Login');
+            }
+
         }else{
-            $_SESSION['errorlogin'] = "Erreur d'Authentification";
-            header('Location:/Login');
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('User/login.html.twig',
+                [
+                    'token' => $token
+                ]);
         }
 
 
@@ -146,6 +158,10 @@ class UserController extends  AbstractController {
     
         $userId = 1;
 
+        $categorie = new Categorie();
+        $listCategorie = $categorie->getAllCategories(Bdd::GetInstance(), $userId);
+
+
         $user = new User();
         $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
 
@@ -155,7 +171,8 @@ class UserController extends  AbstractController {
         //AJOUTER LES INFOS DE L'UTILISATEUR
         return $this->twig->render(
             'Dashboard/dashboard.html.twig',[
-                'user' => $listUser
+                'user' => $listUser,
+                'listCategorie' => $listCategorie
             ]
         );
     }

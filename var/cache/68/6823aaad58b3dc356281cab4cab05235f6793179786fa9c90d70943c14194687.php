@@ -74,11 +74,11 @@ class __TwigTemplate_137e7c03103a41297fd070608e65ef1ffcf4e4c99f4b6a09ca0b46f7eb8
                     <label for=\"surname\">Mot de passe</label>
                     <input name=\"tel\" class=\"input-huge\" type=\"text\">
             \t</div>
- 
+                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
         \t<div class=\"footer\">
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
-                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
+                
         </form>
   
 
@@ -123,11 +123,11 @@ class __TwigTemplate_137e7c03103a41297fd070608e65ef1ffcf4e4c99f4b6a09ca0b46f7eb8
                     <label for=\"surname\">Mot de passe</label>
                     <input name=\"tel\" class=\"input-huge\" type=\"text\">
             \t</div>
- 
+                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
         \t<div class=\"footer\">
                     <button type=\"submit\"  name=\"submit\" class=\"btn btn-success\">Enregistrer</button>
         \t</div>
-                <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
+                
         </form>
   
 

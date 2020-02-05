@@ -5,6 +5,7 @@ use src\Model\Article;
 use src\Model\Bdd;
 use src\Model\User;
 use DateTime;
+use src\Model\Categorie;
 
 class ArticleController extends AbstractController {
 
@@ -13,6 +14,11 @@ class ArticleController extends AbstractController {
     }
 
     public function ListAll(){
+
+        $categorie = new Categorie();
+        $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
+
+
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
@@ -27,7 +33,8 @@ class ArticleController extends AbstractController {
             'Article/list.html.twig',[
                 'articleList' => $listArticle,
                 'pageResultat' => 0,
-                'userData' => $listUser
+                'user' => $listUser,
+                'listCategorie' => $listCategorie
             ]
         );
     }
@@ -75,47 +82,59 @@ class ArticleController extends AbstractController {
     }
 
     public function update($articleID){
-        $articleSQL = new Article();
-        $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
-        if($_POST){
-            $sqlRepository = null;
-            $nomImage = null;
-            if(!empty($_FILES['image']['name']) )
-            {
-                $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
-                $extension  = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-                if(in_array(strtolower($extension),$tabExt))
-                {
-                    $nomImage = md5(uniqid()) .'.'. $extension;
-                    $dateNow = new DateTime();
-                    $sqlRepository = $dateNow->format('Y/m');
-                    $repository = './uploads/images/'.$dateNow->format('Y/m');
-                    if(!is_dir($repository)){
-                        mkdir($repository,0777,true);
-                    }
-                    move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
-                    // suppression ancienne image si existante
 
-                    if($_POST['imageAncienne'] != '/'){
-                        unlink('./uploads/images/'.$_POST['imageAncienne']);
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+
+            $articleSQL = new Article();
+            $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
+            if($_POST){
+                $sqlRepository = null;
+                $nomImage = null;
+                if(!empty($_FILES['image']['name']) )
+                {
+                    $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
+                    $extension  = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                    if(in_array(strtolower($extension),$tabExt))
+                    {
+                        $nomImage = md5(uniqid()) .'.'. $extension;
+                        $dateNow = new DateTime();
+                        $sqlRepository = $dateNow->format('Y/m');
+                        $repository = './uploads/images/'.$dateNow->format('Y/m');
+                        if(!is_dir($repository)){
+                            mkdir($repository,0777,true);
+                        }
+                        move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
+                        // suppression ancienne image si existante
+
+                        if($_POST['imageAncienne'] != '/'){
+                            unlink('./uploads/images/'.$_POST['imageAncienne']);
+                        }
                     }
                 }
+
+                $article->setTitre($_POST['Titre'])
+                    ->setDescription($_POST['Description'])
+                    ->setAuteur($_POST['Auteur'])
+                    ->setDateAjout($_POST['DateAjout'])
+                    ->setImageRepository($sqlRepository)
+                    ->setImageFileName($nomImage)
+                ;
+
+                $article->SqlUpdate(BDD::getInstance());
             }
 
-            $article->setTitre($_POST['Titre'])
-                ->setDescription($_POST['Description'])
-                ->setAuteur($_POST['Auteur'])
-                ->setDateAjout($_POST['DateAjout'])
-                ->setImageRepository($sqlRepository)
-                ->setImageFileName($nomImage)
-            ;
-
-            $article->SqlUpdate(BDD::getInstance());
+            return $this->twig->render('Article/update.html.twig',[
+                'article' => $article
+            ]);
+        }else{
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('Article/update.html.twig',
+                [
+                    'token' => $token
+                ]);
         }
-
-        return $this->twig->render('Article/update.html.twig',[
-            'article' => $article
-        ]);
     }
 
     public function Delete($articleID){
