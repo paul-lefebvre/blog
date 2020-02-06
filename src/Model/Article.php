@@ -12,6 +12,7 @@ class Article implements \JsonSerializable {
     private $ART_AUTEUR;
     private $ART_IMAGEREPOSITORY;
     private $ART_IMAGEFILENAME;
+    private $ART_STATUT;
 
 
     //=======================================================
@@ -77,6 +78,7 @@ class Article implements \JsonSerializable {
             $article->setART_DATEAJOUT($articleSQL['ART_DATEAJOUT']);
             $article->setART_IMAGEREPOSITORY($articleSQL['ART_IMAGEREPOSITORY']);
             $article->setART_IMAGEFILENAME($articleSQL['ART_IMAGEFILENAME']);
+            $article->setART_STATUT($articleSQL['ART_STATUT']);
 
             $listArticle[] = $article;
         }
@@ -420,6 +422,26 @@ class Article implements \JsonSerializable {
     public function setART_IMAGEFILENAME($ART_IMAGEFILENAME)
     {
         $this->ART_IMAGEFILENAME = $ART_IMAGEFILENAME;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ART_STATUT
+     */ 
+    public function getART_STATUT()
+    {
+        return $this->ART_STATUT;
+    }
+
+    /**
+     * Set the value of ART_STATUT
+     *
+     * @return  self
+     */ 
+    public function setART_STATUT($ART_STATUT)
+    {
+        $this->ART_STATUT = $ART_STATUT;
 
         return $this;
     }

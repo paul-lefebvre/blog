@@ -76,21 +76,20 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
             // line 21
             echo "          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
+          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
           ";
         }
-        // line 26
+        // line 25
         echo "
           ";
-        // line 27
+        // line 26
         if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
-            // line 28
+            // line 27
             echo "          <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
-          <li><a href=\"/Listemembre\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+          <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
           ";
         }
-        // line 31
+        // line 30
         echo "
         </ul>
       </div>
@@ -98,20 +97,37 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
 
     <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. ";
-        // line 37
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 37), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 36), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 37), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 36), "html", null, true);
         echo " | Email : ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_EMAIL", [], "any", false, false, false, 37), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_EMAIL", [], "any", false, false, false, 36), "html", null, true);
         echo "</div>
 
 
+  <div class=\"container-fluid\">
 
 
+    ";
+        // line 42
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 42)) {
+            // line 43
+            echo "      <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
+        <div class=\"container\">
+          <h1 class=\"display-4 text-center\">Bien joué !</h1>
+          <p class=\"lead text-center \">";
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 46), "html", null, true);
+            echo "</p>
+        </div>
+      </div>
+    ";
+        }
+        // line 50
+        echo "
 
-
-
+  </div>
 
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -135,7 +151,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
     public function getDebugInfo()
     {
-        return array (  102 => 37,  94 => 31,  89 => 28,  87 => 27,  84 => 26,  77 => 21,  75 => 20,  70 => 17,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  128 => 50,  121 => 46,  116 => 43,  114 => 42,  101 => 36,  93 => 30,  88 => 27,  86 => 26,  83 => 25,  77 => 21,  75 => 20,  70 => 17,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -162,13 +178,12 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
           {% if role == \"Redacteur\" or role == \"Administrateur\" %}
           <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
+          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
           {% endif %}
 
           {% if role == \"Administrateur\" %}
           <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
-          <li><a href=\"/Listemembre\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+          <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
           {% endif %}
 
         </ul>
@@ -179,11 +194,20 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
     <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }} | Email : {{ user.MEM_EMAIL }}</div>
 
 
+  <div class=\"container-fluid\">
 
 
+    {% if session.successMsg is defined %}
+      <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
+        <div class=\"container\">
+          <h1 class=\"display-4 text-center\">Bien joué !</h1>
+          <p class=\"lead text-center \">{{ session.successMsg }}</p>
+        </div>
+      </div>
+    {% endif %}
 
 
-
+  </div>
 
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

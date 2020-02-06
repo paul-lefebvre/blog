@@ -43,7 +43,7 @@ $router->get('/Article/Delete/:id', "Article#Delete#id");
 
 
 //Liste des articles pour rédacteur/admin
-$router->get('/dashboard/articles', "Article#Delete#id");
+$router->get('/dashboard/articles', "Article#listArticlesAdmin");
 
 
 //Modification des articles
