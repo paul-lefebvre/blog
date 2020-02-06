@@ -67,7 +67,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
           <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
           ";
         // line 16
-        if (0 === twig_compare(($context["role"] ?? null), 1)) {
+        if (0 === twig_compare(($context["role"] ?? null), "Redacteur")) {
             // line 17
             echo "          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
@@ -77,7 +77,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
         }
         // line 22
         echo "          ";
-        if (0 === twig_compare(($context["role"] ?? null), 2)) {
+        if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
             // line 23
             echo "          <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i>Gérer les Utilisateurs</a></li>
           ";
@@ -139,13 +139,13 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
       <br><br>
         <ul>
           <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
-          {% if role == 1 %}
+          {% if role == \"Redacteur\" %}
           <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
           {% endif %}
-          {% if role == 2 %}
+          {% if role == \"Administrateur\" %}
           <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i>Gérer les Utilisateurs</a></li>
           {% endif %}
         </ul>
