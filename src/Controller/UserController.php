@@ -167,6 +167,10 @@ class UserController extends  AbstractController {
              
     }
 
+    public function validationInscription(){
+        
+    }
+
     public function pageDashboard(){
     
         $mailAVerif = $_SESSION['email'];
