@@ -20,6 +20,15 @@
                 </div>
             </div>
 
+            <div class="dropdown row form-group">
+                <label for="Categorie" class="col-sm-2 col-form-label">Rubriques : </label>
+                <select class="dropdown btn btn-secondary dropdown-toggle" aria-labelledby="dropdownMenuButton" name="Categorie">                    
+                    {% for categorie in AllCategorie %}
+                        <option class="dropdown-item text-center text-light" value="{{ categorie.ID_CATEGORIE }}">{{ categorie.CAT_NOM }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
             <div class="form-group row">
                 <label for="Description" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
