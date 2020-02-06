@@ -116,16 +116,18 @@ class __TwigTemplate_ae898f5f2e32a27050afe1a03a8dc19c9adac5bdefc2430b76207ea58e1
         $context['_seq'] = twig_ensure_traversable(($context["articleList"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 30
-            echo "            <div class=\"row\"><div class=\"mx-auto\">
+            echo "            <div class=\"row\"><div class=\"mx-auto col-9\">
             <div class=\"jumbotron\">
                 <h1 class=\"display-4\">";
             // line 32
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 32), "html", null, true);
             echo "</h1>
-                <div class=\"\"> <img src=\"";
+                <img src=\"uploads/images/";
             // line 33
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEREPOSITORY", [], "any", false, false, false, 33), "html", null, true);
-            echo "\" class=\"rounded\" alt=\"\" width=\"304\" height=\"236\"> </div>
+            echo "/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEFILENAME", [], "any", false, false, false, 33), "html", null, true);
+            echo "\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
                 <p class=\"lead\">";
             // line 34
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 34), "html", null, true);
@@ -165,7 +167,7 @@ class __TwigTemplate_ae898f5f2e32a27050afe1a03a8dc19c9adac5bdefc2430b76207ea58e1
 
     public function getDebugInfo()
     {
-        return array (  149 => 41,  136 => 36,  131 => 34,  127 => 33,  123 => 32,  119 => 30,  115 => 29,  112 => 28,  108 => 25,  106 => 24,  96 => 20,  91 => 18,  87 => 17,  84 => 16,  79 => 15,  75 => 12,  71 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  151 => 41,  138 => 36,  133 => 34,  127 => 33,  123 => 32,  119 => 30,  115 => 29,  112 => 28,  108 => 25,  106 => 24,  96 => 20,  91 => 18,  87 => 17,  84 => 16,  79 => 15,  75 => 12,  71 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -199,10 +201,10 @@ class __TwigTemplate_ae898f5f2e32a27050afe1a03a8dc19c9adac5bdefc2430b76207ea58e1
         {# ==========================================[AFFICHAGE DES ARTICLES]================================================= #}
         
         {% for article in articleList %}
-            <div class=\"row\"><div class=\"mx-auto\">
+            <div class=\"row\"><div class=\"mx-auto col-9\">
             <div class=\"jumbotron\">
                 <h1 class=\"display-4\">{{ article.ART_TITRE }}</h1>
-                <div class=\"\"> <img src=\"{{ article.ART_IMAGEREPOSITORY }}\" class=\"rounded\" alt=\"\" width=\"304\" height=\"236\"> </div>
+                <img src=\"uploads/images/{{ article.ART_IMAGEREPOSITORY }}/{{ article.ART_IMAGEFILENAME }}\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
                 <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
                 <hr class=\"my-4\">
                 <p>{{ article.ART_AUTEUR }} - {{ article.ART_DATEAJOUT }}</p>

@@ -167,14 +167,23 @@ class UserController extends  AbstractController {
              
     }
 
+
     public function validationInscription(){
-        
+
+
+
+
+
     }
+
+
 
     public function pageDashboard(){
     
         $mailAVerif = $_SESSION['email'];
         $passAVerif = $_SESSION['pass'];
+
+        unset($_SESSION['successMsg']);
 
         $user = new User();
 

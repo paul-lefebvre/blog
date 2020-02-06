@@ -122,7 +122,9 @@ class ArticleController extends AbstractController {
                 var_dump($articleModel);
 
                 $articleModel->SqlAdd(BDD::getInstance());
-                //header('Location:/dashboard');
+                $_SESSION['successMsg'] = "Un article a bien été créé ! Félicitation ✔";
+                header('Location:/dashboard');
+
                 
             }else{
                 // Génération d'un TOKEN

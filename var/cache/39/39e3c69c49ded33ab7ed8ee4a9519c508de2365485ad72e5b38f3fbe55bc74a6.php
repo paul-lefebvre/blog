@@ -197,9 +197,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 72), 2)) {
                         ";
             }
             // line 90
-            echo "
-
-                    </div>
+            echo "                    </div>
 
                 </td>
             </tr>
@@ -208,7 +206,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 72), 2)) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contact'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 97
+        // line 95
         echo "
         </tbody>
     </table>
@@ -233,7 +231,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 72), 2)) {
 
     public function getDebugInfo()
     {
-        return array (  212 => 97,  200 => 90,  196 => 88,  194 => 87,  190 => 85,  185 => 82,  183 => 81,  175 => 75,  171 => 73,  169 => 72,  166 => 71,  164 => 70,  161 => 69,  159 => 68,  154 => 66,  150 => 65,  146 => 64,  142 => 63,  139 => 62,  135 => 61,  113 => 41,  109 => 39,  106 => 38,  102 => 36,  100 => 35,  97 => 34,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  210 => 95,  200 => 90,  196 => 88,  194 => 87,  190 => 85,  185 => 82,  183 => 81,  175 => 75,  171 => 73,  169 => 72,  166 => 71,  164 => 70,  161 => 69,  159 => 68,  154 => 66,  150 => 65,  146 => 64,  142 => 63,  139 => 62,  135 => 61,  113 => 41,  109 => 39,  106 => 38,  102 => 36,  100 => 35,  97 => 34,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -327,8 +325,6 @@ $context["contact"], "ROLE", [], "any", false, false, false, 72), 2)) {
                         {% if contact.ROLE == 1 %}
                         <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'utilisateur\"><i class=\"far fa-trash-alt\"></i></a>
                         {% endif %}
-
-
                     </div>
 
                 </td>
