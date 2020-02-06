@@ -98,7 +98,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
 
                 <li class=\"nav-item p-2 col-12\">
-                    <a class=\"nav-link p-2\" href=\"/Article/Add\">Tout les Articles</a>
+                    <a class=\"nav-link p-2\" href=\"/Article/All\">Tout les Articles</a>
                 </li>
 
 
@@ -318,7 +318,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
 
                 <li class=\"nav-item p-2 col-12\">
-                    <a class=\"nav-link p-2\" href=\"/Article/Add\">Tout les Articles</a>
+                    <a class=\"nav-link p-2\" href=\"/Article/All\">Tout les Articles</a>
                 </li>
 
 

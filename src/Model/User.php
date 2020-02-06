@@ -31,8 +31,6 @@ class User {
                 'email' => $email,
                 'mdp' => $pass_hash
             ]);
-               
-            $requete->execute(array($nom, $prenom, $email, $pass_hash));
 
             return true;
             

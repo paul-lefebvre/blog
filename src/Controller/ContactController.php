@@ -16,7 +16,11 @@ class ContactController extends AbstractController{
     }
 
     public function showForm(){
-        return $this->twig->render('Contact/form.html.twig');
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['token'] = $token;
+        return $this->twig->render('Contact/form.html.twig', [
+            'token' => $token
+        ]);
     }
 
     public function sendMail(){

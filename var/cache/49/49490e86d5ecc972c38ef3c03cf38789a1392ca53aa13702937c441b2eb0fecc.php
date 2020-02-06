@@ -167,15 +167,16 @@ class __TwigTemplate_40eaed5f8a0f0b938bffbd61b107b3b9db574aa7694b724af25e67f8c75
                 </div>
             </div>
 
-            <input type=\"hidden\" name=\"imageAncienne\"
-            value=\"";
-        // line 72
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 72), "html", null, true);
+            <input type=\"hidden\" name=\"imageAncienne\" value=\"";
+        // line 71
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 71), "html", null, true);
         echo "/";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 72), "html", null, true);
-        echo "\"
-            >
-
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 71), "html", null, true);
+        echo "\">
+            <input type=\"hidden\" name=\"token\" value=\"";
+        // line 72
+        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        echo "\">
             <input type=\"submit\" class=\"btn btn-primary my-1\">
         </form>
     </div>
@@ -199,7 +200,7 @@ class __TwigTemplate_40eaed5f8a0f0b938bffbd61b107b3b9db574aa7694b724af25e67f8c75
 
     public function getDebugInfo()
     {
-        return array (  173 => 72,  155 => 56,  140 => 54,  135 => 53,  133 => 52,  122 => 44,  112 => 37,  102 => 30,  89 => 20,  85 => 19,  81 => 17,  77 => 15,  69 => 13,  67 => 12,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  178 => 72,  172 => 71,  155 => 56,  140 => 54,  135 => 53,  133 => 52,  122 => 44,  112 => 37,  102 => 30,  89 => 20,  85 => 19,  81 => 17,  77 => 15,  69 => 13,  67 => 12,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -274,10 +275,8 @@ class __TwigTemplate_40eaed5f8a0f0b938bffbd61b107b3b9db574aa7694b724af25e67f8c75
                 </div>
             </div>
 
-            <input type=\"hidden\" name=\"imageAncienne\"
-            value=\"{{ article.ImageRepository }}/{{ article.ImageFileName }}\"
-            >
-
+            <input type=\"hidden\" name=\"imageAncienne\" value=\"{{ article.ImageRepository }}/{{ article.ImageFileName }}\">
+            <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
             <input type=\"submit\" class=\"btn btn-primary my-1\">
         </form>
     </div>

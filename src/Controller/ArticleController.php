@@ -119,7 +119,7 @@ class ArticleController extends AbstractController {
     }
 
     public function update($articleID){
-
+        UserController::roleNeed('redacteur');
         if($_POST AND $_SESSION['token'] == $_POST['token']){
 
             $articleSQL = new Article();
@@ -185,7 +185,6 @@ class ArticleController extends AbstractController {
         header('Location:/');
     }
 
-
     public function Write(){
         $article = new Article();
         $listArticle = $article->ArticleGetFiveLast(Bdd::GetInstance());
@@ -232,17 +231,27 @@ class ArticleController extends AbstractController {
 
 
     public function search(){
-        $search = $_POST['search'];
-        $article = new Article();
-        $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+            $search = $_POST['search'];
+            $article = new Article();
+            $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
 
-        return $this->twig->render(
-            'Article/list.html.twig',[
-                'articleData' => $articleData,
-                'pageResultat' => 1,
-                'searchResult' => $_POST['search']
-            ]
-        );
+            return $this->twig->render(
+                'Article/list.html.twig',[
+                    'articleData' => $articleData,
+                    'pageResultat' => 1,
+                    'searchResult' => $_POST['search']
+                ]
+            );
+        }else{
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('Article/list.html.twig',
+                [
+                    'token' => $token
+                ]);
+        }
 
         
     }

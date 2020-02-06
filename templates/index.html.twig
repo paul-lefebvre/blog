@@ -98,6 +98,7 @@
                     <!-- Form -->
                     <form class="form-inline" method="post" action="/Article/Search/">
                         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un article" name="search" >
+                        <input type="hidden" name="token" value="{{ token }}">
                         <input type="submit" class="btn btn-outline-light my-2 my-sm-0" value="Rechercher" name="searchSubmit">
                     </form>
                     <!-- Form -->
