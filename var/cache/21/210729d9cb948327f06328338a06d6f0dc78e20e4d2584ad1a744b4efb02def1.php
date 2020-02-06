@@ -43,7 +43,7 @@ class __TwigTemplate_4faa7435ab66e77bffbf9236291b729b6ab63264163cd0b5c1774891c46
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -51,22 +51,48 @@ class __TwigTemplate_4faa7435ab66e77bffbf9236291b729b6ab63264163cd0b5c1774891c46
         echo " - Ajout d'un article ";
     }
 
-    // line 4
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 5
+        // line 7
         echo "
     <div class=\"container-fluid mt-2\">
+        
+        <h2 class=\"display-3 text-center\">Ajout d'un article</h2>
 
-        <h2 class=\"display-3\">Ajout d'un article</h2>
         <hr class=\"my-4\">
-        <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
+
+    <div class=\"container-fluid\">
+        <form class=\"mx-auto col-6\" name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
             <div class=\"form-group row\">
-                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre de l'article</label>
+                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre</label>
                 <div class=\"col-sm-10\">
                     <input type=\"text\" name=\"Titre\" class=\"form-control form-control-lg\">
                 </div>
+            </div>
+
+            <div class=\"dropdown row form-group\">
+                <label for=\"Categorie\" class=\"col-sm-2 col-form-label\">Rubriques : </label>
+                <select class=\"dropdown btn btn-secondary dropdown-toggle\" aria-labelledby=\"dropdownMenuButton\" name=\"Categorie\">                    
+                    ";
+        // line 26
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["AllCategorie"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
+            // line 27
+            echo "                        <option class=\"dropdown-item text-center text-light\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "ID_CATEGORIE", [], "any", false, false, false, 27), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 27), "html", null, true);
+            echo "</option>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 29
+        echo "                </select>
             </div>
 
             <div class=\"form-group row\">
@@ -101,12 +127,13 @@ class __TwigTemplate_4faa7435ab66e77bffbf9236291b729b6ab63264163cd0b5c1774891c46
                 </div>
             </div>
             <input type=\"hidden\" name=\"token\" value=\"";
-        // line 49
+        // line 63
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
-            <input type=\"submit\" class=\"btn btn-primary my-1\">
+            <input type=\"submit\" class=\"btn btn-primary my-1 mx-auto text-center\">
         </form>
     </div>
+</div>
 
 ";
     }
@@ -123,26 +150,40 @@ class __TwigTemplate_4faa7435ab66e77bffbf9236291b729b6ab63264163cd0b5c1774891c46
 
     public function getDebugInfo()
     {
-        return array (  105 => 49,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  131 => 63,  95 => 29,  84 => 27,  80 => 26,  59 => 7,  55 => 6,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
+
 {% block title %}{{ parent() }} - Ajout d'un article {% endblock %}
+
 
 {% block body %}
 
     <div class=\"container-fluid mt-2\">
+        
+        <h2 class=\"display-3 text-center\">Ajout d'un article</h2>
 
-        <h2 class=\"display-3\">Ajout d'un article</h2>
         <hr class=\"my-4\">
-        <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
+
+    <div class=\"container-fluid\">
+        <form class=\"mx-auto col-6\" name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
             <div class=\"form-group row\">
-                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre de l'article</label>
+                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre</label>
                 <div class=\"col-sm-10\">
                     <input type=\"text\" name=\"Titre\" class=\"form-control form-control-lg\">
                 </div>
+            </div>
+
+            <div class=\"dropdown row form-group\">
+                <label for=\"Categorie\" class=\"col-sm-2 col-form-label\">Rubriques : </label>
+                <select class=\"dropdown btn btn-secondary dropdown-toggle\" aria-labelledby=\"dropdownMenuButton\" name=\"Categorie\">                    
+                    {% for categorie in AllCategorie %}
+                        <option class=\"dropdown-item text-center text-light\" value=\"{{ categorie.ID_CATEGORIE }}\">{{ categorie.CAT_NOM }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class=\"form-group row\">
@@ -177,9 +218,10 @@ class __TwigTemplate_4faa7435ab66e77bffbf9236291b729b6ab63264163cd0b5c1774891c46
                 </div>
             </div>
             <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
-            <input type=\"submit\" class=\"btn btn-primary my-1\">
+            <input type=\"submit\" class=\"btn btn-primary my-1 mx-auto text-center\">
         </form>
     </div>
+</div>
 
 {% endblock %}", "Article/add.html.twig", "C:\\Users\\samso\\Desktop\\Cours\\Projet PHP\\templates\\Article\\add.html.twig");
     }
