@@ -169,6 +169,19 @@ class UserController extends  AbstractController {
 
     }
 
+    // affichage de la page liste des membres
+    public function pagelisteMembre(){
+       
+        $userModel = new User();
+        $lisAllUser =  $userModel->getAllUser(bdd::GetInstance());
+        return $this->twig->render('Dashboard/listeMembre.html.twig',[
+        'allContact'=> $lisAllUser
+    ]);
+
+    }
+
+
+
 
 
     

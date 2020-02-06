@@ -78,6 +78,9 @@ $router->get('/Article/Search/','Article#search');
 $router->post('/Article/Search/','Article#search');
 $router->get('/dashboard', 'User#pageDashboard');
 
+//Page liste des membres
+$router->get('/listeMembre', 'User#pagelisteMembre');
+
 
 
 

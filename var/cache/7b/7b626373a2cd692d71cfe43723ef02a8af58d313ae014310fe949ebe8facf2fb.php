@@ -48,7 +48,7 @@ class __TwigTemplate_e6e84954199aaf9f49529fd5fd8bdcc8299c8916c9d2bd9736031a1a3c5
     {
         $macros = $this->macros;
         $this->displayParentBlock("title", $context, $blocks);
-        echo " - Connectez vous ";
+        echo " - Connexion ";
     }
 
     // line 3
@@ -78,12 +78,16 @@ class __TwigTemplate_e6e84954199aaf9f49529fd5fd8bdcc8299c8916c9d2bd9736031a1a3c5
         <form method=\"post\" action=\"/Login\">
             <div class=\"form-group\">
                 <label for=\"exampleInputEmail1\">Email</label>
-                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+                <input type=\"email\" name=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
             </div>
             <div class=\"form-group\">
                 <label for=\"exampleInputPassword1\">Mot de passe</label>
-                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+                <input type=\"password\" name=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
             </div>
+            <input type=\"hidden\" name=\"token\" value=\"";
+        // line 25
+        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        echo "\">
             <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
         </form>
         </div>
@@ -104,13 +108,13 @@ class __TwigTemplate_e6e84954199aaf9f49529fd5fd8bdcc8299c8916c9d2bd9736031a1a3c5
 
     public function getDebugInfo()
     {
-        return array (  71 => 9,  65 => 7,  63 => 6,  59 => 4,  55 => 3,  47 => 2,  36 => 1,);
+        return array (  89 => 25,  71 => 9,  65 => 7,  63 => 6,  59 => 4,  55 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
-{% block title %}{{ parent() }} - Connectez vous {% endblock %}
+{% block title %}{{ parent() }} - Connexion {% endblock %}
 {% block body %}
 
 
@@ -127,12 +131,13 @@ class __TwigTemplate_e6e84954199aaf9f49529fd5fd8bdcc8299c8916c9d2bd9736031a1a3c5
         <form method=\"post\" action=\"/Login\">
             <div class=\"form-group\">
                 <label for=\"exampleInputEmail1\">Email</label>
-                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+                <input type=\"email\" name=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
             </div>
             <div class=\"form-group\">
                 <label for=\"exampleInputPassword1\">Mot de passe</label>
-                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+                <input type=\"password\" name=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
             </div>
+            <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
             <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
         </form>
         </div>
