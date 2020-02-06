@@ -1,7 +1,7 @@
 <?php
 namespace src\Model;
 
-class Article extends Categorie implements \JsonSerializable {
+class Article implements \JsonSerializable {
 
     private $ID_ARTICLE;
     private $ID_MEMBRE;
@@ -34,10 +34,12 @@ class Article extends Categorie implements \JsonSerializable {
     //=======================================================
     public function SqlAdd(\PDO $bdd) {
         try{
-            $requete = $bdd->prepare('INSERT INTO t_articles (Titre, Description, DateAjout, Auteur, ImageRepository, ImageFileName) VALUES(:Titre, :Description, :DateAjout, :Auteur, :ImageRepository, :ImageFileName)');
+            $requete = $bdd->prepare("INSERT INTO t_articles (1, 1, ART_TITRE, ART_DESCRIPTION, 
+            ART_DATEAJOUT, ART_AUTEUR, ART_IMAGEREPOSITORY, ART_IMAGEFILENAME) 
+            VALUES(:Titre, :DescriptionArt, :DateAjout, :Auteur, :ImageRepository, :ImageFileName)");
             $requete->execute([
                 "Titre" => $this->getART_TITRE(),
-                "Description" => $this->getART_DESCRIPTION(),
+                "DescriptionArt" => $this->getART_DESCRIPTION(),
                 "DateAjout" => $this->getART_DATEAJOUT(),
                 "Auteur" => $this->getART_AUTEUR(),
                 "ImageRepository" => $this->getART_IMAGEREPOSITORY(),

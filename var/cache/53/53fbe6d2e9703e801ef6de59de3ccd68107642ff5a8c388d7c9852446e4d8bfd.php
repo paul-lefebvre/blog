@@ -43,7 +43,7 @@ class __TwigTemplate_dda80690a1449ce78f9a10b80aa86f9e210d803a2f901d7fc56aa476be4
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -51,19 +51,22 @@ class __TwigTemplate_dda80690a1449ce78f9a10b80aa86f9e210d803a2f901d7fc56aa476be4
         echo " - Ajout d'un article ";
     }
 
-    // line 4
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 5
+        // line 7
         echo "
     <div class=\"container-fluid mt-2\">
+        
+        <h2 class=\"display-3 text-center\">Ajout d'un article</h2>
 
-        <h2 class=\"display-3\">Ajout d'un article</h2>
         <hr class=\"my-4\">
-        <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
+
+    <div class=\"container-fluid\">
+        <form class=\"mx-auto col-6\" name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
             <div class=\"form-group row\">
-                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre de l'article</label>
+                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre</label>
                 <div class=\"col-sm-10\">
                     <input type=\"text\" name=\"Titre\" class=\"form-control form-control-lg\">
                 </div>
@@ -101,12 +104,13 @@ class __TwigTemplate_dda80690a1449ce78f9a10b80aa86f9e210d803a2f901d7fc56aa476be4
                 </div>
             </div>
             <input type=\"hidden\" name=\"token\" value=\"";
-        // line 49
+        // line 54
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
-            <input type=\"submit\" class=\"btn btn-primary my-1\">
+            <input type=\"submit\" class=\"btn btn-primary my-1 mx-auto text-center\">
         </form>
     </div>
+</div>
 
 ";
     }
@@ -123,23 +127,28 @@ class __TwigTemplate_dda80690a1449ce78f9a10b80aa86f9e210d803a2f901d7fc56aa476be4
 
     public function getDebugInfo()
     {
-        return array (  105 => 49,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  108 => 54,  59 => 7,  55 => 6,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
+
 {% block title %}{{ parent() }} - Ajout d'un article {% endblock %}
+
 
 {% block body %}
 
     <div class=\"container-fluid mt-2\">
+        
+        <h2 class=\"display-3 text-center\">Ajout d'un article</h2>
 
-        <h2 class=\"display-3\">Ajout d'un article</h2>
         <hr class=\"my-4\">
-        <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
+
+    <div class=\"container-fluid\">
+        <form class=\"mx-auto col-6\" name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
             <div class=\"form-group row\">
-                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre de l'article</label>
+                <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre</label>
                 <div class=\"col-sm-10\">
                     <input type=\"text\" name=\"Titre\" class=\"form-control form-control-lg\">
                 </div>
@@ -177,9 +186,10 @@ class __TwigTemplate_dda80690a1449ce78f9a10b80aa86f9e210d803a2f901d7fc56aa476be4
                 </div>
             </div>
             <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
-            <input type=\"submit\" class=\"btn btn-primary my-1\">
+            <input type=\"submit\" class=\"btn btn-primary my-1 mx-auto text-center\">
         </form>
     </div>
+</div>
 
 {% endblock %}", "Article/add.html.twig", "C:\\Users\\Ankam\\OneDrive\\Bureau\\blog\\templates\\Article\\add.html.twig");
     }

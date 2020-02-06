@@ -212,8 +212,14 @@ class UserController extends  AbstractController {
        
         $userModel = new User();
         $lisAllUser =  $userModel->getAllUser(bdd::GetInstance());
+
+        //Récupération du rôle du compte
+        $role = UserController::roleNeed();
+
+
         return $this->twig->render('Dashboard/listeMembre.html.twig',[
-        'allContact'=> $lisAllUser
+        'allContact'=> $lisAllUser,
+        'role'=>$role
     ]);
 
     }
