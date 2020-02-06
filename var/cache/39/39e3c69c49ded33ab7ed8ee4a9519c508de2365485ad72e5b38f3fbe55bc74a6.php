@@ -59,73 +59,147 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
         echo "
     ";
         // line 10
-        echo "
+        echo "<div class=\"container-fluid\">
+    <div class=\"row d-flex flex-wrap\">
+
+ <div class=\"alert alert-secondary text-center p-2 col-12\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. ";
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 13), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 13), "html", null, true);
+        echo "</div>
+
+
+    
+
+
     <section id=\"sidebar\"> 
       <div id=\"sidebar-nav\">
       <br><br>
         <ul>
-          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Profil</a></li>
-          <li><a href=\"/dashboard/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Articles</a></li>  
-          <li><a href=\"/listeMembre\"><i class=\"fa fa-users\"></i>Utilisateurs</a></li>
+
+          ";
+        // line 25
+        echo "
+          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
+
+          ";
+        // line 28
+        if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
+            // line 29
+            echo "          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+          <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
+          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
+          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
+          ";
+        }
+        // line 34
+        echo "
+          ";
+        // line 35
+        if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
+            // line 36
+            echo "          <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
+          ";
+        }
+        // line 38
+        echo "          ";
+        if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
+            // line 39
+            echo "          <li><a href=\"/Listemembre\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modifier le CSS</a></li>
+          ";
+        }
+        // line 41
+        echo "
         </ul>
       </div>
-</section>
+    </section>
 
 
-    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. ";
-        // line 24
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 24), "html", null, true);
-        echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 24), "html", null, true);
-        echo "</div>
+   
 
-    <table class=\"table table-striped\">
+    <table class=\"table table-striped mx-auto col-8\" style=\"margin-top: 3em;\">
         <thead>
         <tr>
-            <th scope=\"col\">#</th>
+            <th scope=\"col\">ID</th>
             <th scope=\"col\">Nom</th>
             <th scope=\"col\">Prenom</th>
             <th scope=\"col\">Email</th>
-            <th scope=\"col\">Role</th>
+            <th scope=\"col\">Rôle</th>
         </tr>
         </thead>
         <tbody>
 
     ";
-        // line 38
+        // line 61
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["allContact"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["contact"]) {
-            // line 39
+            // line 62
             echo "              <tr>
-                <th scope=\"row\"><a href=\"\">#";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "id", [], "any", false, false, false, 40), "html", null, true);
+                <th scope=\"row\"><a href=\"\">";
+            // line 63
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ID_MEMBRE", [], "any", false, false, false, 63), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_NOM", [], "any", false, false, false, 41), "html", null, true);
+            // line 64
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_NOM", [], "any", false, false, false, 64), "html", null, true);
             echo "</td>
                 <td>";
-            // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_PRENOM", [], "any", false, false, false, 42), "html", null, true);
+            // line 65
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_PRENOM", [], "any", false, false, false, 65), "html", null, true);
             echo "</td>
                 <td>";
-            // line 43
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_EMAIL", [], "any", false, false, false, 43), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 44), "html", null, true);
+            // line 66
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_EMAIL", [], "any", false, false, false, 66), "html", null, true);
             echo "</td>
                 <td>
-                    <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                        <a class=\"btn btn-success\" href=\"\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"\"><i class=\"far fa-trash-alt\"></i></a>
+                ";
+            // line 68
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 68), 0)) {
+                // line 69
+                echo "                    Visiteur
+                ";
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 70
+$context["contact"], "ROLE", [], "any", false, false, false, 70), 1)) {
+                // line 71
+                echo "                    Rédacteur
+                ";
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 72
+$context["contact"], "ROLE", [], "any", false, false, false, 72), 2)) {
+                // line 73
+                echo "                    Administrateur
+                ";
+            }
+            // line 75
+            echo "                </td>
+
+                <td>
+                    
+                    <div class=\"btn-group\" role=\"group\">
+
+                        ";
+            // line 81
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 81), 0)) {
+                // line 82
+                echo "                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
+                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'inscription\"><i class=\"fas fa-times-circle\"></i></a>
+                        ";
+            }
+            // line 85
+            echo "                                                
+                        
+                        ";
+            // line 87
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 87), 1)) {
+                // line 88
+                echo "                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'utilisateur\"><i class=\"far fa-trash-alt\"></i></a>
+                        ";
+            }
+            // line 90
+            echo "
+
                     </div>
-                    <a class=\"btn btn-secondary\" href=\"\"><i class=\"fas fa-file-download\"></i></a>
 
                 </td>
             </tr>
@@ -134,12 +208,13 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contact'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 56
+        // line 97
         echo "
         </tbody>
     </table>
 
-
+</div>
+</div>
 
 
 
@@ -158,7 +233,7 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
 
     public function getDebugInfo()
     {
-        return array (  138 => 56,  120 => 44,  116 => 43,  112 => 42,  108 => 41,  104 => 40,  101 => 39,  97 => 38,  78 => 24,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  212 => 97,  200 => 90,  196 => 88,  194 => 87,  190 => 85,  185 => 82,  183 => 81,  175 => 75,  171 => 73,  169 => 72,  166 => 71,  164 => 70,  161 => 69,  159 => 68,  154 => 66,  150 => 65,  146 => 64,  142 => 63,  139 => 62,  135 => 61,  113 => 41,  109 => 39,  106 => 38,  102 => 36,  100 => 35,  97 => 34,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -172,48 +247,89 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
 {% block body %}
 
     {# TEMPLATE DU MENU DASHBOARD liste des membres #}
+<div class=\"container-fluid\">
+    <div class=\"row d-flex flex-wrap\">
+
+ <div class=\"alert alert-secondary text-center p-2 col-12\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
+
+
+    
+
 
     <section id=\"sidebar\"> 
       <div id=\"sidebar-nav\">
       <br><br>
         <ul>
-          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Profil</a></li>
-          <li><a href=\"/dashboard/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Articles</a></li>  
-          <li><a href=\"/listeMembre\"><i class=\"fa fa-users\"></i>Utilisateurs</a></li>
+
+          {# PRIVILEGES DANS LE DASHBOARD #}
+
+          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
+
+          {% if role == \"Redacteur\" or role == \"Administrateur\" %}
+          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+          <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
+          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
+          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
+          {% endif %}
+
+          {% if role == \"Administrateur\" %}
+          <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
+          {% endif %}
+          {% if role == \"Administrateur\" %}
+          <li><a href=\"/Listemembre\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modifier le CSS</a></li>
+          {% endif %}
+
         </ul>
       </div>
-</section>
+    </section>
 
 
-    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
+   
 
-    <table class=\"table table-striped\">
+    <table class=\"table table-striped mx-auto col-8\" style=\"margin-top: 3em;\">
         <thead>
         <tr>
-            <th scope=\"col\">#</th>
+            <th scope=\"col\">ID</th>
             <th scope=\"col\">Nom</th>
             <th scope=\"col\">Prenom</th>
             <th scope=\"col\">Email</th>
-            <th scope=\"col\">Role</th>
+            <th scope=\"col\">Rôle</th>
         </tr>
         </thead>
         <tbody>
 
     {% for contact in allContact %}
               <tr>
-                <th scope=\"row\"><a href=\"\">#{{ contact.id }}</a></th>
+                <th scope=\"row\"><a href=\"\">{{ contact.ID_MEMBRE }}</a></th>
                 <td>{{ contact.MEM_NOM }}</td>
                 <td>{{ contact.MEM_PRENOM }}</td>
                 <td>{{ contact.MEM_EMAIL }}</td>
-                <td>{{ contact.ROLE }}</td>
                 <td>
-                    <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                        <a class=\"btn btn-success\" href=\"\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"\"><i class=\"far fa-trash-alt\"></i></a>
+                {% if contact.ROLE == 0 %}
+                    Visiteur
+                {% elseif contact.ROLE == 1 %}
+                    Rédacteur
+                {% elseif contact.ROLE == 2 %}
+                    Administrateur
+                {% endif %}
+                </td>
+
+                <td>
+                    
+                    <div class=\"btn-group\" role=\"group\">
+
+                        {% if contact.ROLE == 0 %}
+                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
+                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'inscription\"><i class=\"fas fa-times-circle\"></i></a>
+                        {% endif %}
+                                                
+                        
+                        {% if contact.ROLE == 1 %}
+                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'utilisateur\"><i class=\"far fa-trash-alt\"></i></a>
+                        {% endif %}
+
+
                     </div>
-                    <a class=\"btn btn-secondary\" href=\"\"><i class=\"fas fa-file-download\"></i></a>
 
                 </td>
             </tr>
@@ -222,7 +338,8 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
         </tbody>
     </table>
 
-
+</div>
+</div>
 
 
 
