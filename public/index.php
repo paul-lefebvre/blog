@@ -74,6 +74,7 @@ $router->get('/inscription', 'User#pageInscription');
 $router->post('/inscription', 'User#inscription');
 
 //Moteur de recherche
+$router->get('/Article/Search/','Article#search');
 $router->post('/Article/Search/','Article#search');
 $router->get('/dashboard/', 'User#pageDashboard');
 
