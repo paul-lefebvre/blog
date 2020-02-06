@@ -41,20 +41,26 @@ class User {
         }
     }
 
-    function validerInscription (){
+    function validerInscription(\PDO $bdd, $nom, $prenom, $email, $actif){
 
         try{
+            $requete=$bdd->prepare("SELECT `ID_MEMBRE`, `MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`,`MEM_ACTIF` 
+            FROM t_membre
+            WHERE  `MEM_ACTIF`=0;");
+            $requete->execute([
 
+            ]);
+            return true;
 
         }catch (\Exception $e){
-
+            die('Erreur : ' . $e->getMessage());
         }
 
 
 
 
     // requete modifié le champs actif : UPDATE t_membre SET `MEM_ACTIF`='1' WHERE  `ID_MEMBRE`;
-    // SELECT `ID_MEMBRE`, `MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`, `ROLE`, `TOKEN`, `MEM_CLE`, `MEM_ACTIF` FROM `cesiblog`.`t_membre` WHERE  `MEM_ACTIF`=0;
+    
     }
 
 
