@@ -31,23 +31,22 @@ class UserController extends  AbstractController {
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
                 $_SESSION['errorlogin'] = "Mail invalide";
                 header('Location:/');
-                return;
+                return; 
             }
 
+            $userModel = new user();
+            $connexion = $userModel->getUserLogin(Bdd::GetInstance(), $_POST['email']);
             
-            //AJOUTER FONCTION VERIFICATION CHECK 
-
-            
-            if($_POST["email"]=="login@gmail.com" AND $_POST["password"] == "admin"){
+            if($_POST["email"]==$connexion['MEM_EMAIL'] AND password_verify($_POST["password"], $connexion['MEM_MDP'])){
                 
                 $_SESSION['email'] = $_POST['email'];
-                $_SESSION['pass'] = $_POST['pass'];
+                $_SESSION['pass'] = $connexion['MEM_MDP'];
 
                 header('Location:/dashboard');
 
             }else{
 
-                die;
+                
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
 
@@ -118,9 +117,9 @@ class UserController extends  AbstractController {
         }else{
             // Génération d'un TOKEN
             
-            var_dump($_SESSION['token']);
+            
             $token = bin2hex(random_bytes(32));
-            var_dump($token);
+        
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription.html.twig',
                 [

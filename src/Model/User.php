@@ -91,6 +91,14 @@ class User {
 
 
     }
+    public function getUserLogin(\PDO $bdd, $email){
+
+        $requete = $bdd->prepare("SELECT MEM_EMAIL,MEM_MDP FROM t_membre WHERE MEM_EMAIL = ?");
+        $requete -> execute(array($email));
+        $donnee = $requete ->fetch();
+        
+        return $donnee;
+    }
 
 
 
