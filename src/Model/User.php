@@ -102,14 +102,6 @@ class User {
 
 
 
-
-
-
-
-
-
-
-
     function getAllUser(\PDO $bdd){
 
         try{

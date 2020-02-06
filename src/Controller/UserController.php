@@ -172,11 +172,6 @@ class UserController extends  AbstractController {
        
         $userModel = new User();
         $lisAllUser =  $userModel->getAllUser(bdd::GetInstance());
-
-
-
-
-
         return $this->twig->render('Dashboard/listeMembre.html.twig',[
         'allContact'=> $lisAllUser
     ]);
