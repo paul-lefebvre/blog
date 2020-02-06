@@ -83,6 +83,7 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
     <table class=\"table table-striped\">
         <thead>
         <tr>
+            <th scope=\"col\">#</th>
             <th scope=\"col\">Nom</th>
             <th scope=\"col\">Prenom</th>
             <th scope=\"col\">Email</th>
@@ -92,31 +93,31 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
         <tbody>
 
     ";
-        // line 37
+        // line 38
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["allContact"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["contact"]) {
-            // line 38
+            // line 39
             echo "              <tr>
                 <th scope=\"row\"><a href=\"\">#";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "id", [], "any", false, false, false, 39), "html", null, true);
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "id", [], "any", false, false, false, 40), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_NOM", [], "any", false, false, false, 40), "html", null, true);
-            echo "</td>
-                <td>";
             // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_PRENOM", [], "any", false, false, false, 41), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_NOM", [], "any", false, false, false, 41), "html", null, true);
             echo "</td>
                 <td>";
             // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_EMAIL", [], "any", false, false, false, 42), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_PRENOM", [], "any", false, false, false, 42), "html", null, true);
             echo "</td>
                 <td>";
             // line 43
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 43), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_EMAIL", [], "any", false, false, false, 43), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 44
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 44), "html", null, true);
             echo "</td>
                 <td>
                     <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
@@ -133,7 +134,7 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contact'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 55
+        // line 56
         echo "
         </tbody>
     </table>
@@ -157,7 +158,7 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
 
     public function getDebugInfo()
     {
-        return array (  137 => 55,  119 => 43,  115 => 42,  111 => 41,  107 => 40,  103 => 39,  100 => 38,  96 => 37,  78 => 24,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  138 => 56,  120 => 44,  116 => 43,  112 => 42,  108 => 41,  104 => 40,  101 => 39,  97 => 38,  78 => 24,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -190,6 +191,7 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
     <table class=\"table table-striped\">
         <thead>
         <tr>
+            <th scope=\"col\">#</th>
             <th scope=\"col\">Nom</th>
             <th scope=\"col\">Prenom</th>
             <th scope=\"col\">Email</th>
