@@ -166,12 +166,6 @@ class UserController extends  AbstractController {
              
     }
 
-
-
-
-
-
-
     public function pageDashboard(){
     
         $mailAVerif = $_SESSION['email'];
