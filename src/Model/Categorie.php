@@ -19,7 +19,7 @@ class Categorie {
         $listCategorie = [];
 
         foreach ($arrayCategorie as $categorieSQL){
-            $categorie = new Article();
+            $categorie = new Categorie();
             $categorie->setID_CATEGORIE($categorieSQL['ID_CATEGORIE']);
             $categorie->setCAT_NOM($categorieSQL['CAT_NOM']);
 

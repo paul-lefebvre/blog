@@ -7,46 +7,86 @@
 {% block body %}
 
     {# TEMPLATE DU MENU DASHBOARD liste des membres #}
+<div class="container-fluid">
+    <div class="row d-flex flex-wrap">
+
+ <div class="alert alert-secondary text-center p-2 col-12" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
+
+
+    
+
 
     <section id="sidebar"> 
       <div id="sidebar-nav">
       <br><br>
         <ul>
-          <li><a href="/dashboard"><i class="fa fa-desktop"></i>Profil</a></li>
-          <li><a href="/dashboard/categories"><i class="fa fa-sitemap"></i>Catégories</a></li>
-          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Articles</a></li>  
-          <li><a href="/listeMembre"><i class="fa fa-users"></i>Utilisateurs</a></li>
+
+          {# PRIVILEGES DANS LE DASHBOARD #}
+
+          <li><a href="/dashboard"><i class="fa fa-desktop"></i>Mon Profil</a></li>
+
+          {% if role == "Redacteur" or role == "Administrateur" %}
+          <li><a href="/categories"><i class="fa fa-sitemap"></i>Catégories</a></li>
+          <li><a href="/Article/Add"><i class="far fa-newspaper"></i>Ajouter un article</a></li>  
+          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Modifier un article</a></li>
+          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Supprimer un article</a></li>
+          {% endif %}
+
+          {% if role == "Administrateur" %}
+          <li><a href="/Listemembre"><i class="fa fa-users"></i class="text-center">Gérer les Utilisateurs</a></li>
+          {% endif %}
+          {% if role == "Administrateur" %}
+          <li><a href="/Listemembre"><i class="fa fa-desktop"></i class="text-center">Modifier le CSS</a></li>
+          {% endif %}
+
         </ul>
       </div>
-</section>
+    </section>
 
 
-    <div class="alert alert-secondary text-center" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
+   
 
-    <table class="table table-striped">
+    <table class="table table-striped mx-auto col-8" style="margin-top: 3em;">
         <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Nom</th>
             <th scope="col">Prenom</th>
             <th scope="col">Email</th>
-            <th scope="col">Role</th>
+            <th scope="col">Rôle</th>
         </tr>
         </thead>
         <tbody>
 
     {% for contact in allContact %}
               <tr>
-                <th scope="row"><a href="">#{{ contact.id }}</a></th>
+                <th scope="row"><a href="">{{ contact.ID_MEMBRE }}</a></th>
                 <td>{{ contact.MEM_NOM }}</td>
                 <td>{{ contact.MEM_PRENOM }}</td>
                 <td>{{ contact.MEM_EMAIL }}</td>
-                <td>{{ contact.ROLE }}</td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <a class="btn btn-success" href=""><i class="far fa-eye"></i></a>
-                        <a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger" href=""><i class="far fa-trash-alt"></i></a>
+                {% if contact.ROLE == 0 %}
+                    Visiteur
+                {% elseif contact.ROLE == 1 %}
+                    Rédacteur
+                {% elseif contact.ROLE == 2 %}
+                    Administrateur
+                {% endif %}
+                </td>
+
+                <td>
+                    
+                    <div class="btn-group" role="group">
+
+                        {% if contact.ROLE == 0 %}
+                        <a class="btn btn-success" href="" data-toggle="tooltip"  title="Valider l'inscription"><i class="far fa-eye"></i></a>
+                        {% endif %}
+                        <a class="btn btn-warning" href="" data-toggle="tooltip"  title="Valider l'inscription"><i class="fas fa-edit"></i></a>
+                        
+                        {% if contact.ROLE == 1 %}
+                        <a class="btn btn-danger" href="" data-toggle="tooltip"  title="Supprimer l'utilisateur"><i class="far fa-trash-alt"></i></a>
+                        {% endif %}
+
                     </div>
                     <a class="btn btn-secondary" href=""><i class="fas fa-file-download"></i></a>
 
@@ -57,7 +97,8 @@
         </tbody>
     </table>
 
-
+</div>
+</div>
 
 
 

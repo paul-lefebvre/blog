@@ -76,46 +76,50 @@ class ArticleController extends AbstractController {
 
     public function add(){
 
-        UserController::roleNeed('redacteur');
-
-        if($_POST AND $_SESSION['token'] == $_POST['token']){
-            $sqlRepository = null;
-            $nomImage = null;
-            if(!empty($_FILES['image']['name']) )
-            {
-                $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
-                $extension  = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-                if(in_array(strtolower($extension),$tabExt))
+        $role = UserController::roleNeed();
+        if($role == "Administrateur" OR $role == "Redacteur"){ 
+            if($_POST AND $_SESSION['token'] == $_POST['token']){
+                $sqlRepository = null;
+                $nomImage = null;
+                if(!empty($_FILES['image']['name']) )
                 {
-                    $nomImage = md5(uniqid()) .'.'. $extension;
-                    $dateNow = new DateTime();
-                    $sqlRepository = $dateNow->format('Y/m');
-                    $repository = './uploads/images/'.$dateNow->format('Y/m');
-                    if(!is_dir($repository)){
-                        mkdir($repository,0777,true);
+                    $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
+                    $extension  = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                    if(in_array(strtolower($extension),$tabExt))
+                    {
+                        $nomImage = md5(uniqid()) .'.'. $extension;
+                        $dateNow = new DateTime();
+                        $sqlRepository = $dateNow->format('Y/m');
+                        $repository = './uploads/images/'.$dateNow->format('Y/m');
+                        if(!is_dir($repository)){
+                            mkdir($repository,0777,true);
+                        }
+                        move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
                     }
-                    move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
                 }
+                $articleModel = new Article();
+                $articleModel->setART_TITRE($_POST['Titre']);
+                $articleModel->setART_DESCRIPTION($_POST['Description']);
+                $articleModel->setART_AUTEUR($_POST['Auteur']);
+                $articleModel->setART_DATEAJOUT($_POST['DateAjout']);
+                $articleModel->setART_IMAGEREPOSITORY($sqlRepository);
+                $articleModel->setART_IMAGEFILENAME($nomImage);
+                var_dump($articleModel);
+                $articleModel->SqlAdd(BDD::getInstance());
+                //header('Location:/dashboard');
+                
+            }else{
+                // Génération d'un TOKEN
+                $token = bin2hex(random_bytes(32));
+                $_SESSION['token'] = $token;
+                return $this->twig->render('Article/add.html.twig',
+                    [
+                        'token' => $token
+                    ]);
             }
-            $article = new Article();
-            $article->setTitre($_POST['Titre'])
-                ->setDescription($_POST['Description'])
-                ->setAuteur($_POST['Auteur'])
-                ->setDateAjout($_POST['DateAjout'])
-                ->setImageRepository($sqlRepository)
-                ->setImageFileName($nomImage)
-            ;
-            $article->SqlAdd(BDD::getInstance());
-            header('Location:/Article');
-        }else{
-            // Génération d'un TOKEN
-            $token = bin2hex(random_bytes(32));
-            $_SESSION['token'] = $token;
-            return $this->twig->render('Article/add.html.twig',
-                [
-                    'token' => $token
-                ]);
-        }
+
+        }   
+
     }
 
     public function update($articleID){

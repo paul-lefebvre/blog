@@ -12,22 +12,34 @@
       <div id="sidebar-nav">
       <br><br>
         <ul>
+
+          {# PRIVILEGES DANS LE DASHBOARD #}
+
           <li><a href="/dashboard"><i class="fa fa-desktop"></i>Mon Profil</a></li>
+
           {% if role == "Redacteur" or role == "Administrateur" %}
           <li><a href="/categories"><i class="fa fa-sitemap"></i>Catégories</a></li>
           <li><a href="/Article/Add"><i class="far fa-newspaper"></i>Ajouter un article</a></li>  
           <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Modifier un article</a></li>
           <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Supprimer un article</a></li>
           {% endif %}
+
           {% if role == "Administrateur" %}
-          <li><a href="/dashboard/users"><i class="fa fa-users"></i class="text-center">Gérer les Utilisateurs</a></li>
+          <li><a href="/Listemembre"><i class="fa fa-users"></i class="text-center">Gérer les Utilisateurs</a></li>
+          <li><a href="/Listemembre"><i class="fa fa-desktop"></i class="text-center">Modfiier le CSS</a></li>
           {% endif %}
+
         </ul>
       </div>
     </section>
 
 
-    <div class="alert alert-secondary text-center" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
+    <div class="alert alert-secondary text-center" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }} | Email : {{ user.MEM_EMAIL }}</div>
+
+
+
+
+
 
 
 
