@@ -102,7 +102,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
 
 
-                <li class=\"nav-item p-2 col-12\"></li>
+                <li class=\"nav-item p-2 col-9\"></li>
 
 
 
@@ -132,7 +132,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
         echo "
                 ";
         // line 65
-        if (0 === twig_compare(($context["connected"] ?? null), 0)) {
+        if (0 === twig_compare(($context["isConnected"] ?? null), 0)) {
             // line 66
             echo "                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
@@ -323,7 +323,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
 
 
-                <li class=\"nav-item p-2 col-12\"></li>
+                <li class=\"nav-item p-2 col-9\"></li>
 
 
 
@@ -341,7 +341,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                     </li>
                 {% endif %}
 
-                {% if connected == 0 %}
+                {% if isConnected == 0 %}
                     <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>

@@ -67,14 +67,14 @@ class UserController extends  AbstractController {
 
 
             $mailUser = $_SESSION['email'];
-            $passUser = $_SESSION['user'];
+            $passUser = $_SESSION['pass'];
 
             $userModel = new User();
 
             $userId = $userModel->checkMailandPass(Bdd::GetInstance(), $mailUser, $passUser);
             $userData = $userModel->getUserData(Bdd::GetInstance(), $userId);
 
-            $userRole = $userData['MEM_ROLE'];
+            $userRole = $userData['ROLE'];
 
 
 
@@ -105,7 +105,7 @@ class UserController extends  AbstractController {
     public function logout(){
         unset($_SESSION['login']);
         unset($_SESSION['errorlogin']);
-
+        session_destroy();
         header('Location:/');
     }
 
