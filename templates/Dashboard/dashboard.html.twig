@@ -12,10 +12,16 @@
       <div id="sidebar-nav">
       <br><br>
         <ul>
-          <li><a href="/dashboard"><i class="fa fa-desktop"></i>Profil</a></li>
-          <li><a href="/dashboard/categories"><i class="fa fa-sitemap"></i>Catégories</a></li>
-          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Articles</a></li>  
-          <li><a href="/dashboard/users"><i class="fa fa-users"></i>Utilisateurs</a></li>
+          <li><a href="/dashboard"><i class="fa fa-desktop"></i>Mon Profil</a></li>
+          {% if role == 1 %}
+          <li><a href="/categories"><i class="fa fa-sitemap"></i>Catégories</a></li>
+          <li><a href="/Article/Add"><i class="far fa-newspaper"></i>Ajouter un article</a></li>  
+          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Modifier un article</a></li>
+          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Supprimer un article</a></li>
+          {% endif %}
+          {% if role == 2 %}
+          <li><a href="/dashboard/users"><i class="fa fa-users"></i>Gérer les Utilisateurs</a></li>
+          {% endif %}
         </ul>
       </div>
     </section>
