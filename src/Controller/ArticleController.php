@@ -122,7 +122,7 @@ class ArticleController extends AbstractController {
                 var_dump($articleModel);
 
                 $articleModel->SqlAdd(BDD::getInstance());
-                $_SESSION['successMsg'] = "Un article a bien été créé ! Félicitation ✔";
+                
                 header('Location:/dashboard');
 
                 
@@ -286,6 +286,29 @@ class ArticleController extends AbstractController {
 
         
     }
+
+
+
+    public function listArticlesAdmin(){
+
+
+        $articleModel = new Article();
+        $listArticles =  $articleModel->getAllArticles(bdd::GetInstance());
+
+
+        //Récupération du rôle du compte
+        $role = UserController::roleNeed();
+
+        return $this->twig->render('Dashboard/listeArticles.html.twig',[
+        'allArticles'=> $listArticles,
+        'role'=>$role
+        ]);
+
+
+    }
+
+
+
 
 
 

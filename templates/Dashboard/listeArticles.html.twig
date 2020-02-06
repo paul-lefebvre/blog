@@ -1,7 +1,7 @@
 {% extends "index.html.twig" %}
 
 
-{% block title %} Dashboard - {{ parent() }}{% endblock %}
+{% block title %} Liste des articles - {{ parent() }}{% endblock %}
 
 
 {% block body %}
@@ -47,43 +47,49 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Rôle</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Date</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Statut</th>
+            <th scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
 
-    {% for contact in allContact %}
+    {% for article in allArticles %}
               <tr>
-                <th scope="row"><a href="">{{ contact.ID_MEMBRE }}</a></th>
-                <td>{{ contact.MEM_NOM }}</td>
-                <td>{{ contact.MEM_PRENOM }}</td>
-                <td>{{ contact.MEM_EMAIL }}</td>
+                <th scope="row"><a href="">{{ article.ID_ARTICLE }}</a></th>
+                <td>{{ article.ART_TITRE }}</td>
+                <td>{{ article.ART_DATEAJOUT }}</td>
+                <td>{{ article.ART_AUTEUR }}</td>
                 <td>
-                {% if contact.ROLE == 0 %}
-                    Visiteur
-                {% elseif contact.ROLE == 1 %}
-                    Rédacteur
-                {% elseif contact.ROLE == 2 %}
-                    Administrateur
+                {% if article.ART_STATUT == 0 %}
+                    Attente
+                {% elseif article.ART_STATUT == 1 %}
+                    En ligne
+                {% elseif article.ART_STATUT == 2 %}
+                    Refusé
                 {% endif %}
                 </td>
-
+                
                 <td>
                     
                     <div class="btn-group" role="group">
 
-                        {% if contact.ROLE == 0 %}
-                        <a class="btn btn-success" href="" data-toggle="tooltip"  title="Valider l'inscription"><i class="fas fa-user-check"></i></a>
-                        <a class="btn btn-warning" href="" data-toggle="tooltip"  title="refuser l'inscription"><i class="fas fa-times-circle"></i></a>
+                        {% if article.ART_STATUT == 0 %}
+                        <a class="btn btn-success" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-check-circle"></i></a>
+                        <a class="btn btn-warning" href="" data-toggle="tooltip"  title="refuser l'article"><i class="fas fa-times-circle"></i></a>
                         {% endif %}
                                                 
                         
-                        {% if contact.ROLE == 1 %}
-                        <a class="btn btn-danger" href="" data-toggle="tooltip"  title="Supprimer l'utilisateur"><i class="far fa-trash-alt"></i></a>
+                        {% if article.ART_STATUT == 1 %}
+                        <a class="btn btn-danger" href="" data-toggle="tooltip"  title="Supprimer l'article"><i class="far fa-trash-alt"></i></a>
                         {% endif %}
+
+                        {% if article.ART_STATUT == 2 %}
+                        <a class="btn btn-danger" href="" data-toggle="tooltip"  title="Supprimer l'article"><i class="far fa-trash-alt"></i></a>
+                        {% endif %}
+
                     </div>
 
                 </td>
@@ -96,6 +102,6 @@
 </div>
 </div>
 
-
+<br><br><br>
 
 {% endblock %}
