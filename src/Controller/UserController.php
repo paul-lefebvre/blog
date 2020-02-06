@@ -25,7 +25,6 @@ class UserController extends  AbstractController {
     public function loginCheck(){
 
         if($_POST AND $_SESSION['token'] == $_POST['token']){
-            var_dump($_POST['password']);
             
 
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
@@ -34,20 +33,19 @@ class UserController extends  AbstractController {
                 return;
             }
 
-            // A MODIFIER POUR LE CHECK LOGIN
             
-            if($_POST["email"]=="admin@admin.com"
-                AND $_POST["password"] == "password"
-            ){
+            //AJOUTER FONCTION VERIFICATION CHECK 
+
+            
+            if($_POST["email"]=="login@gmail.com" AND $_POST["password"] == "admin"){
                 
-                
-                $_SESSION['login'] = array(
-                    'Nom' => 'Administrateur'
-                ,'Prénom' => 'Sylvain'
-                ,'roles' => array('admin', 'redacteur')
-                );
-                header('Location:/Dashboard');
+                $_SESSION['email'] = $_POST['email'];
+                $_SESSION['pass'] = $_POST['pass'];
+
+                header('Location:/dashboard');
+
             }else{
+
                 die;
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
@@ -149,20 +147,29 @@ class UserController extends  AbstractController {
 
     public function pageDashboard(){
     
-        $userId = 1;
+        $mailAVerif = $_SESSION['email'];
+        $passAVerif = $_SESSION['pass'];
+
+        $user = new User();
+
+        //Récupération de l'id de l'user en fonction de sa session
+        $userId = $user->checkMailandPass(Bdd::GetInstance(), $mailAVerif, $passAVerif);
+
+        //Récupération de ses infos depuis son id
+        $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
+
+        $isConnected = 1;
 
         $categorie = new Categorie();
         $listCategorie = $categorie->getAllCategories(Bdd::GetInstance(), $userId);
 
 
-        $user = new User();
-        $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
-
         //AJOUTER LES INFOS DE L'UTILISATEUR
         return $this->twig->render(
             'Dashboard/dashboard.html.twig',[
                 'user' => $listUser,
-                'listCategorie' => $listCategorie
+                'listCategorie' => $listCategorie,
+                'isConnected' => $isConnected
             ]
         );
 

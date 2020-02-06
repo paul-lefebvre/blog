@@ -77,12 +77,12 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
         <h1 class=\"text-center\">Connexion</h1>
         <form method=\"post\" action=\"/Login\">
             <div class=\"form-group\">
-                <label for=\"email\">Email</label>
-                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+                <label for=\"exampleInputEmail1\">Email</label>
+                <input type=\"email\" name=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
             </div>
             <div class=\"form-group\">
-                <label for=\"password\">Mot de passe</label>
-                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+                <label for=\"exampleInputPassword1\">Mot de passe</label>
+                <input type=\"password\" name=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
             </div>
             <input type=\"hidden\" name=\"token\" value=\"";
         // line 25
@@ -130,12 +130,12 @@ class __TwigTemplate_da4f6a7c4466b3668da92528aa41949d8f16f0db9cca4b9e829bbb6bdd1
         <h1 class=\"text-center\">Connexion</h1>
         <form method=\"post\" action=\"/Login\">
             <div class=\"form-group\">
-                <label for=\"email\">Email</label>
-                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+                <label for=\"exampleInputEmail1\">Email</label>
+                <input type=\"email\" name=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
             </div>
             <div class=\"form-group\">
-                <label for=\"password\">Mot de passe</label>
-                <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
+                <label for=\"exampleInputPassword1\">Mot de passe</label>
+                <input type=\"password\" name=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">
             </div>
             <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
             <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>

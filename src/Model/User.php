@@ -74,7 +74,25 @@ class User {
 
 
 
+    function checkMailandPass(\PDO $bdd, $mail, $passHash){
 
+
+        try{
+            $requete = $bdd->prepare("SELECT ID_MEMBRE FROM t_membre 
+            WHERE MEM_EMAIL= :mail AND MEM_MDP = :pass ;");
+
+            $requete->execute(['mail'=>$mail, 'pass'=>$passHash]);
+            $idUser = $requete->fetch();
+
+            return $idUser;
+        
+
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+
+
+    }
 
 
 
