@@ -35,12 +35,15 @@ class UserController extends  AbstractController {
             }
 
             $userModel = new user();
-            $connexion = $userModel->getUserLogin(Bdd::GetInstance(), $_POST['email']);
+            $user = $userModel->getUserLogin(Bdd::GetInstance(), $_POST['email']);
             
-            if($_POST["email"]==$connexion['MEM_EMAIL'] AND password_verify($_POST["password"], $connexion['MEM_MDP'])){
+            if($_POST["email"]==$user['MEM_EMAIL'] AND password_verify($_POST["password"], $user['MEM_MDP'])){
                 
-                $_SESSION['email'] = $_POST['email'];
-                $_SESSION['pass'] = $connexion['MEM_MDP'];
+                $_SESSION['email'] = $user['MEM_EMAIL'];
+                $_SESSION['pass'] = $user['MEM_MDP'];
+
+
+                
 
                 header('Location:/dashboard');
 
@@ -147,7 +150,6 @@ class UserController extends  AbstractController {
 
         //Récupération de ses infos depuis son id
         $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
-
         $isConnected = 1;
 
         $categorie = new Categorie();

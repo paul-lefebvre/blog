@@ -54,8 +54,8 @@ class User {
     function getUserData(\PDO $bdd, $userId){
 
         try{
-            $requete = $bdd->prepare('SELECT * FROM t_membre WHERE ID_MEMBRE = ?');
-            $requete->execute([$userId]);
+            $requete = $bdd->prepare('SELECT * FROM t_membre WHERE ID_MEMBRE = :id ;');
+            $requete->execute(['id'=>$userId]);
             $arrayUserData = $requete->fetch();
 
 
@@ -66,7 +66,7 @@ class User {
         }
 
 
-
+       
 
     }
 
@@ -76,13 +76,13 @@ class User {
 
 
         try{
-            $requete = $bdd->prepare("SELECT ID_MEMBRE FROM t_membre 
+            $requete = $bdd->prepare("SELECT * FROM t_membre 
             WHERE MEM_EMAIL= :mail AND MEM_MDP = :pass ;");
 
             $requete->execute(['mail'=>$mail, 'pass'=>$passHash]);
             $idUser = $requete->fetch();
 
-            return $idUser;
+             return $idUser['ID_MEMBRE'];
         
 
         }catch (\Exception $e){
@@ -93,7 +93,7 @@ class User {
     }
     public function getUserLogin(\PDO $bdd, $email){
 
-        $requete = $bdd->prepare("SELECT MEM_EMAIL,MEM_MDP FROM t_membre WHERE MEM_EMAIL = ?");
+        $requete = $bdd->prepare("SELECT MEM_EMAIL,MEM_MDP,MEM_NOM,MEM_PRENOM,ROLE FROM t_membre WHERE MEM_EMAIL = ?");
         $requete -> execute(array($email));
         $donnee = $requete ->fetch();
         
