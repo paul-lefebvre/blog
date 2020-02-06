@@ -166,7 +166,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 ";
         // line 88
         $this->displayBlock('footer', $context, $blocks);
-        // line 130
+        // line 131
         echo "
 
     <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
@@ -177,9 +177,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 
 ";
-        // line 139
+        // line 140
         $this->displayBlock('javascript', $context, $blocks);
-        // line 141
+        // line 142
         echo "
 </body>
 </html>
@@ -222,6 +222,10 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     <!-- Form -->
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+                        <input type=\"hidden\" name=\"token\" value=\"";
+        // line 101
+        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        echo "\">
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
                     </form>
                     <!-- Form -->
@@ -253,7 +257,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 ";
     }
 
-    // line 139
+    // line 140
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -271,7 +275,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
     public function getDebugInfo()
     {
-        return array (  257 => 139,  213 => 89,  209 => 88,  203 => 84,  197 => 12,  190 => 5,  183 => 141,  181 => 139,  170 => 130,  168 => 88,  164 => 86,  162 => 84,  150 => 74,  140 => 66,  138 => 65,  135 => 64,  121 => 55,  117 => 53,  115 => 52,  112 => 51,  110 => 50,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
+        return array (  261 => 140,  227 => 101,  213 => 89,  209 => 88,  203 => 84,  197 => 12,  190 => 5,  183 => 142,  181 => 140,  170 => 131,  168 => 88,  164 => 86,  162 => 84,  150 => 74,  140 => 66,  138 => 65,  135 => 64,  121 => 55,  117 => 53,  115 => 52,  112 => 51,  110 => 50,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -376,6 +380,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     <!-- Form -->
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+                        <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
                     </form>
                     <!-- Form -->
