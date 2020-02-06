@@ -25,6 +25,7 @@ $router = new \src\Router\Router($_GET['url']);
 
 //Route principale --> Page d'accueil
 $router->get('/', "Article#ListAll");
+//$router->get('/', "Article#Search");
 
 //Affichage de tout les articles
 $router->get('/Article', "Article#ListAll");

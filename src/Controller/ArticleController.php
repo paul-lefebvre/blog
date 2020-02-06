@@ -20,9 +20,10 @@ class ArticleController extends AbstractController {
     //Fonction : 
     public function ListAll(){
 
-        //Ajout du model + liste toutes les catégories
+        //Ajout du model + liste toutes les catégories$categorie = new Categorie();        
         $categorie = new Categorie();
         $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
+        
 
         //ajout du model + liste tout les article ET les 5 premiers
         $article = new Article();
@@ -235,12 +236,15 @@ class ArticleController extends AbstractController {
             $search = $_POST['search'];
             $article = new Article();
             $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
-
+            $categorie = new Categorie();
+            $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
             return $this->twig->render(
                 'Article/list.html.twig',[
                     'articleData' => $articleData,
                     'pageResultat' => 1,
                     'searchResult' => $_POST['search']
+                    ,'filtre' => $listCategorie
+                    
                 ]
             );
         }else{
