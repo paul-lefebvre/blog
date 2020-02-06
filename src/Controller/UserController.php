@@ -176,6 +176,8 @@ class UserController extends  AbstractController {
         $mailAVerif = $_SESSION['email'];
         $passAVerif = $_SESSION['pass'];
 
+        unset($_SESSION['successMsg']);
+
         $user = new User();
 
         //Récupération de l'id de l'user en fonction de sa session
