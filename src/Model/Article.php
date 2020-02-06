@@ -216,6 +216,7 @@ class Article extends Categorie implements \JsonSerializable {
         }
 
     }
+   
 
 
 

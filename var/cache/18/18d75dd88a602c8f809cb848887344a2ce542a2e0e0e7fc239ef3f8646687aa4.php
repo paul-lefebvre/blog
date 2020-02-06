@@ -102,7 +102,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
                 </li>
 
 
-                <li class=\"nav-item p-2 col-9\"></li>
+                <li class=\"nav-item p-2 col-7\"></li>
 
 
 
@@ -163,7 +163,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 ";
         // line 88
         $this->displayBlock('footer', $context, $blocks);
-        // line 131
+        // line 138
         echo "
 
     <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
@@ -174,9 +174,9 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 
 ";
-        // line 140
+        // line 147
         $this->displayBlock('javascript', $context, $blocks);
-        // line 142
+        // line 149
         echo "
 </body>
 </html>
@@ -223,6 +223,25 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
         // line 101
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
+                        <select name=\"filtre\" class=\"form-control\">
+                            <option value=\"0\">Toutes nos catégories</option>
+                            ";
+        // line 104
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["listCategorie"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["filtre"]) {
+            // line 105
+            echo "                            <option value= \"1\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 105), "html", null, true);
+            echo "</option>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['filtre'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 107
+        echo "                        </select>
+                        
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
                     </form>
                     <!-- Form -->
@@ -254,7 +273,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 ";
     }
 
-    // line 140
+    // line 147
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -272,7 +291,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 
     public function getDebugInfo()
     {
-        return array (  258 => 140,  224 => 101,  210 => 89,  206 => 88,  200 => 84,  194 => 12,  187 => 5,  180 => 142,  178 => 140,  167 => 131,  165 => 88,  161 => 86,  159 => 84,  147 => 74,  137 => 66,  135 => 65,  132 => 64,  118 => 55,  114 => 53,  112 => 52,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
+        return array (  277 => 147,  243 => 107,  234 => 105,  230 => 104,  224 => 101,  210 => 89,  206 => 88,  200 => 84,  194 => 12,  187 => 5,  180 => 149,  178 => 147,  167 => 138,  165 => 88,  161 => 86,  159 => 84,  147 => 74,  137 => 66,  135 => 65,  132 => 64,  118 => 55,  114 => 53,  112 => 52,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -323,7 +342,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
                 </li>
 
 
-                <li class=\"nav-item p-2 col-9\"></li>
+                <li class=\"nav-item p-2 col-7\"></li>
 
 
 
@@ -378,6 +397,13 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
                         <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
+                        <select name=\"filtre\" class=\"form-control\">
+                            <option value=\"0\">Toutes nos catégories</option>
+                            {% for filtre in listCategorie %}
+                            <option value= \"1\">{{ filtre.CAT_NOM }}</option>
+                            {% endfor %}
+                        </select>
+                        
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
                     </form>
                     <!-- Form -->
