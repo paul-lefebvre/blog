@@ -11,6 +11,7 @@ class User {
     private $MEM_EMAIL;
     private $MEM_MDP;
     private $MEM_ROLE;
+    private $MEM_ACTIF;
 
     //      =======================================================
     //  [Récupérer les informations de l'utilisateur lors de l'inscription]
@@ -41,15 +42,34 @@ class User {
         }
     }
 
-    function validerInscription(\PDO $bdd, $nom, $prenom, $email, $actif){
+    function getUserValid(\PDO $bdd, $actif){
 
         try{
             $requete=$bdd->prepare("SELECT `ID_MEMBRE`, `MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`,`MEM_ACTIF` 
             FROM t_membre
             WHERE  `MEM_ACTIF`=0;");
-            $requete->execute([
+            $requete->execute(['actif'=>$actif]);
+            $arrayUserData = $requete->fetch();
 
-            ]);
+            
+            return ;
+
+        }catch (\Exception $e){
+            die('Erreur : ' . $e->getMessage());
+        }
+            
+    }
+
+    function updateUserValid(\PDO $bdd, $idUser, $actif){
+
+        try{
+            $requete=$bdd->prepare("UPDATE t_membre 
+            SET `MEM_ACTIF`='1' 
+            WHERE  `ID_MEMBRE`;");
+            $requete->execute(['actif'=>$actif]);
+            $arrayUserData = $requete->fetch();
+
+            
             return true;
 
         }catch (\Exception $e){
@@ -57,10 +77,6 @@ class User {
         }
 
 
-
-
-    // requete modifié le champs actif : UPDATE t_membre SET `MEM_ACTIF`='1' WHERE  `ID_MEMBRE`;
-    
     }
 
 
@@ -262,6 +278,26 @@ class User {
     public function setMEM_ROLE($MEM_ROLE)
     {
         $this->MEM_ROLE = $MEM_ROLE;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of MEM_ACTIF
+     */ 
+    public function getMEM_ACTIF()
+    {
+        return $this->MEM_ACTIF;
+    }
+
+    /**
+     * Set the value of MEM_ACTIF
+     *
+     * @return  self
+     */ 
+    public function setMEM_ACTIF($MEM_ACTIF)
+    {
+        $this->MEM_ACTIF = $MEM_ACTIF;
 
         return $this;
     }
