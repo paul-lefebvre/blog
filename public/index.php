@@ -28,7 +28,7 @@ $router->get('/', "Article#ListAll");
 //$router->get('/', "Article#Search");
 
 //Affichage de tout les articles
-$router->get('/Article', "Article#ListAll");
+$router->get('/Article/All', "Article#ListAll");
 
 //Mise à jour des articles
 $router->get('/Article/Update/:id', "Article#Update#id");
