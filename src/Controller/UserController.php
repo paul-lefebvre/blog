@@ -126,19 +126,23 @@ class UserController extends  AbstractController {
 
     }
 
-    // quand l'user à terminé son inscription
+    // Inscription
 
     public function inscription(){
         
 
         if($_POST AND $_SESSION['token'] == $_POST['token']){
 
+            //demande a l'utilisateur de remplir les champs
             if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) 
             && isset($_POST['pass'])) {
-                            
+
+                // création d'un nouvel utilisateur             
                 $userModel = new user();
+
+                // verification si l'utilisateur est bien inscrit
                 $verifInscriptionUser = $userModel->inscrireUser(Bdd::GetInstance(), $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pass']);
-                if($verifInscriptionUser){
+                if($verifInscriptionUser){ 
                     $inscrit = 1;
                     return $this->twig->render('User/inscription.html.twig', [
                         'inscrit'=>$inscrit
@@ -153,10 +157,7 @@ class UserController extends  AbstractController {
             }
         }else{
             // Génération d'un TOKEN
-            
-            
             $token = bin2hex(random_bytes(32));
-        
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription.html.twig',
                 [
@@ -216,6 +217,11 @@ class UserController extends  AbstractController {
         'allContact'=> $lisAllUser,
         'role'=>$role
     ]);
+
+    }
+    public function reCaptcha(){
+
+        
 
     }
 
