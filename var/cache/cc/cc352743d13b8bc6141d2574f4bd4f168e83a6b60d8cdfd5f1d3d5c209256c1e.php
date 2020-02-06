@@ -105,14 +105,11 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 <li class=\"nav-item p-2 col-12\"></li>
 
 
-                ";
-        // line 50
-        $context["connected"] = 1;
-        // line 51
-        echo "
+
+
                 ";
         // line 52
-        if (0 === twig_compare(($context["connected"] ?? null), 1)) {
+        if (0 === twig_compare(($context["isConnected"] ?? null), 1)) {
             // line 53
             echo "                    <li class=\"nav-item dropdown ml-auto p-2\">
                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
@@ -124,7 +121,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
             echo "
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
+                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
                             <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
@@ -141,7 +138,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>
 
-                    <li class=\"nav-item\">
+                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-secondary btn-sm\" href=\"/Inscription\">S'inscrire</a>
                     </li>
                 ";
@@ -271,7 +268,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
     public function getDebugInfo()
     {
-        return array (  257 => 139,  213 => 89,  209 => 88,  203 => 84,  197 => 12,  190 => 5,  183 => 141,  181 => 139,  170 => 130,  168 => 88,  164 => 86,  162 => 84,  150 => 74,  140 => 66,  138 => 65,  135 => 64,  121 => 55,  117 => 53,  115 => 52,  112 => 51,  110 => 50,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
+        return array (  254 => 139,  210 => 89,  206 => 88,  200 => 84,  194 => 12,  187 => 5,  180 => 141,  178 => 139,  167 => 130,  165 => 88,  161 => 86,  159 => 84,  147 => 74,  137 => 66,  135 => 65,  132 => 64,  118 => 55,  114 => 53,  112 => 52,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -325,15 +322,15 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 <li class=\"nav-item p-2 col-12\"></li>
 
 
-                {% set connected = 1 %}
 
-                {% if connected == 1 %}
+
+                {% if isConnected == 1 %}
                     <li class=\"nav-item dropdown ml-auto p-2\">
                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                             <i class=\"fa fa-user\">   </i>   {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
+                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
                             <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
@@ -345,7 +342,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>
 
-                    <li class=\"nav-item\">
+                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-secondary btn-sm\" href=\"/Inscription\">S'inscrire</a>
                     </li>
                 {% endif %}

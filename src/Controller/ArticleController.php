@@ -30,21 +30,30 @@ class ArticleController extends AbstractController {
         $articleAll = $article->getAllArticles(Bdd::GetInstance());
 
 
+        
         //vérification : est-ce que l'utilisateur à une session valide ?
-        if(isset($_SESSION['email'])){
+        if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
+
+            $mailAVerif = $_SESSION['email'];
+            $passAVerif = $_SESSION['pass'];
+
+            $user = new User();
+
+            //Récupération de l'id de l'user en fonction de sa session
+            $userId = $user->checkMailandPass(Bdd::GetInstance(), $mailAVerif, $passAVerif);
+
+            //Récupération de ses infos depuis son id
+            $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
+
             $isConnected = 1;
+
         }else{
+            //Si l'user est un visiteur (pas de compte)
             $isConnected = 0;
+            $listUser = "";
         }
 
 
-
-
-        //id de l'user s'il est connecté pour afficher ses données || A CHANGER LORS DU SYSTEME DE SESSION ET LOGIN TERMINE
-        $userId = 1;
-
-        $user = new User();
-        $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
 
         //Lancement de Twig
         return $this->twig->render(
@@ -57,6 +66,8 @@ class ArticleController extends AbstractController {
                 'isConnected' => $isConnected
             ]
         );
+
+
     }
 
 
@@ -64,7 +75,9 @@ class ArticleController extends AbstractController {
 
 
     public function add(){
+
         UserController::roleNeed('redacteur');
+
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             $sqlRepository = null;
             $nomImage = null;
@@ -196,6 +209,10 @@ class ArticleController extends AbstractController {
         ]);
     }
 
+
+
+
+
     public function WriteOne($idArticle){
         $article = new Article();
         $articleData = $article->SqlGet(Bdd::GetInstance(), $idArticle);
@@ -208,6 +225,11 @@ class ArticleController extends AbstractController {
 
         header('location:/Article/');
     }
+
+
+
+
+
     public function search(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             $search = $_POST['search'];
@@ -234,9 +256,7 @@ class ArticleController extends AbstractController {
         
     }
 
-    public function test($param1,$param2){
-        var_dump($param1);
-        var_dump($param2);
-    }
+
+
 
 }
