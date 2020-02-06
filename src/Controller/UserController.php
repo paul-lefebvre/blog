@@ -31,23 +31,25 @@ class UserController extends  AbstractController {
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
                 $_SESSION['errorlogin'] = "Mail invalide";
                 header('Location:/');
-                return;
+                return; 
             }
 
+            $userModel = new user();
+            $user = $userModel->getUserLogin(Bdd::GetInstance(), $_POST['email']);
             
-            //AJOUTER FONCTION VERIFICATION CHECK 
-
-            
-            if($_POST["email"]=="login@gmail.com" AND $_POST["password"] == "admin"){
+            if($_POST["email"]==$user['MEM_EMAIL'] AND password_verify($_POST["password"], $user['MEM_MDP'])){
                 
-                $_SESSION['email'] = $_POST['email'];
-                $_SESSION['pass'] = $_POST['pass'];
+                $_SESSION['email'] = $user['MEM_EMAIL'];
+                $_SESSION['pass'] = $user['MEM_MDP'];
+
+
+                
 
                 header('Location:/dashboard');
 
             }else{
 
-                die;
+                
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
 
@@ -151,9 +153,9 @@ class UserController extends  AbstractController {
         }else{
             // Génération d'un TOKEN
             
-            var_dump($_SESSION['token']);
+            
             $token = bin2hex(random_bytes(32));
-            var_dump($token);
+        
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription.html.twig',
                 [
@@ -181,7 +183,6 @@ class UserController extends  AbstractController {
 
         //Récupération de ses infos depuis son id
         $listUser = $user->getUserData(Bdd::GetInstance(), $userId);
-
         $isConnected = 1;
 
         $categorie = new Categorie();
@@ -206,6 +207,19 @@ class UserController extends  AbstractController {
 
 
     }
+
+    // affichage de la page liste des membres
+    public function pagelisteMembre(){
+       
+        $userModel = new User();
+        $lisAllUser =  $userModel->getAllUser(bdd::GetInstance());
+        return $this->twig->render('Dashboard/listeMembre.html.twig',[
+        'allContact'=> $lisAllUser
+    ]);
+
+    }
+
+
 
 
 

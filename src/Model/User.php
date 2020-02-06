@@ -54,9 +54,60 @@ class User {
     function getUserData(\PDO $bdd, $userId){
 
         try{
-            $requete = $bdd->prepare('SELECT * FROM t_membre WHERE ID_MEMBRE = ?');
-            $requete->execute([$userId]);
+            $requete = $bdd->prepare('SELECT * FROM t_membre WHERE ID_MEMBRE = :id ;');
+            $requete->execute(['id'=>$userId]);
             $arrayUserData = $requete->fetch();
+
+
+            return $arrayUserData;
+        
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+
+
+       
+
+    }
+
+
+
+    function checkMailandPass(\PDO $bdd, $mail, $passHash){
+
+
+        try{
+            $requete = $bdd->prepare("SELECT * FROM t_membre 
+            WHERE MEM_EMAIL= :mail AND MEM_MDP = :pass ;");
+
+            $requete->execute(['mail'=>$mail, 'pass'=>$passHash]);
+            $idUser = $requete->fetch();
+
+             return $idUser['ID_MEMBRE'];
+        
+
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+
+
+    }
+    public function getUserLogin(\PDO $bdd, $email){
+
+        $requete = $bdd->prepare("SELECT MEM_EMAIL,MEM_MDP,MEM_NOM,MEM_PRENOM,ROLE FROM t_membre WHERE MEM_EMAIL = ?");
+        $requete -> execute(array($email));
+        $donnee = $requete ->fetch();
+        
+        return $donnee;
+    }
+
+
+
+    function getAllUser(\PDO $bdd){
+
+        try{
+            $requete = $bdd->prepare('SELECT * FROM t_membre');
+            $requete->execute();
+            $arrayUserData = $requete->fetchAll();
 
 
             return $arrayUserData;
@@ -69,40 +120,6 @@ class User {
 
 
     }
-
-
-
-    function checkMailandPass(\PDO $bdd, $mail, $passHash){
-
-
-        try{
-            $requete = $bdd->prepare("SELECT ID_MEMBRE FROM t_membre 
-            WHERE MEM_EMAIL= :mail AND MEM_MDP = :pass ;");
-
-            $requete->execute(['mail'=>$mail, 'pass'=>$passHash]);
-            $idUser = $requete->fetch();
-
-            return $idUser;
-        
-
-        }catch (\Exception $e){
-            return array("1", "[ERREUR] ".$e->getMessage());
-        }
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

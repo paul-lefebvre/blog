@@ -1,0 +1,64 @@
+{% extends "index.html.twig" %}
+
+
+{% block title %} Dashboard - {{ parent() }}{% endblock %}
+
+
+{% block body %}
+
+    {# TEMPLATE DU MENU DASHBOARD liste des membres #}
+
+    <section id="sidebar"> 
+      <div id="sidebar-nav">
+      <br><br>
+        <ul>
+          <li><a href="/dashboard"><i class="fa fa-desktop"></i>Profil</a></li>
+          <li><a href="/dashboard/categories"><i class="fa fa-sitemap"></i>Catégories</a></li>
+          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Articles</a></li>  
+          <li><a href="/listeMembre"><i class="fa fa-users"></i>Utilisateurs</a></li>
+        </ul>
+      </div>
+</section>
+
+
+    <div class="alert alert-secondary text-center" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+        </tr>
+        </thead>
+        <tbody>
+
+    {% for contact in allContact %}
+              <tr>
+                <th scope="row"><a href="">#{{ contact.id }}</a></th>
+                <td>{{ contact.MEM_NOM }}</td>
+                <td>{{ contact.MEM_PRENOM }}</td>
+                <td>{{ contact.MEM_EMAIL }}</td>
+                <td>{{ contact.ROLE }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-success" href=""><i class="far fa-eye"></i></a>
+                        <a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger" href=""><i class="far fa-trash-alt"></i></a>
+                    </div>
+                    <a class="btn btn-secondary" href=""><i class="fas fa-file-download"></i></a>
+
+                </td>
+            </tr>
+    {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}

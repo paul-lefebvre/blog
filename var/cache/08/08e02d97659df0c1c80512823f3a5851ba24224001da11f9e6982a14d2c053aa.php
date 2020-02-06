@@ -105,14 +105,11 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                 <li class=\"nav-item p-2 col-12\"></li>
 
 
-                ";
-        // line 50
-        $context["connected"] = 1;
-        // line 51
-        echo "
+
+
                 ";
         // line 52
-        if (0 === twig_compare(($context["connected"] ?? null), 1)) {
+        if (0 === twig_compare(($context["isConnected"] ?? null), 1)) {
             // line 53
             echo "                    <li class=\"nav-item dropdown ml-auto p-2\">
                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
@@ -124,7 +121,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
             echo "
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
+                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
                             <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
@@ -141,7 +138,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>
 
-                    <li class=\"nav-item\">
+                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-secondary btn-sm\" href=\"/Inscription\">S'inscrire</a>
                     </li>
                 ";
@@ -166,7 +163,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 ";
         // line 88
         $this->displayBlock('footer', $context, $blocks);
-        // line 130
+        // line 131
         echo "
 
     <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
@@ -177,9 +174,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 
 ";
-        // line 139
+        // line 140
         $this->displayBlock('javascript', $context, $blocks);
-        // line 141
+        // line 142
         echo "
 </body>
 </html>
@@ -222,6 +219,10 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     <!-- Form -->
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+                        <input type=\"hidden\" name=\"token\" value=\"";
+        // line 101
+        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        echo "\">
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
                     </form>
                     <!-- Form -->
@@ -253,7 +254,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 ";
     }
 
-    // line 139
+    // line 140
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -271,7 +272,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
     public function getDebugInfo()
     {
-        return array (  257 => 139,  213 => 89,  209 => 88,  203 => 84,  197 => 12,  190 => 5,  183 => 141,  181 => 139,  170 => 130,  168 => 88,  164 => 86,  162 => 84,  150 => 74,  140 => 66,  138 => 65,  135 => 64,  121 => 55,  117 => 53,  115 => 52,  112 => 51,  110 => 50,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
+        return array (  258 => 140,  224 => 101,  210 => 89,  206 => 88,  200 => 84,  194 => 12,  187 => 5,  180 => 142,  178 => 140,  167 => 131,  165 => 88,  161 => 86,  159 => 84,  147 => 74,  137 => 66,  135 => 65,  132 => 64,  118 => 55,  114 => 53,  112 => 52,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -325,15 +326,15 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                 <li class=\"nav-item p-2 col-12\"></li>
 
 
-                {% set connected = 1 %}
 
-                {% if connected == 1 %}
+
+                {% if isConnected == 1 %}
                     <li class=\"nav-item dropdown ml-auto p-2\">
                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                             <i class=\"fa fa-user\">   </i>   {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel Administrateur</a>
+                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
                             <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
@@ -345,7 +346,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>
 
-                    <li class=\"nav-item\">
+                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-secondary btn-sm\" href=\"/Inscription\">S'inscrire</a>
                     </li>
                 {% endif %}
@@ -376,6 +377,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     <!-- Form -->
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
+                        <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
                     </form>
                     <!-- Form -->
