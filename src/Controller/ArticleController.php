@@ -65,7 +65,7 @@ class ArticleController extends AbstractController {
                 'listCategorie' => $listCategorie,
                 'isConnected' => $isConnected
             ]
-        );
+        ); 
 
 
     }
