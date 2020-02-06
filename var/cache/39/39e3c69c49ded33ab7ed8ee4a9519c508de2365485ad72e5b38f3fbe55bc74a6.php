@@ -171,7 +171,7 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
 
 {% block body %}
 
-    {# TEMPLATE DU MENU DASHBOARD #}
+    {# TEMPLATE DU MENU DASHBOARD liste des membres #}
 
     <section id=\"sidebar\"> 
       <div id=\"sidebar-nav\">
