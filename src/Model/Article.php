@@ -34,10 +34,12 @@ class Article implements \JsonSerializable {
     //=======================================================
     public function SqlAdd(\PDO $bdd) {
         try{
-            $requete = $bdd->prepare("INSERT INTO t_articles (1, 1, ART_TITRE, ART_DESCRIPTION, 
+            $requete = $bdd->prepare("INSERT INTO t_articles (ID_MEMBRE, ID_CATEGORIE, ART_TITRE, ART_DESCRIPTION, 
             ART_DATEAJOUT, ART_AUTEUR, ART_IMAGEREPOSITORY, ART_IMAGEFILENAME) 
-            VALUES(:Titre, :DescriptionArt, :DateAjout, :Auteur, :ImageRepository, :ImageFileName)");
+            VALUES(:membreParent, :categorieParente, :Titre, :DescriptionArt, :DateAjout, :Auteur, :ImageRepository, :ImageFileName)");
             $requete->execute([
+                "membreParent" => $this->getID_MEMBRE(),
+                "categorieParente" => $this->getID_CATEGORIE(),
                 "Titre" => $this->getART_TITRE(),
                 "DescriptionArt" => $this->getART_DESCRIPTION(),
                 "DateAjout" => $this->getART_DATEAJOUT(),
@@ -45,7 +47,9 @@ class Article implements \JsonSerializable {
                 "ImageRepository" => $this->getART_IMAGEREPOSITORY(),
                 "ImageFileName" => $this->getART_IMAGEFILENAME(),
             ]);
+
             return array("result"=>true,"message"=>$bdd->lastInsertId());
+
         }catch (\Exception $e){
             return array("result"=>false,"message"=>$e->getMessage());
         }

@@ -78,10 +78,12 @@ class ArticleController extends AbstractController {
     public function add(){
 
         $role = UserController::roleNeed();
+
         if($role == "Administrateur" OR $role == "Redacteur"){ 
             if($_POST AND $_SESSION['token'] == $_POST['token']){
                 $sqlRepository = null;
                 $nomImage = null;
+
                 if(!empty($_FILES['image']['name']) )
                 {
                     $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
@@ -98,14 +100,27 @@ class ArticleController extends AbstractController {
                         move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
                     }
                 }
+
+                
+                //Récupération de l'id de l'user en fonction de sa session
+                $user = new User();
+                $userId = $user->checkMailandPass(Bdd::GetInstance(), $_SESSION['email'], $_SESSION['pass']);
+
+
+                //SET D'UN NOUVEAU MODELE D'ARTICLE
                 $articleModel = new Article();
+
+                $articleModel->setID_MEMBRE($userId);
+                $articleModel->setID_CATEGORIE($_POST['Categorie']);
                 $articleModel->setART_TITRE($_POST['Titre']);
                 $articleModel->setART_DESCRIPTION($_POST['Description']);
                 $articleModel->setART_AUTEUR($_POST['Auteur']);
                 $articleModel->setART_DATEAJOUT($_POST['DateAjout']);
                 $articleModel->setART_IMAGEREPOSITORY($sqlRepository);
                 $articleModel->setART_IMAGEFILENAME($nomImage);
+
                 var_dump($articleModel);
+
                 $articleModel->SqlAdd(BDD::getInstance());
                 //header('Location:/dashboard');
                 
@@ -113,9 +128,15 @@ class ArticleController extends AbstractController {
                 // Génération d'un TOKEN
                 $token = bin2hex(random_bytes(32));
                 $_SESSION['token'] = $token;
+
+                //Ajout du model + liste toutes les catégories      
+                $categorie = new Categorie();
+                $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
+
                 return $this->twig->render('Article/add.html.twig',
                     [
-                        'token' => $token
+                        'token' => $token,
+                        'AllCategorie' => $listCategorie
                     ]);
             }
 
