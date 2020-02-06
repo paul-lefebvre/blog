@@ -67,7 +67,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
           <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
           ";
         // line 16
-        if (0 === twig_compare(($context["role"] ?? null), "Redacteur")) {
+        if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
             // line 17
             echo "          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
@@ -79,7 +79,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
         echo "          ";
         if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
             // line 23
-            echo "          <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i>Gérer les Utilisateurs</a></li>
+            echo "          <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
           ";
         }
         // line 25
@@ -139,14 +139,14 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
       <br><br>
         <ul>
           <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
-          {% if role == \"Redacteur\" %}
+          {% if role == \"Redacteur\" or role == \"Administrateur\" %}
           <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
           {% endif %}
           {% if role == \"Administrateur\" %}
-          <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i>Gérer les Utilisateurs</a></li>
+          <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
           {% endif %}
         </ul>
       </div>
