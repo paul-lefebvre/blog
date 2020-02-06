@@ -1,6 +1,7 @@
 {
     "require": {
         "twig/twig": "^3.0",
-        "swiftmailer/swiftmailer": "^6.2"
+        "swiftmailer/swiftmailer": "^6.2",
+        "google/recaptcha": "^1.2"
     }
 }
