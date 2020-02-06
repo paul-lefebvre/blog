@@ -61,24 +61,57 @@ class UserController extends  AbstractController {
 
     }
 
-    public static function roleNeed($roleATester){
-        if(isset($_SESSION['login'])){
-            if(!in_array($roleATester,$_SESSION['login']['roles'])){
-                $_SESSION['errorlogin'] = "Vous ne possédez pas le rôle : ".$roleATester;
-                header('Location:/Contact');
+    public static function roleNeed(){
+
+        if(isset($_SESSION['email']) AND $_SESSION['pass']){
+
+
+            $mailUser = $_SESSION['email'];
+            $passUser = $_SESSION['pass'];
+
+            $userModel = new User();
+
+            $userId = $userModel->checkMailandPass(Bdd::GetInstance(), $mailUser, $passUser);
+            $userData = $userModel->getUserData(Bdd::GetInstance(), $userId);
+
+            $userRole = $userData['ROLE'];
+
+
+
+
+            if($userRole == 0){
+                $role = "Visiteur";
+                return $role;
+            }else if($userRole == 1){
+                $role = "Redacteur";
+                return $role;
+            }else if($userRole == 2){
+                $role = "Administrateur";
+                return $role;
             }
+
+
+
+
         }else{
             $_SESSION['errorlogin'] = "Veuillez vous identifier !";
             header('Location:/Login');
         }
     }
 
+
+
+
     public function logout(){
         unset($_SESSION['login']);
         unset($_SESSION['errorlogin']);
-
+        session_destroy();
         header('Location:/');
     }
+
+
+
+
 
     // affichage de la page d'inscription
     public function pageInscription(){
@@ -149,13 +182,19 @@ class UserController extends  AbstractController {
         $categorie = new Categorie();
         $listCategorie = $categorie->getAllCategories(Bdd::GetInstance(), $userId);
 
+        //Récupération du rôle du compte
+        $role = UserController::roleNeed();
+
+        
+        
 
         //AJOUTER LES INFOS DE L'UTILISATEUR
         return $this->twig->render(
             'Dashboard/dashboard.html.twig',[
                 'user' => $listUser,
                 'listCategorie' => $listCategorie,
-                'isConnected' => $isConnected
+                'isConnected' => $isConnected,
+                'role' => $role
             ]
         );
 
