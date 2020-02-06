@@ -118,9 +118,8 @@ class UserController extends  AbstractController {
         }else{
             // Génération d'un TOKEN
             
-            var_dump($_SESSION['token']);
+            
             $token = bin2hex(random_bytes(32));
-            var_dump($token);
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription.html.twig',
                 [
@@ -167,6 +166,24 @@ class UserController extends  AbstractController {
 
 
     }
+
+    // affichage de la page liste des membres
+    public function pagelisteMembre(){
+       
+        $userModel = new User();
+        $lisAllUser =  $userModel->getAllUser(bdd::GetInstance());
+
+
+
+
+
+        return $this->twig->render('Dashboard/listeMembre.html.twig',[
+        'allContact'=> $lisAllUser
+    ]);
+
+    }
+
+
 
 
 

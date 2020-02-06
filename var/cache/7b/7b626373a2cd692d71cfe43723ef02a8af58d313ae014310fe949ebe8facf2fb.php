@@ -48,7 +48,7 @@ class __TwigTemplate_e6e84954199aaf9f49529fd5fd8bdcc8299c8916c9d2bd9736031a1a3c5
     {
         $macros = $this->macros;
         $this->displayParentBlock("title", $context, $blocks);
-        echo " - Connectez vous ";
+        echo " - Connexion ";
     }
 
     // line 3
@@ -114,7 +114,7 @@ class __TwigTemplate_e6e84954199aaf9f49529fd5fd8bdcc8299c8916c9d2bd9736031a1a3c5
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
-{% block title %}{{ parent() }} - Connectez vous {% endblock %}
+{% block title %}{{ parent() }} - Connexion {% endblock %}
 {% block body %}
 
 

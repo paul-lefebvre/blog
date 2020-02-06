@@ -102,7 +102,24 @@ class User {
 
 
 
+    function getAllUser(\PDO $bdd){
 
+        try{
+            $requete = $bdd->prepare('SELECT * FROM t_membre');
+            $requete->execute();
+            $arrayUserData = $requete->fetchAll();
+
+
+            return $arrayUserData;
+        
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+
+
+
+
+    }
 
 
 
