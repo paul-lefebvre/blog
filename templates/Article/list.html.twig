@@ -27,10 +27,10 @@
         {# ==========================================[AFFICHAGE DES ARTICLES]================================================= #}
         
         {% for article in articleList %}
-            <div class="row"><div class="mx-auto">
+            <div class="row"><div class="mx-auto col-9">
             <div class="jumbotron">
                 <h1 class="display-4">{{ article.ART_TITRE }}</h1>
-                <div class=""> <img src="{{ article.ART_IMAGEREPOSITORY }}" class="rounded" alt="" width="304" height="236"> </div>
+                <img src="uploads/images/{{ article.ART_IMAGEREPOSITORY }}/{{ article.ART_IMAGEFILENAME }}" class="rounded" alt="" width="300" height="300">
                 <p class="lead">{{ article.ART_DESCRIPTION }}</p>
                 <hr class="my-4">
                 <p>{{ article.ART_AUTEUR }} - {{ article.ART_DATEAJOUT }}</p>

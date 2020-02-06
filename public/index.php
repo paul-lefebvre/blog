@@ -41,8 +41,10 @@ $router->post('/Article/Add', "Article#Add");
 //Suppression d'articles
 $router->get('/Article/Delete/:id', "Article#Delete#id");
 
-//Fixture
-$router->get('/Article/Fixtures', "Article#Fixtures");
+
+//Liste des articles pour rédacteur/admin
+$router->get('/dashboard/articles', "Article#Delete#id");
+
 
 //Modification des articles
 $router->get('/Article/Write', "Article#Write");

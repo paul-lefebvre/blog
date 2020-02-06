@@ -20,13 +20,12 @@
           {% if role == "Redacteur" or role == "Administrateur" %}
           <li><a href="/categories"><i class="fa fa-sitemap"></i>Catégories</a></li>
           <li><a href="/Article/Add"><i class="far fa-newspaper"></i>Ajouter un article</a></li>  
-          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Modifier un article</a></li>
-          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Supprimer un article</a></li>
+          <li><a href="/dashboard/articles"><i class="far fa-newspaper"></i>Liste des articles</a></li>
           {% endif %}
 
           {% if role == "Administrateur" %}
           <li><a href="/Listemembre"><i class="fa fa-users"></i class="text-center">Gérer les Utilisateurs</a></li>
-          <li><a href="/Listemembre"><i class="fa fa-desktop"></i class="text-center">Modfiier le CSS</a></li>
+          <li><a href=""><i class="fa fa-desktop"></i class="text-center">Modfiier le CSS</a></li>
           {% endif %}
 
         </ul>
@@ -37,11 +36,20 @@
     <div class="alert alert-secondary text-center" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }} | Email : {{ user.MEM_EMAIL }}</div>
 
 
+  <div class="container-fluid">
 
 
+    {% if session.successMsg is defined %}
+      <div class="row jumbotron jumbotron-fluid col-8 mx-auto" style="background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;">
+        <div class="container">
+          <h1 class="display-4 text-center">Bien joué !</h1>
+          <p class="lead text-center ">{{ session.successMsg }}</p>
+        </div>
+      </div>
+    {% endif %}
 
 
-
+  </div>
 
 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
