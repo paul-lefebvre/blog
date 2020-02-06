@@ -106,7 +106,7 @@ class ArticleController extends AbstractController {
     }
 
     public function update($articleID){
-
+        UserController::roleNeed('redacteur');
         if($_POST AND $_SESSION['token'] == $_POST['token']){
 
             $articleSQL = new Article();
@@ -172,29 +172,6 @@ class ArticleController extends AbstractController {
         header('Location:/');
     }
 
-    public function fixtures(){
-        $arrayAuteur = array('Fabien', 'Brice', 'Bruno', 'Jean-Pierre', 'Benoit', 'Emmanuel', 'Sylvie', 'Marion');
-        $arrayTitre = array('PHP en force', 'React JS une valeur montante', 'C# toujours au top', 'Java en légère baisse'
-        , 'Les entreprises qui recrutent', 'Les formations à ne pas rater', 'Les langages populaires en 2020', 'L\'année du Javascript');
-        $dateajout = new DateTime();
-        $article = new Article();
-        $article->SqlTruncate(BDD::getInstance());
-        for($i = 1;$i <=200; $i++){
-            shuffle($arrayAuteur);
-            shuffle($arrayTitre);
-
-            $dateajout->modify('+'.$i.' day');
-
-            $article->setTitre($arrayTitre[0])
-                ->setDescription('On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).')
-                ->setDateAjout($dateajout->format('Y-m-d'))
-                ->setAuteur($arrayAuteur[0]);
-            $article->SqlAdd(BDD::getInstance());
-        }
-        header('Location:/Article');
-    }
-
-
     public function Write(){
         $article = new Article();
         $listArticle = $article->ArticleGetFiveLast(Bdd::GetInstance());
@@ -232,17 +209,27 @@ class ArticleController extends AbstractController {
         header('location:/Article/');
     }
     public function search(){
-        $search = $_POST['search'];
-        $article = new Article();
-        $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+            $search = $_POST['search'];
+            $article = new Article();
+            $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
 
-        return $this->twig->render(
-            'Article/list.html.twig',[
-                'articleData' => $articleData,
-                'pageResultat' => 1,
-                'searchResult' => $_POST['search']
-            ]
-        );
+            return $this->twig->render(
+                'Article/list.html.twig',[
+                    'articleData' => $articleData,
+                    'pageResultat' => 1,
+                    'searchResult' => $_POST['search']
+                ]
+            );
+        }else{
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('Article/list.html.twig',
+                [
+                    'token' => $token
+                ]);
+        }
 
         
     }

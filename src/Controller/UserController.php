@@ -21,7 +21,7 @@ class UserController extends  AbstractController {
 
     public function loginCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
-            var_dump($_POST['password']);
+            
             
 
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
@@ -44,22 +44,12 @@ class UserController extends  AbstractController {
                 );
                 header('Location:/Login');
             }else{
-                die;
+                
                 $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
 
             }
 
-        }else{
-            // Génération d'un TOKEN
-            $token = bin2hex(random_bytes(32));
-            var_dump($token);
-            var_dump($_SESSION['token']);
-            $_SESSION['token'] = $token;
-            return $this->twig->render('User/login.html.twig',
-                [
-                    'token' => $token
-                ]);
         }
 
 
