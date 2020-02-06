@@ -79,16 +79,15 @@
                     <div class="btn-group" role="group">
 
                         {% if contact.ROLE == 0 %}
-                        <a class="btn btn-success" href="" data-toggle="tooltip"  title="Valider l'inscription"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-success" href="" data-toggle="tooltip"  title="Valider l'inscription"><i class="fas fa-user-check"></i></a>
+                        <a class="btn btn-warning" href="" data-toggle="tooltip"  title="refuser l'inscription"><i class="fas fa-times-circle"></i></a>
                         {% endif %}
-                        <a class="btn btn-warning" href="" data-toggle="tooltip"  title="Valider l'inscription"><i class="fas fa-edit"></i></a>
+                                                
                         
                         {% if contact.ROLE == 1 %}
                         <a class="btn btn-danger" href="" data-toggle="tooltip"  title="Supprimer l'utilisateur"><i class="far fa-trash-alt"></i></a>
                         {% endif %}
-
                     </div>
-                    <a class="btn btn-secondary" href=""><i class="fas fa-file-download"></i></a>
 
                 </td>
             </tr>

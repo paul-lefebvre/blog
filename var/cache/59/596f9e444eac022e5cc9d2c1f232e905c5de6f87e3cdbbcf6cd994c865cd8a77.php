@@ -64,36 +64,52 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
       <div id=\"sidebar-nav\">
       <br><br>
         <ul>
-          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
+
           ";
-        // line 16
+        // line 17
+        echo "
+          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
+
+          ";
+        // line 20
         if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
-            // line 17
+            // line 21
             echo "          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
           ";
         }
-        // line 22
-        echo "          ";
+        // line 26
+        echo "
+          ";
+        // line 27
         if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
-            // line 23
-            echo "          <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
+            // line 28
+            echo "          <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
+          <li><a href=\"/Listemembre\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
           ";
         }
-        // line 25
-        echo "        </ul>
+        // line 31
+        echo "
+        </ul>
       </div>
     </section>
 
 
     <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. ";
-        // line 30
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 30), "html", null, true);
+        // line 37
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 37), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 30), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 37), "html", null, true);
+        echo " | Email : ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_EMAIL", [], "any", false, false, false, 37), "html", null, true);
         echo "</div>
+
+
+
+
+
 
 
 
@@ -119,7 +135,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
     public function getDebugInfo()
     {
-        return array (  93 => 30,  86 => 25,  82 => 23,  79 => 22,  72 => 17,  70 => 16,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  102 => 37,  94 => 31,  89 => 28,  87 => 27,  84 => 26,  77 => 21,  75 => 20,  70 => 17,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -138,22 +154,34 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
       <div id=\"sidebar-nav\">
       <br><br>
         <ul>
+
+          {# PRIVILEGES DANS LE DASHBOARD #}
+
           <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
+
           {% if role == \"Redacteur\" or role == \"Administrateur\" %}
           <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
           <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Modifier un article</a></li>
           <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Supprimer un article</a></li>
           {% endif %}
+
           {% if role == \"Administrateur\" %}
-          <li><a href=\"/dashboard/users\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
+          <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
+          <li><a href=\"/Listemembre\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
           {% endif %}
+
         </ul>
       </div>
     </section>
 
 
-    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
+    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }} | Email : {{ user.MEM_EMAIL }}</div>
+
+
+
+
+
 
 
 
