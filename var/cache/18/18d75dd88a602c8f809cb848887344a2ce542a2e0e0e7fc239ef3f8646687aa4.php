@@ -224,14 +224,16 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
                         <select name=\"filtre\" class=\"form-control\">
-                            <option value=\"0\">Toutes nos catégories</option>
+                            <option name=\"filtre\" value=\"0\">Toutes nos catégories</option>
                             ";
         // line 104
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCategorie"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["filtre"]) {
             // line 105
-            echo "                            <option value= \"1\">";
+            echo "                            <option name=\"filtre\" value = '";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 105), "html", null, true);
+            echo "'>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 105), "html", null, true);
             echo "</option>
                             ";
@@ -291,7 +293,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 
     public function getDebugInfo()
     {
-        return array (  277 => 147,  243 => 107,  234 => 105,  230 => 104,  224 => 101,  210 => 89,  206 => 88,  200 => 84,  194 => 12,  187 => 5,  180 => 149,  178 => 147,  167 => 138,  165 => 88,  161 => 86,  159 => 84,  147 => 74,  137 => 66,  135 => 65,  132 => 64,  118 => 55,  114 => 53,  112 => 52,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
+        return array (  279 => 147,  245 => 107,  234 => 105,  230 => 104,  224 => 101,  210 => 89,  206 => 88,  200 => 84,  194 => 12,  187 => 5,  180 => 149,  178 => 147,  167 => 138,  165 => 88,  161 => 86,  159 => 84,  147 => 74,  137 => 66,  135 => 65,  132 => 64,  118 => 55,  114 => 53,  112 => 52,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -398,9 +400,9 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
                         <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
                         <select name=\"filtre\" class=\"form-control\">
-                            <option value=\"0\">Toutes nos catégories</option>
+                            <option name=\"filtre\" value=\"0\">Toutes nos catégories</option>
                             {% for filtre in listCategorie %}
-                            <option value= \"1\">{{ filtre.CAT_NOM }}</option>
+                            <option name=\"filtre\" value = '{{ filtre.CAT_NOM }}'>{{ filtre.CAT_NOM }}</option>
                             {% endfor %}
                         </select>
                         

@@ -261,8 +261,9 @@ class ArticleController extends AbstractController {
     public function search(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             $search = $_POST['search'];
+            $filter = $_POST['filtre'];
             $article = new Article();
-            $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
+            $articleData = $article->sqlSearch(Bdd::GetInstance(),$search,$filter);
             $categorie = new Categorie();
             $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
             return $this->twig->render(
