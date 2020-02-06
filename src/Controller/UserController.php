@@ -105,6 +105,7 @@ class UserController extends  AbstractController {
     public function logout(){
         unset($_SESSION['login']);
         unset($_SESSION['errorlogin']);
+        unset($_SESSION['role']);
         session_destroy();
         header('Location:/');
     }
@@ -165,12 +166,6 @@ class UserController extends  AbstractController {
              
     }
 
-
-
-
-
-
-
     public function pageDashboard(){
     
         $mailAVerif = $_SESSION['email'];
@@ -190,7 +185,6 @@ class UserController extends  AbstractController {
 
         //Récupération du rôle du compte
         $role = UserController::roleNeed();
-
         
         
 

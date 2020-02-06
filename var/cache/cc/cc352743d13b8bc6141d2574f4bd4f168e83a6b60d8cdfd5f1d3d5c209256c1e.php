@@ -102,7 +102,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
 
 
-                <li class=\"nav-item p-2 col-9\"></li>
+                <li class=\"nav-item p-2 col-7\"></li>
 
 
 
@@ -323,7 +323,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                 </li>
 
 
-                <li class=\"nav-item p-2 col-9\"></li>
+                <li class=\"nav-item p-2 col-7\"></li>
 
 
 
