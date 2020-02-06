@@ -140,7 +140,7 @@ class UserController extends  AbstractController {
                 // création d'un nouvel utilisateur             
                 $userModel = new user();
 
-                // verification si l'utilisateur et bien inscrit
+                // verification si l'utilisateur est bien inscrit
                 $verifInscriptionUser = $userModel->inscrireUser(Bdd::GetInstance(), $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pass']);
                 if($verifInscriptionUser){ 
                     $inscrit = 1;
