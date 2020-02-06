@@ -167,9 +167,16 @@ class UserController extends  AbstractController {
              
     }
 
+
     public function validationInscription(){
-        
+
+
+
+
+
     }
+
+
 
     public function pageDashboard(){
     

@@ -39,9 +39,22 @@ class User {
                 die('Erreur : ' . $e->getMessage());
 
         }
+    }
 
-    
-     
+    function validerInscription (){
+
+        try{
+
+
+        }catch (\Exception $e){
+
+        }
+
+
+
+
+    // requete modifié le champs actif : UPDATE t_membre SET `MEM_ACTIF`='1' WHERE  `ID_MEMBRE`;
+    // SELECT `ID_MEMBRE`, `MEM_NOM`, `MEM_PRENOM`, `MEM_EMAIL`, `MEM_MDP`, `ROLE`, `TOKEN`, `MEM_CLE`, `MEM_ACTIF` FROM `cesiblog`.`t_membre` WHERE  `MEM_ACTIF`=0;
     }
 
 
@@ -116,11 +129,9 @@ class User {
             return array("1", "[ERREUR] ".$e->getMessage());
         }
 
-
-
-
     }
 
+    
 
 
 
