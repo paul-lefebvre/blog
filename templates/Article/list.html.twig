@@ -15,10 +15,11 @@
         {% for article in articleData %}
             <div class="jumbotron">
                 <h1 class="display-4">{{ article.ART_TITRE }}</h1>
+                <img src="uploads/images/{{ article.ART_IMAGEREPOSITORY }}/{{ article.ART_IMAGEFILENAME }}" class="rounded" alt="" width="300" height="300">
                 <p class="lead">{{ article.ART_DESCRIPTION }}</p>
                 <hr class="my-4">
                 <p>{{ article.ART_AUTEUR }}</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Consulter l'article</a>
+                <a class="btn btn-primary btn-lg" href="" role="button">Consulter l'article</a>
             </div>
         {% endfor %}
         {# =================================================================================================================== #}
@@ -34,7 +35,7 @@
                 <p class="lead">{{ article.ART_DESCRIPTION }}</p>
                 <hr class="my-4">
                 <p>{{ article.ART_AUTEUR }} - {{ article.ART_DATEAJOUT }}</p>
-                <a class="btn btn-secondary btn-lg" href="#" role="button">Consulter l'article</a>
+                <a class="btn btn-secondary btn-lg" href="/Article/view/{{ article.ID_ARTICLE }}" role="button">Consulter l'article</a>
             </div></div>
             </div>
         {% endfor %}

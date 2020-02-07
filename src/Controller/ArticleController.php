@@ -318,11 +318,19 @@ class ArticleController extends AbstractController {
 
 
     }
+    public function justOneArticle($articleID){
 
+            $articleSQL = new Article();
+            $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
 
+            var_dump($article);
 
-
-
-
-
+            return $this->twig->render('Article/view.html.twig',[
+                'article' => $article
+            ]);
+        
+        
+        
+    }
 }
+

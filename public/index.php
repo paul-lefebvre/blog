@@ -87,6 +87,9 @@ $router->get('/listeMembre', 'User#pagelisteMembre');
 //Page validation Utilisateur 
 $router->get('/validation/user/:iduser', 'User#validationInscription#iduser');
 
+//Page voir Article
+$router->get('/Article/view/:articleID','Article#justOneArticle#articleID');
+
 
 //Lancement des routes
 echo $router->run();

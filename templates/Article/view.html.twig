@@ -1,0 +1,23 @@
+{% extends "index.html.twig" %}
+{% block title %}{{ parent() }} - View {% endblock %}
+
+
+{% block body %}
+<div class="jumbotron">
+    <h2 class="display-3"></h2>
+    <hr class="my-4">
+    <div class="row">
+        <h1>{{ article.ART_TITRE }}</h1>
+        <img src="uploads/images/{{ article.ART_IMAGEREPOSITORY }}/{{ article.ART_IMAGEFILENAME }}" class="rounded" alt="" width="300" height="300">
+        <p class="lead">{{ article.ART_DESCRIPTION }}</p>
+        <hr class="my-4">
+        <p>{{ article.ART_AUTEUR }} - {{ article.ART_DATEAJOUT }}</p>
+        
+        <a class="btn btn-secondary btn-lg" href="/" role="button">Retour</a>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
