@@ -176,30 +176,38 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
             // line 79
             if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 79), 0)) {
                 // line 80
-                echo "                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
+                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
                         <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'article\"><i class=\"fas fa-times-circle\"></i></a>
                         ";
             }
-            // line 83
+            // line 85
             echo "                                                
                         
                         ";
-            // line 85
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 85), 1)) {
-                // line 86
-                echo "                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+            // line 87
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 87), 1)) {
+                // line 88
+                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
+                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         ";
             }
-            // line 88
+            // line 93
             echo "
                         ";
-            // line 89
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 89), 2)) {
-                // line 90
-                echo "                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+            // line 94
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 94), 2)) {
+                // line 95
+                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
+                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         ";
             }
-            // line 92
+            // line 100
             echo "
                     </div>
 
@@ -210,7 +218,7 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 98
+        // line 106
         echo "
         </tbody>
     </table>
@@ -235,7 +243,7 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
 
     public function getDebugInfo()
     {
-        return array (  214 => 98,  203 => 92,  199 => 90,  197 => 89,  194 => 88,  190 => 86,  188 => 85,  184 => 83,  179 => 80,  177 => 79,  169 => 73,  165 => 71,  163 => 70,  160 => 69,  158 => 68,  155 => 67,  153 => 66,  148 => 64,  144 => 63,  140 => 62,  136 => 61,  133 => 60,  129 => 59,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  222 => 106,  211 => 100,  204 => 95,  202 => 94,  199 => 93,  192 => 88,  190 => 87,  186 => 85,  179 => 80,  177 => 79,  169 => 73,  165 => 71,  163 => 70,  160 => 69,  158 => 68,  155 => 67,  153 => 66,  148 => 64,  144 => 63,  140 => 62,  136 => 61,  133 => 60,  129 => 59,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -319,16 +327,24 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
                     <div class=\"btn-group\" role=\"group\">
 
                         {% if article.ART_STATUT == 0 %}
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
                         <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
                         <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'article\"><i class=\"fas fa-times-circle\"></i></a>
                         {% endif %}
                                                 
                         
                         {% if article.ART_STATUT == 1 %}
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
                         <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         {% endif %}
 
                         {% if article.ART_STATUT == 2 %}
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
                         <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         {% endif %}
 
