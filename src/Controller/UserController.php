@@ -234,11 +234,12 @@ class UserController extends  AbstractController {
 
         //Récupération du rôle du compte
         $role = UserController::roleNeed();
-
+        $isConnected = 1;
 
         return $this->twig->render('Dashboard/listeMembre.html.twig',[
         'allContact'=> $lisAllUser,
-        'role'=>$role
+        'role'=>$role,
+        'isConnected' => $isConnected
     ]);
 
     }
