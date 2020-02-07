@@ -77,9 +77,8 @@
                     
                     <div class="btn-group" role="group">
 
-
                         {% if article.ART_STATUT == 0 %}
-                        <a class="btn btn-success" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-check-circle"></i></a>
+                        <a class="btn btn-success" href="/validation/article/{{ article.ID_ARTICLE }}" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-check-circle"></i></a>
                         <a class="btn btn-danger" href="/Article/Delete/{{ article.ID_ARTICLE }}" data-toggle="tooltip"  title="Supprimer l'article"><i class="far fa-trash-alt"></i></a>
                         {% endif %}
                                                 

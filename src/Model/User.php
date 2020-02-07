@@ -67,10 +67,10 @@ class User {
             SET `MEM_ACTIF`= 1 
             WHERE  `ID_MEMBRE`=:actif;");
             $requete->execute(['actif'=>$idUser]);
-            $arrayUpdateUser = $requete->fetch();
+            
 
             
-            return $arrayUpdateUser;
+            return true;
 
         }catch (\Exception $e){
             die('Erreur : ' . $e->getMessage());
@@ -78,6 +78,8 @@ class User {
 
 
     }
+
+
 
 
     //=======================================================
@@ -126,7 +128,9 @@ class User {
 
 
     }
-    public function getUserLogin(\PDO $bdd, $email){
+    
+    
+    function getUserLogin(\PDO $bdd, $email){
 
         $requete = $bdd->prepare("SELECT MEM_EMAIL,MEM_MDP,MEM_NOM,MEM_PRENOM,ROLE FROM t_membre WHERE MEM_EMAIL = ?");
         $requete -> execute(array($email));
