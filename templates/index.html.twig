@@ -99,7 +99,7 @@
                     <!-- Form -->
                     <form class="form-inline" method="post" action="/Article/Search/">
                         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un article" name="search" >
-                        <input type="hidden" name="token" value="{{ token }}">
+                        <input type="hidden" name="token" value="{{ session.token }}">
                         <select name="filtre" class="form-control">
                             <option name="filtre" value="0">Toutes nos catégories</option>
                             {% for filtre in listCategorie %}

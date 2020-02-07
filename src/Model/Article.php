@@ -210,18 +210,28 @@ class Article implements \JsonSerializable {
 
         try{
             
-            $search = '%'.$search.'%';
+            $search = "%".$search."%";
+            var_dump($search);
 
-            $requete = $bdd->prepare("SELECT ID_CATEGORIE FROM t_categorie WHERE CAT_NOM = ?");
-            $requete->execute(array($filter));
-            $numFilter = $requete->fetch();
+            $requeteFiltre = $bdd->prepare("SELECT ID_CATEGORIE FROM t_categorie WHERE CAT_NOM = ? ;");
+            $requeteFiltre->execute(array($filter));
+            var_dump($requeteFiltre);
+            $numFilter = $requeteFiltre->fetch();
             var_dump($numFilter);
-            
-            $requete = $bdd->prepare("SELECT * FROM t_articles WHERE ART_TITRE like ? AND ID_CATEGORIE = ? ORDER BY ID_ARTICLE DESC LIMIT 10 ");
-            
-            $requete->execute(array($search,$numFilter));
 
-            $arrayArticle = $requete->fetchAll();
+            if($numFilter == 0){
+                $requete = $bdd->prepare("SELECT * FROM t_articles WHERE ART_TITRE like ? ORDER BY ID_ARTICLE DESC LIMIT 10 ");
+                $requete->execute(array($search));
+                echo "tous";
+                $arrayArticle = $requete->fetchAll();
+
+            }else{
+                echo "filtre";
+                $requete = $bdd->prepare("SELECT * FROM t_articles WHERE ART_TITRE like ? AND ID_CATEGORIE LIKE ? ORDER BY ID_ARTICLE DESC LIMIT 10 ");
+                $requete->execute(array($search,$numFilter["ID_CATEGORIE"]));
+                $arrayArticle = $requete->fetchAll();
+            }
+            var_dump($arrayArticle);
             return $arrayArticle;
 
         }catch(\Exception $e){
