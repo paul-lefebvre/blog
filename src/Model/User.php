@@ -60,17 +60,17 @@ class User {
             
     }
 
-    function updateUserValid(\PDO $bdd, $idUser, $actif){
+    function updateUserValid(\PDO $bdd, $idUser){
 
         try{
             $requete=$bdd->prepare("UPDATE t_membre 
-            SET `MEM_ACTIF`='1' 
-            WHERE  `ID_MEMBRE`;");
-            $requete->execute(['actif'=>$actif]);
-            $arrayUserData = $requete->fetch();
+            SET `MEM_ACTIF`= 1 
+            WHERE  `ID_MEMBRE`=:actif;");
+            $requete->execute(['actif'=>$idUser]);
+            $arrayUpdateUser = $requete->fetch();
 
             
-            return true;
+            return $arrayUpdateUser;
 
         }catch (\Exception $e){
             die('Erreur : ' . $e->getMessage());

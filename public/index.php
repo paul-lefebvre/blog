@@ -84,7 +84,8 @@ $router->get('/dashboard', 'User#pageDashboard');
 //Page liste des membres
 $router->get('/listeMembre', 'User#pagelisteMembre');
 
-
+//Page validation Utilisateur 
+$router->get('/validation/user/:iduser', 'User#validationInscription#iduser');
 
 
 //Lancement des routes

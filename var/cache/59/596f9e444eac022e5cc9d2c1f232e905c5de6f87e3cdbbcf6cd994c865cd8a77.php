@@ -56,85 +56,81 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
     {
         $macros = $this->macros;
         // line 8
-        echo "
-    ";
-        // line 10
-        echo "
-    <section id=\"sidebar\"> 
-      <div id=\"sidebar-nav\">
-      <br><br>
-        <ul>
+        echo "  ";
+        // line 9
+        echo "  <div class=\"container-fluid\">
+    <div class=\"row d-flex flex-wrap\">
 
-          ";
-        // line 17
-        echo "
-          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
-
-          ";
-        // line 20
-        if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
-            // line 21
-            echo "          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
-          <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
-          ";
-        }
-        // line 25
-        echo "
-          ";
-        // line 26
-        if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
-            // line 27
-            echo "          <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
-          <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
-          ";
-        }
-        // line 30
-        echo "
-        </ul>
-      </div>
-    </section>
-
-
-    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. ";
-        // line 36
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 36), "html", null, true);
+      <div class=\"alert alert-secondary text-center p-2 col-12\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. ";
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 12), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 36), "html", null, true);
-        echo " | Email : ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_EMAIL", [], "any", false, false, false, 36), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 12), "html", null, true);
+        echo "   |   Email: ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_EMAIL", [], "any", false, false, false, 12), "html", null, true);
+        echo "   |   Vous possédez les privilèges d'un ";
+        echo twig_escape_filter($this->env, ($context["role"] ?? null), "html", null, true);
         echo "</div>
 
+      <section id=\"sidebar\"> 
+        <div id=\"sidebar-nav\">
+          <br><br>
+          <ul>
 
-  <div class=\"container-fluid\">
-
-
-    ";
-        // line 42
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 42)) {
-            // line 43
-            echo "      <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
-        <div class=\"container\">
-          <h1 class=\"display-4 text-center\">Bien joué !</h1>
-          <p class=\"lead text-center \">";
-            // line 46
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 46), "html", null, true);
-            echo "</p>
-        </div>
-      </div>
-    ";
-        }
-        // line 50
+            ";
+        // line 20
         echo "
+            <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
 
+            ";
+        // line 23
+        if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
+            // line 24
+            echo "            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
+            <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
+            ";
+        }
+        // line 28
+        echo "
+            ";
+        // line 29
+        if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
+            // line 30
+            echo "            <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
+            <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            ";
+        }
+        // line 33
+        echo "
+          </ul>
+        </div>
+      </section>
+
+
+      <div class=\"container-fluid\">
+        ";
+        // line 40
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 40)) {
+            // line 41
+            echo "          <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
+            <div class=\"container\">
+              <h1 class=\"display-4 text-center\">Bien joué !</h1>
+              <p class=\"lead text-center \">";
+            // line 44
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 44), "html", null, true);
+            echo "</p>
+            </div>
+          </div>
+        ";
+        }
+        // line 48
+        echo "      </div>
+      
+    </div>
   </div>
 
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
-
+  <br><br><br><br><br><br>
 
 ";
     }
@@ -151,7 +147,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
     public function getDebugInfo()
     {
-        return array (  128 => 50,  121 => 46,  116 => 43,  114 => 42,  101 => 36,  93 => 30,  88 => 27,  86 => 26,  83 => 25,  77 => 21,  75 => 20,  70 => 17,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  128 => 48,  121 => 44,  116 => 41,  114 => 40,  105 => 33,  100 => 30,  98 => 29,  95 => 28,  89 => 24,  87 => 23,  82 => 20,  66 => 12,  61 => 9,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -163,58 +159,52 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
 
 {% block body %}
-
-    {# TEMPLATE DU MENU DASHBOARD #}
-
-    <section id=\"sidebar\"> 
-      <div id=\"sidebar-nav\">
-      <br><br>
-        <ul>
-
-          {# PRIVILEGES DANS LE DASHBOARD #}
-
-          <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
-
-          {% if role == \"Redacteur\" or role == \"Administrateur\" %}
-          <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
-          <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
-          <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
-          {% endif %}
-
-          {% if role == \"Administrateur\" %}
-          <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Gérer les Utilisateurs</a></li>
-          <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
-          {% endif %}
-
-        </ul>
-      </div>
-    </section>
-
-
-    <div class=\"alert alert-secondary text-center\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }} | Email : {{ user.MEM_EMAIL }}</div>
-
-
+  {# TEMPLATE DU MENU DASHBOARD liste des membres #}
   <div class=\"container-fluid\">
+    <div class=\"row d-flex flex-wrap\">
 
+      <div class=\"alert alert-secondary text-center p-2 col-12\" role=\"alert\" style=\"margin-bottom: 0;\">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}   |   Email: {{ user.MEM_EMAIL }}   |   Vous possédez les privilèges d'un {{ role }}</div>
 
-    {% if session.successMsg is defined %}
-      <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
-        <div class=\"container\">
-          <h1 class=\"display-4 text-center\">Bien joué !</h1>
-          <p class=\"lead text-center \">{{ session.successMsg }}</p>
+      <section id=\"sidebar\"> 
+        <div id=\"sidebar-nav\">
+          <br><br>
+          <ul>
+
+            {# PRIVILEGES DANS LE DASHBOARD #}
+
+            <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
+
+            {% if role == \"Redacteur\" or role == \"Administrateur\" %}
+            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
+            <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
+            {% endif %}
+
+            {% if role == \"Administrateur\" %}
+            <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
+            <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            {% endif %}
+
+          </ul>
         </div>
+      </section>
+
+
+      <div class=\"container-fluid\">
+        {% if session.successMsg is defined %}
+          <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
+            <div class=\"container\">
+              <h1 class=\"display-4 text-center\">Bien joué !</h1>
+              <p class=\"lead text-center \">{{ session.successMsg }}</p>
+            </div>
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
-
-
+      
+    </div>
   </div>
 
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
-
+  <br><br><br><br><br><br>
 
 {% endblock %}", "Dashboard/dashboard.html.twig", "E:\\dev\\Tp\\blog\\templates\\Dashboard\\dashboard.html.twig");
     }
