@@ -86,60 +86,69 @@ class __TwigTemplate_df6b3319244cf892ca1f3e2c5956e329245b522bf454d5e1ab1f85ec949
             // line 17
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 17), "html", null, true);
             echo "</h1>
-                <p class=\"lead\">";
+                <img src=\"uploads/images/";
             // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 18), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEREPOSITORY", [], "any", false, false, false, 18), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEFILENAME", [], "any", false, false, false, 18), "html", null, true);
+            echo "\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
+                <p class=\"lead\">";
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 19), "html", null, true);
             echo "</p>
                 <hr class=\"my-4\">
                 <p>";
-            // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 20), "html", null, true);
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 21), "html", null, true);
             echo "</p>
-                <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+                <a class=\"btn btn-primary btn-lg\" href=\"\" role=\"button\">Consulter l'article</a>
             </div>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
-        echo "        ";
         // line 25
+        echo "        ";
+        // line 26
         echo "
 
         ";
-        // line 28
+        // line 29
         echo "        
         ";
-        // line 29
+        // line 30
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articleList"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 30
+            // line 31
             echo "            <div class=\"row\"><div class=\"mx-auto col-9\">
             <div class=\"jumbotron\">
                 <h1 class=\"display-4\">";
-            // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 32), "html", null, true);
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 33), "html", null, true);
             echo "</h1>
                 <img src=\"uploads/images/";
-            // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEREPOSITORY", [], "any", false, false, false, 33), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEREPOSITORY", [], "any", false, false, false, 34), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEFILENAME", [], "any", false, false, false, 33), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_IMAGEFILENAME", [], "any", false, false, false, 34), "html", null, true);
             echo "\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
                 <p class=\"lead\">";
-            // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 34), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DESCRIPTION", [], "any", false, false, false, 35), "html", null, true);
             echo "</p>
                 <hr class=\"my-4\">
                 <p>";
-            // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 36), "html", null, true);
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 37), "html", null, true);
             echo " - ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DATEAJOUT", [], "any", false, false, false, 36), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DATEAJOUT", [], "any", false, false, false, 37), "html", null, true);
             echo "</p>
-                <a class=\"btn btn-secondary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+                <a class=\"btn btn-secondary btn-lg\" href=\"/Article/view/";
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 38), "html", null, true);
+            echo "\" role=\"button\">Consulter l'article</a>
             </div></div>
             </div>
         ";
@@ -147,7 +156,7 @@ class __TwigTemplate_df6b3319244cf892ca1f3e2c5956e329245b522bf454d5e1ab1f85ec949
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
+        // line 42
         echo "        
     </div>
 
@@ -167,7 +176,7 @@ class __TwigTemplate_df6b3319244cf892ca1f3e2c5956e329245b522bf454d5e1ab1f85ec949
 
     public function getDebugInfo()
     {
-        return array (  151 => 41,  138 => 36,  133 => 34,  127 => 33,  123 => 32,  119 => 30,  115 => 29,  112 => 28,  108 => 25,  106 => 24,  96 => 20,  91 => 18,  87 => 17,  84 => 16,  79 => 15,  75 => 12,  71 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  160 => 42,  150 => 38,  144 => 37,  139 => 35,  133 => 34,  129 => 33,  125 => 31,  121 => 30,  118 => 29,  114 => 26,  112 => 25,  102 => 21,  97 => 19,  91 => 18,  87 => 17,  84 => 16,  79 => 15,  75 => 12,  71 => 10,  65 => 8,  63 => 7,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -189,10 +198,11 @@ class __TwigTemplate_df6b3319244cf892ca1f3e2c5956e329245b522bf454d5e1ab1f85ec949
         {% for article in articleData %}
             <div class=\"jumbotron\">
                 <h1 class=\"display-4\">{{ article.ART_TITRE }}</h1>
+                <img src=\"uploads/images/{{ article.ART_IMAGEREPOSITORY }}/{{ article.ART_IMAGEFILENAME }}\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
                 <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
                 <hr class=\"my-4\">
                 <p>{{ article.ART_AUTEUR }}</p>
-                <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+                <a class=\"btn btn-primary btn-lg\" href=\"\" role=\"button\">Consulter l'article</a>
             </div>
         {% endfor %}
         {# =================================================================================================================== #}
@@ -208,7 +218,7 @@ class __TwigTemplate_df6b3319244cf892ca1f3e2c5956e329245b522bf454d5e1ab1f85ec949
                 <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
                 <hr class=\"my-4\">
                 <p>{{ article.ART_AUTEUR }} - {{ article.ART_DATEAJOUT }}</p>
-                <a class=\"btn btn-secondary btn-lg\" href=\"#\" role=\"button\">Consulter l'article</a>
+                <a class=\"btn btn-secondary btn-lg\" href=\"/Article/view/{{ article.ID_ARTICLE }}\" role=\"button\">Consulter l'article</a>
             </div></div>
             </div>
         {% endfor %}

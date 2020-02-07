@@ -86,7 +86,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
         // line 23
         if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
             // line 24
-            echo "            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            echo "            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             ";
@@ -99,32 +99,31 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
             // line 30
             echo "            <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             ";
         }
-        // line 33
+        // line 34
         echo "
           </ul>
         </div>
       </section>
 
-
-      <div class=\"container-fluid\">
         ";
-        // line 40
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 40)) {
-            // line 41
+        // line 39
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 39)) {
+            // line 40
             echo "          <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
             <div class=\"container\">
               <h1 class=\"display-4 text-center\">Bien joué !</h1>
               <p class=\"lead text-center \">";
-            // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 44), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 43), "html", null, true);
             echo "</p>
             </div>
           </div>
         ";
         }
-        // line 48
+        // line 47
         echo "      </div>
       
     </div>
@@ -147,7 +146,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
 
     public function getDebugInfo()
     {
-        return array (  128 => 48,  121 => 44,  116 => 41,  114 => 40,  105 => 33,  100 => 30,  98 => 29,  95 => 28,  89 => 24,  87 => 23,  82 => 20,  66 => 12,  61 => 9,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  127 => 47,  120 => 43,  115 => 40,  113 => 39,  106 => 34,  100 => 30,  98 => 29,  95 => 28,  89 => 24,  87 => 23,  82 => 20,  66 => 12,  61 => 9,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -175,7 +174,7 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
             <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
 
             {% if role == \"Redacteur\" or role == \"Administrateur\" %}
-            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             {% endif %}
@@ -183,14 +182,13 @@ class __TwigTemplate_54cffb6c4bb37def7c4536a83034f03fa3d91370a304a02db98d01d2aff
             {% if role == \"Administrateur\" %}
             <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             {% endif %}
 
           </ul>
         </div>
       </section>
 
-
-      <div class=\"container-fluid\">
         {% if session.successMsg is defined %}
           <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
             <div class=\"container\">

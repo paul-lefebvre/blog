@@ -52,12 +52,13 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
     <link rel=\"stylesheet\" href=\"../assets/css/main.css\">
-    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css\">
+    <link href=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.css\" rel=\"stylesheet\">
 
 ";
-        // line 13
+        // line 14
         $this->displayBlock('css', $context, $blocks);
-        // line 15
+        // line 16
         echo "
 <body>
 
@@ -79,21 +80,21 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                         ";
-        // line 36
+        // line 37
         echo "                        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCategorie"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-            // line 37
+            // line 38
             echo "                        <a class=\"dropdown-item text-secondary\" href=\"/\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 38), "html", null, true);
             echo "</a>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 40
         echo "                    </div>
                 </li>
 
@@ -109,32 +110,39 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
 
                 ";
-        // line 53
+        // line 54
         if (0 === twig_compare(($context["isConnected"] ?? null), 1)) {
-            // line 54
+            // line 55
             echo "                    <li class=\"nav-item dropdown ml-auto p-2\">
                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                             <i class=\"fa fa-user\">   </i>   ";
-            // line 56
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 56), "html", null, true);
+            // line 57
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 57), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 56), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 57), "html", null, true);
             echo "
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
+                        ";
+            // line 60
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_ACTIF", [], "any", false, false, false, 60), 1)) {
+                // line 61
+                echo "                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
-                            <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
+                        ";
+            }
+            // line 64
+            echo "                            <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
                     </li>
                 ";
         }
-        // line 65
+        // line 68
         echo "
                 ";
-        // line 66
+        // line 69
         if (0 === twig_compare(($context["isConnected"] ?? null), 0)) {
-            // line 67
+            // line 70
             echo "                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>
@@ -144,7 +152,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                     </li>
                 ";
         }
-        // line 75
+        // line 78
         echo "
 
             </ul>
@@ -154,17 +162,16 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
 
 
-
 ";
-        // line 85
-        $this->displayBlock('body', $context, $blocks);
         // line 87
+        $this->displayBlock('body', $context, $blocks);
+        // line 89
         echo "
 
 ";
-        // line 89
+        // line 91
         $this->displayBlock('footer', $context, $blocks);
-        // line 139
+        // line 141
         echo "
 
     <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
@@ -173,11 +180,16 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
     <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
     <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
 
 ";
-        // line 148
+        // line 155
         $this->displayBlock('javascript', $context, $blocks);
-        // line 150
+        // line 157
         echo "
 </body>
 </html>
@@ -191,23 +203,23 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
         echo "CESI BLOG";
     }
 
-    // line 13
+    // line 14
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 85
+    // line 87
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 89
+    // line 91
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 90
+        // line 92
         echo " 
     <footer class=\"page-footer font-small pt-4 footer\">
 
@@ -221,26 +233,28 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
                         <input type=\"hidden\" name=\"token\" value=\"";
-        // line 102
-        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        // line 104
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "token", [], "any", false, false, false, 104), "html", null, true);
         echo "\">
                         <select name=\"filtre\" class=\"form-control\">
-                            <option value=\"0\">Toutes nos catégories</option>
+                            <option name=\"filtre\" value=\"0\">Toutes nos catégories</option>
                             ";
-        // line 105
+        // line 107
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCategorie"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["filtre"]) {
-            // line 106
-            echo "                            <option value= \"1\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 106), "html", null, true);
+            // line 108
+            echo "                            <option name=\"filtre\" value = '";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 108), "html", null, true);
+            echo "'>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 108), "html", null, true);
             echo "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['filtre'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 108
+        // line 110
         echo "                        </select>
                         
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
@@ -274,7 +288,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 ";
     }
 
-    // line 148
+    // line 155
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -292,7 +306,7 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
     public function getDebugInfo()
     {
-        return array (  278 => 148,  244 => 108,  235 => 106,  231 => 105,  225 => 102,  211 => 90,  207 => 89,  201 => 85,  195 => 13,  188 => 5,  181 => 150,  179 => 148,  168 => 139,  166 => 89,  162 => 87,  160 => 85,  148 => 75,  138 => 67,  136 => 66,  133 => 65,  119 => 56,  115 => 54,  113 => 53,  97 => 39,  88 => 37,  83 => 36,  61 => 15,  59 => 13,  48 => 5,  42 => 1,);
+        return array (  292 => 155,  258 => 110,  247 => 108,  243 => 107,  237 => 104,  223 => 92,  219 => 91,  213 => 87,  207 => 14,  200 => 5,  193 => 157,  191 => 155,  175 => 141,  173 => 91,  169 => 89,  167 => 87,  156 => 78,  146 => 70,  144 => 69,  141 => 68,  135 => 64,  130 => 61,  128 => 60,  120 => 57,  116 => 55,  114 => 54,  98 => 40,  89 => 38,  84 => 37,  62 => 16,  60 => 14,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -307,7 +321,8 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
     <link rel=\"stylesheet\" href=\"../assets/css/main.css\">
-    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css\">
+    <link href=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.css\" rel=\"stylesheet\">
 
 {% block css %}
 {% endblock %}
@@ -355,8 +370,10 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                             <i class=\"fa fa-user\">   </i>   {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                        {% if user.MEM_ACTIF == 1 %}
                             <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
+                        {% endif %}
                             <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
                     </li>
@@ -380,7 +397,6 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
 
 
 
-
 {% block body %}
 {% endblock %}
 
@@ -398,11 +414,11 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
                     <!-- Form -->
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
-                        <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
+                        <input type=\"hidden\" name=\"token\" value=\"{{ session.token }}\">
                         <select name=\"filtre\" class=\"form-control\">
-                            <option value=\"0\">Toutes nos catégories</option>
+                            <option name=\"filtre\" value=\"0\">Toutes nos catégories</option>
                             {% for filtre in listCategorie %}
-                            <option value= \"1\">{{ filtre.CAT_NOM }}</option>
+                            <option name=\"filtre\" value = '{{ filtre.CAT_NOM }}'>{{ filtre.CAT_NOM }}</option>
                             {% endfor %}
                         </select>
                         
@@ -443,6 +459,11 @@ class __TwigTemplate_8ce38418174f1e9729a3fb20efeb49abb7dcdfb8fa5dc019b6cff34a0c0
     <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
     <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
 
 {% block javascript %}
 {% endblock %}

@@ -28,8 +28,22 @@ class Categorie {
         return $listCategorie;
     }
 
+    
+    public function addCategorieSql(\PDO $bdd, $newCat) {
+        try{
+            $requete = $bdd->prepare("INSERT INTO t_categorie (CAT_NOM) 
+            VALUES(:catname)");
+            $requete->execute([
+                "catname" => $newCat
+            ]);
 
+            return true;
 
+        }catch (\Exception $e){
+            return array("result"=>false,"message"=>$e->getMessage());
+        }
+
+    }
 
 
 
