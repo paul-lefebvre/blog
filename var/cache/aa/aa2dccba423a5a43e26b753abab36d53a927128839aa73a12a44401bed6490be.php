@@ -87,7 +87,34 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
 
 
 </div>
-
+<div class = \"jumbotron\">
+    <div class=\"container-fluid mt-2\">
+        <form method=\"post\" action=\"/Contact/sendMail\">
+        <div class=\"form-group\">
+            <div class=\"form-group\">
+                <label for=\"nom\">Votre Nom</label>
+                <input type=\"text\" name=\"nom\" class=\"form-control\" placeholder=\"Nom\">
+            </div>
+            <div class=\"form-group\">
+                <label for=\"email\">Votre Email</label>
+                <input type=\"email\" name=\"email\" placeholder =\"Email\" class=\"form-control\">
+            
+            </div>
+            <div class=\"form-group\">
+                <label for=\"content\">Entrer votre message</label>
+                <textarea name=\"content\" placeholder=\"Ecrire ici\" class=\"form-control\"></textarea>
+            </div>
+             <input type=\"hidden\" name=\"token\" value=\"";
+        // line 38
+        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        echo "\">
+            <div>
+                <input type=\"submit\" name=\"btn\" class=\"btn btn-primary\">
+            </div>
+        </div>
+        </form>
+    </div>
+</div>    
 
 ";
     }
@@ -104,7 +131,7 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
 
     public function getDebugInfo()
     {
-        return array (  80 => 14,  75 => 12,  69 => 11,  65 => 10,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  109 => 38,  80 => 14,  75 => 12,  69 => 11,  65 => 10,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -129,7 +156,31 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
 
 
 </div>
-
+<div class = \"jumbotron\">
+    <div class=\"container-fluid mt-2\">
+        <form method=\"post\" action=\"/Contact/sendMail\">
+        <div class=\"form-group\">
+            <div class=\"form-group\">
+                <label for=\"nom\">Votre Nom</label>
+                <input type=\"text\" name=\"nom\" class=\"form-control\" placeholder=\"Nom\">
+            </div>
+            <div class=\"form-group\">
+                <label for=\"email\">Votre Email</label>
+                <input type=\"email\" name=\"email\" placeholder =\"Email\" class=\"form-control\">
+            
+            </div>
+            <div class=\"form-group\">
+                <label for=\"content\">Entrer votre message</label>
+                <textarea name=\"content\" placeholder=\"Ecrire ici\" class=\"form-control\"></textarea>
+            </div>
+             <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
+            <div>
+                <input type=\"submit\" name=\"btn\" class=\"btn btn-primary\">
+            </div>
+        </div>
+        </form>
+    </div>
+</div>    
 
 {% endblock %}", "Article/view.html.twig", "C:\\Users\\samso\\Desktop\\Cours\\Projet PHP\\templates\\Article\\view.html.twig");
     }

@@ -173,9 +173,11 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
 
                         ";
             // line 78
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 78), 0)) {
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_ACTIF", [], "any", false, false, false, 78), 0)) {
                 // line 79
-                echo "                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
+                echo "                        <a class=\"btn btn-success\" href=\"/validation/user/";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ID_MEMBRE", [], "any", false, false, false, 79), "html", null, true);
+                echo "\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
                         <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'inscription\"><i class=\"fas fa-times-circle\"></i></a>
                         ";
             }
@@ -224,7 +226,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
 
     public function getDebugInfo()
     {
-        return array (  203 => 92,  193 => 87,  189 => 85,  187 => 84,  183 => 82,  178 => 79,  176 => 78,  168 => 72,  164 => 70,  162 => 69,  159 => 68,  157 => 67,  154 => 66,  152 => 65,  147 => 63,  143 => 62,  139 => 61,  135 => 60,  132 => 59,  128 => 58,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  205 => 92,  195 => 87,  191 => 85,  189 => 84,  185 => 82,  178 => 79,  176 => 78,  168 => 72,  164 => 70,  162 => 69,  159 => 68,  157 => 67,  154 => 66,  152 => 65,  147 => 63,  143 => 62,  139 => 61,  135 => 60,  132 => 59,  128 => 58,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -306,8 +308,8 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
                     
                     <div class=\"btn-group\" role=\"group\">
 
-                        {% if contact.ROLE == 0 %}
-                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
+                        {% if contact.MEM_ACTIF == 0 %}
+                        <a class=\"btn btn-success\" href=\"/validation/user/{{ contact.ID_MEMBRE }}\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
                         <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'inscription\"><i class=\"fas fa-times-circle\"></i></a>
                         {% endif %}
                                                 
