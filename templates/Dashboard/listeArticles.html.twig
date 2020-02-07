@@ -34,6 +34,7 @@
             {% if role == "Administrateur" %}
             <li><a href="/Listemembre"><i class="fa fa-users"></i class="text-center">Utilisateurs</a></li>
             <li><a href=""><i class="fa fa-desktop"></i class="text-center">Modfiier le CSS</a></li>
+            <li><a href="/Api/Article"><i class="fa fa-desktop"></i class="text-center">API</a></li>
             {% endif %}
 
           </ul>
@@ -76,26 +77,24 @@
                     
                     <div class="btn-group" role="group">
 
+
                         {% if article.ART_STATUT == 0 %}
-                        <a class="btn btn-secondary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="far fa-eye"></i></a>
-                        <a class="btn btn-primary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-pencil-alt"></i></a>
                         <a class="btn btn-success" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-check-circle"></i></a>
-                        <a class="btn btn-warning" href="" data-toggle="tooltip"  title="refuser l'article"><i class="fas fa-times-circle"></i></a>
+                        <a class="btn btn-danger" href="/Article/Delete/{{ article.ID_ARTICLE }}" data-toggle="tooltip"  title="Supprimer l'article"><i class="far fa-trash-alt"></i></a>
                         {% endif %}
                                                 
                         
                         {% if article.ART_STATUT == 1 %}
-                        <a class="btn btn-secondary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="far fa-eye"></i></a>
-                        <a class="btn btn-primary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-secondary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger" href="" data-toggle="tooltip"  title="Supprimer l'article"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn btn-secondary" href="" data-toggle="tooltip"  title="Visionner"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-primary" href="" data-toggle="tooltip"  title="Modifier"><i class="fas fa-pencil-alt"></i></a>
+                        <a class="btn btn-warning" href="" data-toggle="tooltip"  title="Change le statut"><i class="fas fa-edit"></i></a>
                         {% endif %}
 
                         {% if article.ART_STATUT == 2 %}
-                        <a class="btn btn-secondary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-secondary" href="" data-toggle="tooltip"  title="Voir l'article"><i class="far fa-eye"></i></a>
                         <a class="btn btn-primary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-pencil-alt"></i></a>
                         <a class="btn btn-secondary" href="" data-toggle="tooltip"  title="Valider l'article"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger" href="" data-toggle="tooltip"  title="Supprimer l'article"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn btn-danger" href="/Article/Delete/{{ article.ID_ARTICLE }}" data-toggle="tooltip"  title="Supprimer l'article"><i class="far fa-trash-alt"></i></a>
                         {% endif %}
 
                     </div>
