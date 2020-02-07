@@ -91,6 +91,11 @@ $router->get('/validation/user/:iduser', 'User#validationInscription#iduser');
 $router->get('/Article/view/:articleID','Article#justOneArticle#articleID');
 
 
+//Page voir Article
+$router->get('/categorie/add','Categorie#addCategorie');
+$router->post('/categorie/add','Categorie#addCategorie');
+
+
 //Lancement des routes
 echo $router->run();
 
