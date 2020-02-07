@@ -64,6 +64,8 @@ $router->put('/Api/Article/:id/:json', "Api#ArticlePut#id#json");
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
 
+
+
 //Page de connexion (login)
 $router->get('/Login', 'User#loginForm');
 $router->post('/Login', 'User#loginCheck');

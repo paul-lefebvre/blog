@@ -85,9 +85,10 @@ class __TwigTemplate_137e7c03103a41297fd070608e65ef1ffcf4e4c99f4b6a09ca0b46f7eb8
 
                     <label for=\"pass\">Mot de passe</label>
                     <input name=\"pass\" class=\"input-huge\" type=\"password\">
+
             \t</div>
                 <input type=\"hidden\" name=\"token\" value=\"";
-        // line 34
+        // line 35
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
                 <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
@@ -114,7 +115,7 @@ class __TwigTemplate_137e7c03103a41297fd070608e65ef1ffcf4e4c99f4b6a09ca0b46f7eb8
 
     public function getDebugInfo()
     {
-        return array (  91 => 34,  70 => 15,  64 => 11,  62 => 10,  59 => 9,  55 => 8,  47 => 3,  36 => 1,);
+        return array (  92 => 35,  70 => 15,  64 => 11,  62 => 10,  59 => 9,  55 => 8,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -151,6 +152,7 @@ class __TwigTemplate_137e7c03103a41297fd070608e65ef1ffcf4e4c99f4b6a09ca0b46f7eb8
 
                     <label for=\"pass\">Mot de passe</label>
                     <input name=\"pass\" class=\"input-huge\" type=\"password\">
+
             \t</div>
                 <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
                 <div class=\"g-recaptcha\" data-sitekey=\"6LeDttUUAAAAAEFwEIe13cCVcZQjXM8DPDq7hTEI\"></div>
