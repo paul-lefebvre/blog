@@ -261,26 +261,32 @@ class ArticleController extends AbstractController {
     public function search(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             $search = $_POST['search'];
+            $filter = $_POST['filtre'];
             $article = new Article();
-            $articleData = $article->sqlSearch(Bdd::GetInstance(),$search);
+            
+            $articleData = $article->sqlSearch(Bdd::GetInstance(),$search,$filter);
             $categorie = new Categorie();
             $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
+            
             return $this->twig->render(
                 'Article/list.html.twig',[
                     'articleData' => $articleData,
                     'pageResultat' => 1,
                     'searchResult' => $_POST['search']
-                    ,'filtre' => $listCategorie
+                    ,'listCategorie' => $listCategorie
                     
                 ]
             );
         }else{
+            $categorie = new Categorie();
+            $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
             // Génération d'un TOKEN
             $token = bin2hex(random_bytes(32));
             $_SESSION['token'] = $token;
-            return $this->twig->render('Article/list.html.twig',
+            return $this->twig->render('index.html.twig',
                 [
-                    'token' => $token
+                    'token' => $token,
+                    'filtre' => $listCategorie
                 ]);
         }
 

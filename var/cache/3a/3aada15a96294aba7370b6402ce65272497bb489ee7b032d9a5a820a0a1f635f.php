@@ -72,6 +72,29 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
                 </div>
             </div>
 
+            <div class=\"dropdown row form-group\">
+                <label for=\"Categorie\" class=\"col-sm-2 col-form-label\">Rubriques : </label>
+                <select class=\"dropdown btn btn-secondary dropdown-toggle\" aria-labelledby=\"dropdownMenuButton\" name=\"Categorie\">                    
+                    ";
+        // line 26
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["AllCategorie"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
+            // line 27
+            echo "                        <option class=\"dropdown-item text-center text-light\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "ID_CATEGORIE", [], "any", false, false, false, 27), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 27), "html", null, true);
+            echo "</option>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 29
+        echo "                </select>
+            </div>
+
             <div class=\"form-group row\">
                 <label for=\"Description\" class=\"col-sm-2 col-form-label\">Description</label>
                 <div class=\"col-sm-10\">
@@ -104,7 +127,7 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
                 </div>
             </div>
             <input type=\"hidden\" name=\"token\" value=\"";
-        // line 54
+        // line 63
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
             <input type=\"submit\" class=\"btn btn-primary my-1 mx-auto text-center\">
@@ -127,7 +150,7 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
 
     public function getDebugInfo()
     {
-        return array (  108 => 54,  59 => 7,  55 => 6,  47 => 3,  36 => 1,);
+        return array (  131 => 63,  95 => 29,  84 => 27,  80 => 26,  59 => 7,  55 => 6,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -152,6 +175,15 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
                 <div class=\"col-sm-10\">
                     <input type=\"text\" name=\"Titre\" class=\"form-control form-control-lg\">
                 </div>
+            </div>
+
+            <div class=\"dropdown row form-group\">
+                <label for=\"Categorie\" class=\"col-sm-2 col-form-label\">Rubriques : </label>
+                <select class=\"dropdown btn btn-secondary dropdown-toggle\" aria-labelledby=\"dropdownMenuButton\" name=\"Categorie\">                    
+                    {% for categorie in AllCategorie %}
+                        <option class=\"dropdown-item text-center text-light\" value=\"{{ categorie.ID_CATEGORIE }}\">{{ categorie.CAT_NOM }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class=\"form-group row\">

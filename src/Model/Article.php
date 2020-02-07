@@ -206,17 +206,27 @@ class Article implements \JsonSerializable {
     //=======================================================
     //[RECHERCHER 10 ARTICLES CORRESPONDANT A UNE RECHERCHE]=
     //=======================================================
-    public function sqlSearch(\PDO $bdd,$search){
+    public function sqlSearch(\PDO $bdd,$search,$filter){
 
         try{
             
-            $search = '%'.$search.'%';
-            
-            $requete = $bdd->prepare("SELECT * FROM t_articles WHERE ART_TITRE like ? ORDER BY ID_ARTICLE DESC LIMIT 10 ");
-            
-            $requete->execute(array($search));
+            $search = "%".$search."%";
 
-            $arrayArticle = $requete->fetchAll();
+            $requeteFiltre = $bdd->prepare("SELECT ID_CATEGORIE FROM t_categorie WHERE CAT_NOM = ? ;");
+            $requeteFiltre->execute(array($filter));
+            $numFilter = $requeteFiltre->fetch();
+
+
+            if($numFilter == 0){
+                $requete = $bdd->prepare("SELECT * FROM t_articles WHERE ART_TITRE like ? ORDER BY ID_ARTICLE DESC LIMIT 10 ");
+                $requete->execute(array($search));
+                $arrayArticle = $requete->fetchAll();
+
+            }else{
+                $requete = $bdd->prepare("SELECT * FROM t_articles WHERE ART_TITRE like ? AND ID_CATEGORIE LIKE ? ORDER BY ID_ARTICLE DESC LIMIT 10 ");
+                $requete->execute(array($search,$numFilter["ID_CATEGORIE"]));
+                $arrayArticle = $requete->fetchAll();
+            }
             return $arrayArticle;
 
         }catch(\Exception $e){

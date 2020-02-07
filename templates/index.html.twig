@@ -56,8 +56,10 @@
                             <i class="fa fa-user">   </i>   {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% if user.MEM_ACTIF == 1 %}
                             <a class="dropdown-item text-success" href="/dashboard">Panel</a>
                             <div class="dropdown-divider"></div>
+                        {% endif %}
                             <a class="dropdown-item text-danger" href="/logout">Déconnexion</a>
                         </div>
                     </li>
@@ -99,11 +101,11 @@
                     <!-- Form -->
                     <form class="form-inline" method="post" action="/Article/Search/">
                         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un article" name="search" >
-                        <input type="hidden" name="token" value="{{ token }}">
+                        <input type="hidden" name="token" value="{{ session.token }}">
                         <select name="filtre" class="form-control">
-                            <option value="0">Toutes nos catégories</option>
+                            <option name="filtre" value="0">Toutes nos catégories</option>
                             {% for filtre in listCategorie %}
-                            <option value= "1">{{ filtre.CAT_NOM }}</option>
+                            <option name="filtre" value = '{{ filtre.CAT_NOM }}'>{{ filtre.CAT_NOM }}</option>
                             {% endfor %}
                         </select>
                         

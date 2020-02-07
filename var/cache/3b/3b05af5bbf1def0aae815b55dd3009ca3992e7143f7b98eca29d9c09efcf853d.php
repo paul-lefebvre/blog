@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* Dashboard/listeMembre.html.twig */
-class __TwigTemplate_576184cd9f67719f5eb87a957e133d724a1a06cc1b2e7c6f48f2d4723f4dfd61 extends Template
+/* Dashboard/listeArticles.html.twig */
+class __TwigTemplate_cb39d95fed9abd2a6bc1fee158d63437fde110fb95cd52bf04682a23f25a60ad extends Template
 {
     private $source;
     private $macros = [];
@@ -39,7 +39,7 @@ class __TwigTemplate_576184cd9f67719f5eb87a957e133d724a1a06cc1b2e7c6f48f2d4723f4
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Dashboard/listeMembre.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig", "Dashboard/listeArticles.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -47,7 +47,7 @@ class __TwigTemplate_576184cd9f67719f5eb87a957e133d724a1a06cc1b2e7c6f48f2d4723f4
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo " Dashboard - ";
+        echo " Liste des articles - ";
         $this->displayParentBlock("title", $context, $blocks);
     }
 
@@ -115,91 +115,102 @@ class __TwigTemplate_576184cd9f67719f5eb87a957e133d724a1a06cc1b2e7c6f48f2d4723f4
         <thead>
         <tr>
             <th scope=\"col\">ID</th>
-            <th scope=\"col\">Nom</th>
-            <th scope=\"col\">Prenom</th>
-            <th scope=\"col\">Email</th>
-            <th scope=\"col\">Rôle</th>
+            <th scope=\"col\">Titre</th>
+            <th scope=\"col\">Date</th>
+            <th scope=\"col\">Auteur</th>
+            <th scope=\"col\">Statut</th>
+            <th scope=\"col\">Actions</th>
         </tr>
         </thead>
         <tbody>
 
     ";
-        // line 58
+        // line 59
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["allContact"] ?? null));
-        foreach ($context['_seq'] as $context["_key"] => $context["contact"]) {
-            // line 59
+        $context['_seq'] = twig_ensure_traversable(($context["allArticles"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 60
             echo "              <tr>
                 <th scope=\"row\"><a href=\"\">";
-            // line 60
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ID_MEMBRE", [], "any", false, false, false, 60), "html", null, true);
+            // line 61
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 61), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 61
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_NOM", [], "any", false, false, false, 61), "html", null, true);
-            echo "</td>
-                <td>";
             // line 62
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_PRENOM", [], "any", false, false, false, 62), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 62), "html", null, true);
             echo "</td>
                 <td>";
             // line 63
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_EMAIL", [], "any", false, false, false, 63), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DATEAJOUT", [], "any", false, false, false, 63), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 64
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 64), "html", null, true);
             echo "</td>
                 <td>
                 ";
-            // line 65
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 65), 0)) {
-                // line 66
-                echo "                    Visiteur
+            // line 66
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 66), 0)) {
+                // line 67
+                echo "                    Attente
                 ";
-            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 67
-$context["contact"], "ROLE", [], "any", false, false, false, 67), 1)) {
-                // line 68
-                echo "                    Rédacteur
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 68
+$context["article"], "ART_STATUT", [], "any", false, false, false, 68), 1)) {
+                // line 69
+                echo "                    En ligne
                 ";
-            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 69
-$context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
-                // line 70
-                echo "                    Administrateur
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 70
+$context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
+                // line 71
+                echo "                    Refusé
                 ";
             }
-            // line 72
+            // line 73
             echo "                </td>
-
+                
                 <td>
                     
                     <div class=\"btn-group\" role=\"group\">
 
                         ";
-            // line 78
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 78), 0)) {
-                // line 79
-                echo "                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'inscription\"><i class=\"fas fa-times-circle\"></i></a>
+            // line 79
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 79), 0)) {
+                // line 80
+                echo "                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
+                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'article\"><i class=\"fas fa-times-circle\"></i></a>
                         ";
             }
-            // line 82
+            // line 83
             echo "                                                
                         
                         ";
-            // line 84
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 84), 1)) {
-                // line 85
-                echo "                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'utilisateur\"><i class=\"far fa-trash-alt\"></i></a>
+            // line 85
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 85), 1)) {
+                // line 86
+                echo "                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         ";
             }
-            // line 87
-            echo "                    </div>
+            // line 88
+            echo "
+                        ";
+            // line 89
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 89), 2)) {
+                // line 90
+                echo "                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+                        ";
+            }
+            // line 92
+            echo "
+                    </div>
 
                 </td>
             </tr>
     ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contact'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 92
+        // line 98
         echo "
         </tbody>
     </table>
@@ -207,14 +218,14 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
 </div>
 </div>
 
-
+<br><br><br>
 
 ";
     }
 
     public function getTemplateName()
     {
-        return "Dashboard/listeMembre.html.twig";
+        return "Dashboard/listeArticles.html.twig";
     }
 
     public function isTraitable()
@@ -224,7 +235,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
 
     public function getDebugInfo()
     {
-        return array (  203 => 92,  193 => 87,  189 => 85,  187 => 84,  183 => 82,  178 => 79,  176 => 78,  168 => 72,  164 => 70,  162 => 69,  159 => 68,  157 => 67,  154 => 66,  152 => 65,  147 => 63,  143 => 62,  139 => 61,  135 => 60,  132 => 59,  128 => 58,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  214 => 98,  203 => 92,  199 => 90,  197 => 89,  194 => 88,  190 => 86,  188 => 85,  184 => 83,  179 => 80,  177 => 79,  169 => 73,  165 => 71,  163 => 70,  160 => 69,  158 => 68,  155 => 67,  153 => 66,  148 => 64,  144 => 63,  140 => 62,  136 => 61,  133 => 60,  129 => 59,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -232,7 +243,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
         return new Source("{% extends \"index.html.twig\" %}
 
 
-{% block title %} Dashboard - {{ parent() }}{% endblock %}
+{% block title %} Liste des articles - {{ parent() }}{% endblock %}
 
 
 {% block body %}
@@ -278,43 +289,49 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
         <thead>
         <tr>
             <th scope=\"col\">ID</th>
-            <th scope=\"col\">Nom</th>
-            <th scope=\"col\">Prenom</th>
-            <th scope=\"col\">Email</th>
-            <th scope=\"col\">Rôle</th>
+            <th scope=\"col\">Titre</th>
+            <th scope=\"col\">Date</th>
+            <th scope=\"col\">Auteur</th>
+            <th scope=\"col\">Statut</th>
+            <th scope=\"col\">Actions</th>
         </tr>
         </thead>
         <tbody>
 
-    {% for contact in allContact %}
+    {% for article in allArticles %}
               <tr>
-                <th scope=\"row\"><a href=\"\">{{ contact.ID_MEMBRE }}</a></th>
-                <td>{{ contact.MEM_NOM }}</td>
-                <td>{{ contact.MEM_PRENOM }}</td>
-                <td>{{ contact.MEM_EMAIL }}</td>
+                <th scope=\"row\"><a href=\"\">{{ article.ID_ARTICLE }}</a></th>
+                <td>{{ article.ART_TITRE }}</td>
+                <td>{{ article.ART_DATEAJOUT }}</td>
+                <td>{{ article.ART_AUTEUR }}</td>
                 <td>
-                {% if contact.ROLE == 0 %}
-                    Visiteur
-                {% elseif contact.ROLE == 1 %}
-                    Rédacteur
-                {% elseif contact.ROLE == 2 %}
-                    Administrateur
+                {% if article.ART_STATUT == 0 %}
+                    Attente
+                {% elseif article.ART_STATUT == 1 %}
+                    En ligne
+                {% elseif article.ART_STATUT == 2 %}
+                    Refusé
                 {% endif %}
                 </td>
-
+                
                 <td>
                     
                     <div class=\"btn-group\" role=\"group\">
 
-                        {% if contact.ROLE == 0 %}
-                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'inscription\"><i class=\"fas fa-times-circle\"></i></a>
+                        {% if article.ART_STATUT == 0 %}
+                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
+                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'article\"><i class=\"fas fa-times-circle\"></i></a>
                         {% endif %}
                                                 
                         
-                        {% if contact.ROLE == 1 %}
-                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'utilisateur\"><i class=\"far fa-trash-alt\"></i></a>
+                        {% if article.ART_STATUT == 1 %}
+                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         {% endif %}
+
+                        {% if article.ART_STATUT == 2 %}
+                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+                        {% endif %}
+
                     </div>
 
                 </td>
@@ -327,8 +344,8 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
 </div>
 </div>
 
+<br><br><br>
 
-
-{% endblock %}", "Dashboard/listeMembre.html.twig", "C:\\Users\\samso\\Desktop\\Cours\\Projet PHP\\templates\\Dashboard\\listeMembre.html.twig");
+{% endblock %}", "Dashboard/listeArticles.html.twig", "E:\\dev\\Tp\\blog\\templates\\Dashboard\\listeArticles.html.twig");
     }
 }
