@@ -24,46 +24,26 @@ class __TwigTemplate_d562eb37c0ab4acaf5e8297a9fdfa2321b58a6388e2cc2035d6f51bf04a
 
         $this->source = $this->getSourceContext();
 
-        $this->blocks = [
-            'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
-        ];
-    }
+        $this->parent = false;
 
-    protected function doGetParent(array $context)
-    {
-        // line 1
-        return "index.html.twig";
+        $this->blocks = [
+        ];
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Contact/form.html.twig", 1);
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-    }
-
-    // line 2
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $this->displayParentBlock("title", $context, $blocks);
-        echo " - Contactez nous ";
-    }
-
-    // line 3
-    public function block_body($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        // line 4
+        // line 1
         echo "
+
+
     <div class=\"container-fluid mt-2\">
         <form method=\"post\" action=\"/Contact/sendMail\">
             <input type=\"text\" name=\"nom\">
             <input type=\"email\" name=\"email\">
             <textarea name=\"content\"></textarea>
             <input type=\"hidden\" name=\"token\" value=\"";
-        // line 10
+        // line 9
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
             <input type=\"submit\">
@@ -85,14 +65,13 @@ class __TwigTemplate_d562eb37c0ab4acaf5e8297a9fdfa2321b58a6388e2cc2035d6f51bf04a
 
     public function getDebugInfo()
     {
-        return array (  67 => 10,  59 => 4,  55 => 3,  47 => 2,  36 => 1,);
+        return array (  47 => 9,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
-{% block title %}{{ parent() }} - Contactez nous {% endblock %}
-{% block body %}
+        return new Source("
+
 
     <div class=\"container-fluid mt-2\">
         <form method=\"post\" action=\"/Contact/sendMail\">
@@ -104,6 +83,6 @@ class __TwigTemplate_d562eb37c0ab4acaf5e8297a9fdfa2321b58a6388e2cc2035d6f51bf04a
         </form>
     </div>
 
-{% endblock %}", "Contact/form.html.twig", "C:\\Users\\samso\\Desktop\\Cours\\Projet PHP\\templates\\Contact\\form.html.twig");
+", "Contact/form.html.twig", "C:\\Users\\samso\\Desktop\\Cours\\Projet PHP\\templates\\Contact\\form.html.twig");
     }
 }

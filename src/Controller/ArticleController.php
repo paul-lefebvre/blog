@@ -329,6 +329,15 @@ class ArticleController extends AbstractController {
 
     }
     public function justOneArticle($articleID){
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+            $envoieMail = new ContactController();
+            $envoie = $envoieMail->sendMail();
+            $return = 1;
+            return $this->twig->render("view.html.twig",[
+                'mailSend' => $return
+            ]);
+
+        }else{
 
             $articleSQL = new Article();
             $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
@@ -341,6 +350,18 @@ class ArticleController extends AbstractController {
                 'article' => $article,
                 'isConnected' => $isConnected
             ]);
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('Article/view.html.twig',
+                [
+                    'token' => $token,
+                    'article' => $article,
+                    'isConnected' => $isConnected
+                ]);
+        }
+        
+           
         
         
         

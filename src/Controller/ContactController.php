@@ -8,9 +8,9 @@ class ContactController extends AbstractController{
     public function __construct()
     {
         parent::__construct();
-        $this->transport = (new \Swift_SmtpTransport('smtp.mailtrap.io', 25))
-            ->setUsername('3dd84281bc8679')
-            ->setPassword('8a9180301c670a');
+        $this->transport = (new \Swift_SmtpTransport('smtp.mailtrap.io', 2525))
+            ->setUsername('584895c47520db')
+            ->setPassword('dc840c4c2b83ac');
         $this->mailer = new \Swift_Mailer($this->transport);
 
     }
@@ -34,6 +34,8 @@ class ContactController extends AbstractController{
                         [
                             'message' => $_POST["content"],
                             'isConnected' => $isConnected
+                            'nom' =>$_POST["nom"],
+                            'titre' => $_POST["Titre"]
                         ])
                     ,'text/html'
                 );
@@ -53,6 +55,8 @@ class ContactController extends AbstractController{
                     'isConnected' => $isConnected
                 ]);
         }
+            return header('Location: /Article/view/'.$_POST['id']);;
+        
     }
 
 }

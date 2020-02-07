@@ -3,6 +3,10 @@
 
 
 {% block body %}
+{% if mailSend == 1 %}
+<p class="alert alert-success">Votre mail est envoyé avec succée !</p>
+{%  endif %}
+
 <div class="jumbotron">
     <h2 class="display-3"></h2>
     <hr class="my-4">
@@ -18,6 +22,34 @@
 
 
 </div>
+<div class = "jumbotron">
+    <div class="container-fluid mt-2">
+        <form method="post" action="/Contact/sendMail">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="nom">Votre Nom</label>
+                <input type="text" name="nom" class="form-control" placeholder="Nom">
+            </div>
+            <div class="form-group">
+                <label for="email">Votre Email</label>
+                <input type="email" name="email" placeholder ="Email" class="form-control">
+            
+            </div>
+            <div class="form-group">
+                <label for="content">Entrer votre message</label>
+                <textarea name="content" placeholder="Ecrire ici" class="form-control"></textarea>
+            </div>
+             <input type="hidden" name="token" value="{{ token }}">
+             <input type="hidden" name="Titre" value="{{ article.ART_TITRE }}">
+             <input type="hidden" name="id" value="{{ article.ID_ARTICLE }}">
+            <div>
+                <input type="submit" name="btn" class="btn btn-primary">
+            </div>
+        </div>
+        </form>
+    </div>
+</div>    
+
 
 
 {% endblock %}
