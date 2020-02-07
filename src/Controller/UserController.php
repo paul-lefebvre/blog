@@ -185,22 +185,6 @@ class UserController extends  AbstractController {
 
     }
 
-    public function validationArticle($idarticle){
-        $userModel = new User();
-        $hasBeenUpdateArticle = $userModel->updateActicleValid(Bdd::GetInstance(),$idarticle);
-            if($hasBeenUpdateArticle){
-                
-                $_SESSION['successMsg'] = "L'article a bien été validé";
-                header('Location: /dashboard');
-
-            }else{
-
-                $_SESSION['successMsg'] = "La validation a échoué";
-                header('Location: /dashboard');
-
-            }
-
-    }
 
 
 

@@ -99,9 +99,10 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
             // line 30
             echo "            <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             ";
         }
-        // line 33
+        // line 34
         echo "
           </ul>
         </div>
@@ -110,21 +111,21 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
       <div class=\"container-fluid\">
         ";
-        // line 40
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 40)) {
-            // line 41
+        // line 41
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 41)) {
+            // line 42
             echo "          <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
             <div class=\"container\">
               <h1 class=\"display-4 text-center\">Bien joué !</h1>
               <p class=\"lead text-center \">";
-            // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 44), "html", null, true);
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 45), "html", null, true);
             echo "</p>
             </div>
           </div>
         ";
         }
-        // line 48
+        // line 49
         echo "      </div>
       
     </div>
@@ -147,7 +148,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
     public function getDebugInfo()
     {
-        return array (  128 => 48,  121 => 44,  116 => 41,  114 => 40,  105 => 33,  100 => 30,  98 => 29,  95 => 28,  89 => 24,  87 => 23,  82 => 20,  66 => 12,  61 => 9,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  129 => 49,  122 => 45,  117 => 42,  115 => 41,  106 => 34,  100 => 30,  98 => 29,  95 => 28,  89 => 24,  87 => 23,  82 => 20,  66 => 12,  61 => 9,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -183,6 +184,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
             {% if role == \"Administrateur\" %}
             <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             {% endif %}
 
           </ul>

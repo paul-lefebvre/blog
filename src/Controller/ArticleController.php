@@ -332,5 +332,36 @@ class ArticleController extends AbstractController {
         
         
     }
+
+
+
+
+
+
+
+    public function validationArticle($idarticle){
+        $articleModel = new Article();
+        $hasBeenUpdateArticle = $articleModel->updateActicleValid(Bdd::GetInstance(),$idarticle);
+            if($hasBeenUpdateArticle){
+                
+                $_SESSION['successMsg'] = "L'article a bien été validé";
+                header('Location: /dashboard');
+
+            }else{
+
+                $_SESSION['successMsg'] = "La validation a échoué";
+                header('Location: /dashboard');
+
+            }
+
+    }
+
+
+
+
+
+
+
+
 }
 

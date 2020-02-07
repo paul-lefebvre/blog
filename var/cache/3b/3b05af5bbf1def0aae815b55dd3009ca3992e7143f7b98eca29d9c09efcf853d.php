@@ -100,9 +100,10 @@ class __TwigTemplate_cb39d95fed9abd2a6bc1fee158d63437fde110fb95cd52bf04682a23f25
             // line 35
             echo "            <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             ";
         }
-        // line 38
+        // line 39
         echo "
           </ul>
         </div>
@@ -125,47 +126,47 @@ class __TwigTemplate_cb39d95fed9abd2a6bc1fee158d63437fde110fb95cd52bf04682a23f25
         <tbody>
 
     ";
-        // line 59
+        // line 60
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["allArticles"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 60
+            // line 61
             echo "              <tr>
                 <th scope=\"row\"><a href=\"\">";
-            // line 61
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 61), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 62), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 62
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 62), "html", null, true);
-            echo "</td>
-                <td>";
             // line 63
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DATEAJOUT", [], "any", false, false, false, 63), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_TITRE", [], "any", false, false, false, 63), "html", null, true);
             echo "</td>
                 <td>";
             // line 64
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 64), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_DATEAJOUT", [], "any", false, false, false, 64), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 65
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ART_AUTEUR", [], "any", false, false, false, 65), "html", null, true);
             echo "</td>
                 <td>
                 ";
-            // line 66
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 66), 0)) {
-                // line 67
+            // line 67
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 67), 0)) {
+                // line 68
                 echo "                    Attente
                 ";
-            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 68
-$context["article"], "ART_STATUT", [], "any", false, false, false, 68), 1)) {
-                // line 69
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 69
+$context["article"], "ART_STATUT", [], "any", false, false, false, 69), 1)) {
+                // line 70
                 echo "                    En ligne
                 ";
-            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 70
-$context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
-                // line 71
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 71
+$context["article"], "ART_STATUT", [], "any", false, false, false, 71), 2)) {
+                // line 72
                 echo "                    Refusé
                 ";
             }
-            // line 73
+            // line 74
             echo "                </td>
                 
                 <td>
@@ -173,44 +174,46 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
                     <div class=\"btn-group\" role=\"group\">
 
                         ";
-            // line 79
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 79), 0)) {
-                // line 80
-                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
-                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'article\"><i class=\"fas fa-times-circle\"></i></a>
+            // line 80
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 80), 0)) {
+                // line 81
+                echo "                        <a class=\"btn btn-success\" href=\"/validation/article/";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 81), "html", null, true);
+                echo "\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
+                        <a class=\"btn btn-danger\" href=\"/Article/Delete/";
+                // line 82
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 82), "html", null, true);
+                echo "\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         ";
             }
-            // line 85
+            // line 84
             echo "                                                
                         
                         ";
-            // line 87
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 87), 1)) {
-                // line 88
-                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
-                        <a class=\"btn btn-secondary\" href=\"validation/article/";
-                // line 90
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 90), "html", null, true);
-                echo "\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+            // line 86
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 86), 1)) {
+                // line 87
+                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Visionner\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Modifier\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"Change le statut\"><i class=\"fas fa-edit\"></i></a>
                         ";
             }
-            // line 93
+            // line 91
             echo "
                         ";
-            // line 94
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 94), 2)) {
-                // line 95
-                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+            // line 92
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["article"], "ART_STATUT", [], "any", false, false, false, 92), 2)) {
+                // line 93
+                echo "                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Voir l'article\"><i class=\"far fa-eye\"></i></a>
                         <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
                         <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+                        <a class=\"btn btn-danger\" href=\"/Article/Delete/";
+                // line 96
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "ID_ARTICLE", [], "any", false, false, false, 96), "html", null, true);
+                echo "\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         ";
             }
-            // line 100
+            // line 98
             echo "
                     </div>
 
@@ -221,7 +224,7 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 106
+        // line 104
         echo "
         </tbody>
     </table>
@@ -246,7 +249,7 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
 
     public function getDebugInfo()
     {
-        return array (  225 => 106,  214 => 100,  207 => 95,  205 => 94,  202 => 93,  196 => 90,  192 => 88,  190 => 87,  186 => 85,  179 => 80,  177 => 79,  169 => 73,  165 => 71,  163 => 70,  160 => 69,  158 => 68,  155 => 67,  153 => 66,  148 => 64,  144 => 63,  140 => 62,  136 => 61,  133 => 60,  129 => 59,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  228 => 104,  217 => 98,  212 => 96,  207 => 93,  205 => 92,  202 => 91,  196 => 87,  194 => 86,  190 => 84,  185 => 82,  180 => 81,  178 => 80,  170 => 74,  166 => 72,  164 => 71,  161 => 70,  159 => 69,  156 => 68,  154 => 67,  149 => 65,  145 => 64,  141 => 63,  137 => 62,  134 => 61,  130 => 60,  107 => 39,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -287,6 +290,7 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
             {% if role == \"Administrateur\" %}
             <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             {% endif %}
 
           </ul>
@@ -330,25 +334,22 @@ $context["article"], "ART_STATUT", [], "any", false, false, false, 70), 2)) {
                     <div class=\"btn-group\" role=\"group\">
 
                         {% if article.ART_STATUT == 0 %}
-                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
-                        <a class=\"btn btn-success\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
-                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'article\"><i class=\"fas fa-times-circle\"></i></a>
+                        <a class=\"btn btn-success\" href=\"/validation/article/{{ article.ID_ARTICLE }}\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-check-circle\"></i></a>
+                        <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.ID_ARTICLE }}\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         {% endif %}
                                                 
                         
                         {% if article.ART_STATUT == 1 %}
-                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
-                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
-                        <a class=\"btn btn-secondary\" href=\"validation/article/{{ article.ID_ARTICLE }}\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Visionner\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Modifier\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"Change le statut\"><i class=\"fas fa-edit\"></i></a>
                         {% endif %}
 
                         {% if article.ART_STATUT == 2 %}
-                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"far fa-eye\"></i></a>
+                        <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Voir l'article\"><i class=\"far fa-eye\"></i></a>
                         <a class=\"btn btn-primary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-pencil-alt\"></i></a>
                         <a class=\"btn btn-secondary\" href=\"\" data-toggle=\"tooltip\"  title=\"Valider l'article\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
+                        <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.ID_ARTICLE }}\" data-toggle=\"tooltip\"  title=\"Supprimer l'article\"><i class=\"far fa-trash-alt\"></i></a>
                         {% endif %}
 
                     </div>
