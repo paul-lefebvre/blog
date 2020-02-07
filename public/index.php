@@ -93,6 +93,11 @@ $router->get('/Article/view/:articleID','Article#justOneArticle#articleID');
 //Page validation Acticle
 $router->get('/validation/article/:idarticle', 'Article#validationArticle#idarticle');
 
+//Page voir Article
+$router->get('/categorie/add','Categorie#addCategorie');
+$router->post('/categorie/add','Categorie#addCategorie');
+
+
 //Lancement des routes
 echo $router->run();
 

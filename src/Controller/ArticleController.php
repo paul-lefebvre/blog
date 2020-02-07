@@ -123,6 +123,7 @@ class ArticleController extends AbstractController {
 
                 $articleModel->SqlAdd(BDD::getInstance());
                 
+                $_SESSION['successMsg'] = "L'article a bien été créé !";
                 header('Location:/dashboard');
 
                 
