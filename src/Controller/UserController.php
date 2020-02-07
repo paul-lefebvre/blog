@@ -168,11 +168,29 @@ class UserController extends  AbstractController {
     }
 
 
-    public function validationInscription(){
+    public function validationInscription($iduser){
 
 
 
 
+        $userModel = new User();
+        $hasBeenUpdateUser = $userModel->updateUserValid(Bdd::GetInstance(),$iduser);
+
+
+
+
+
+        if($hasBeenUpdateUser){
+            
+            $_SESSION['successMsg'] = "L'utilisateur a bien été validé";
+            header('Location: /dashboard');
+
+        }else{
+
+            $_SESSION['successMsg'] = "La validation a échoué";
+            header('Location: /dashboard');
+
+        }
 
     }
 

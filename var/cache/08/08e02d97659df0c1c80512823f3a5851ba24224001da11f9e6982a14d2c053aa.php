@@ -51,12 +51,13 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
     <link rel=\"stylesheet\" href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css\">
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
-    <link rel=\"stylesheet\" href=\"assets/css/main.css\">
+    <link rel=\"stylesheet\" href=\"../assets/css/main.css\">
     <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+
 ";
-        // line 12
+        // line 13
         $this->displayBlock('css', $context, $blocks);
-        // line 14
+        // line 15
         echo "
 <body>
 
@@ -78,21 +79,21 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                         ";
-        // line 35
+        // line 36
         echo "                        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCategorie"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-            // line 36
+            // line 37
             echo "                        <a class=\"dropdown-item text-secondary\" href=\"/\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 36), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 37), "html", null, true);
             echo "</a>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
+        // line 39
         echo "                    </div>
                 </li>
 
@@ -108,32 +109,39 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
 
                 ";
-        // line 52
+        // line 53
         if (0 === twig_compare(($context["isConnected"] ?? null), 1)) {
-            // line 53
+            // line 54
             echo "                    <li class=\"nav-item dropdown ml-auto p-2\">
                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                             <i class=\"fa fa-user\">   </i>   ";
-            // line 55
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 55), "html", null, true);
+            // line 56
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 56), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 55), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 56), "html", null, true);
             echo "
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
+                        ";
+            // line 59
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_ACTIF", [], "any", false, false, false, 59), 1)) {
+                // line 60
+                echo "                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
-                            <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
+                        ";
+            }
+            // line 63
+            echo "                            <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
                     </li>
                 ";
         }
-        // line 64
+        // line 67
         echo "
                 ";
-        // line 65
+        // line 68
         if (0 === twig_compare(($context["isConnected"] ?? null), 0)) {
-            // line 66
+            // line 69
             echo "                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>
@@ -143,7 +151,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     </li>
                 ";
         }
-        // line 74
+        // line 77
         echo "
 
             </ul>
@@ -155,15 +163,15 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
 
 ";
-        // line 84
+        // line 87
         $this->displayBlock('body', $context, $blocks);
-        // line 86
+        // line 89
         echo "
 
 ";
-        // line 88
+        // line 91
         $this->displayBlock('footer', $context, $blocks);
-        // line 138
+        // line 141
         echo "
 
     <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
@@ -174,9 +182,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 
 ";
-        // line 147
+        // line 150
         $this->displayBlock('javascript', $context, $blocks);
-        // line 149
+        // line 152
         echo "
 </body>
 </html>
@@ -190,23 +198,23 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
         echo "CESI BLOG";
     }
 
-    // line 12
+    // line 13
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 84
+    // line 87
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 88
+    // line 91
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 89
+        // line 92
         echo " 
     <footer class=\"page-footer font-small pt-4 footer\">
 
@@ -220,26 +228,26 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                     <form class=\"form-inline\" method=\"post\" action=\"/Article/Search/\">
                         <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\" >
                         <input type=\"hidden\" name=\"token\" value=\"";
-        // line 101
+        // line 104
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
                         <select name=\"filtre\" class=\"form-control\">
                             <option value=\"0\">Toutes nos catégories</option>
                             ";
-        // line 104
+        // line 107
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCategorie"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["filtre"]) {
-            // line 105
+            // line 108
             echo "                            <option value= \"1\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 105), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["filtre"], "CAT_NOM", [], "any", false, false, false, 108), "html", null, true);
             echo "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['filtre'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 107
+        // line 110
         echo "                        </select>
                         
                         <input type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
@@ -273,7 +281,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 ";
     }
 
-    // line 147
+    // line 150
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -291,7 +299,7 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
 
     public function getDebugInfo()
     {
-        return array (  277 => 147,  243 => 107,  234 => 105,  230 => 104,  224 => 101,  210 => 89,  206 => 88,  200 => 84,  194 => 12,  187 => 5,  180 => 149,  178 => 147,  167 => 138,  165 => 88,  161 => 86,  159 => 84,  147 => 74,  137 => 66,  135 => 65,  132 => 64,  118 => 55,  114 => 53,  112 => 52,  96 => 38,  87 => 36,  82 => 35,  60 => 14,  58 => 12,  48 => 5,  42 => 1,);
+        return array (  285 => 150,  251 => 110,  242 => 108,  238 => 107,  232 => 104,  218 => 92,  214 => 91,  208 => 87,  202 => 13,  195 => 5,  188 => 152,  186 => 150,  175 => 141,  173 => 91,  169 => 89,  167 => 87,  155 => 77,  145 => 69,  143 => 68,  140 => 67,  134 => 63,  129 => 60,  127 => 59,  119 => 56,  115 => 54,  113 => 53,  97 => 39,  88 => 37,  83 => 36,  61 => 15,  59 => 13,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -305,8 +313,9 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
     <link rel=\"stylesheet\" href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css\">
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
-    <link rel=\"stylesheet\" href=\"assets/css/main.css\">
+    <link rel=\"stylesheet\" href=\"../assets/css/main.css\">
     <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+
 {% block css %}
 {% endblock %}
 
@@ -353,8 +362,10 @@ class __TwigTemplate_adf5e111781314e65cca1d78722f62815532b926e197f476f680f68ca5f
                             <i class=\"fa fa-user\">   </i>   {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                        {% if user.MEM_ACTIF == 1 %}
                             <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
+                        {% endif %}
                             <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
                     </li>
