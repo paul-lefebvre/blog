@@ -135,11 +135,12 @@ class ArticleController extends AbstractController {
                 //Ajout du model + liste toutes les catégories      
                 $categorie = new Categorie();
                 $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
-
+                if(isset($_SESSION['email'])){$isConnected = 1;}else{$isConnected = 0;}
                 return $this->twig->render('Article/add.html.twig',
                     [
                         'token' => $token,
-                        'AllCategorie' => $listCategorie
+                        'AllCategorie' => $listCategorie,
+                        'isConnected' => $isConnected
                     ]);
             }
 
@@ -274,13 +275,15 @@ class ArticleController extends AbstractController {
             $articleData = $article->sqlSearch(Bdd::GetInstance(),$search,$filter);
             $categorie = new Categorie();
             $listCategorie = $categorie->getAllCategories(Bdd::GetInstance());
-            
+            if(isset($_SESSION['email'])){$isConnected = 1;}else{$isConnected = 0;}
             return $this->twig->render(
                 'Article/list.html.twig',[
                     'articleData' => $articleData,
                     'pageResultat' => 1,
-                    'searchResult' => $_POST['search']
-                    ,'listCategorie' => $listCategorie
+                    'searchResult' => $_POST['search'],
+                    'listCategorie' => $listCategorie,
+                    'isConnected' => $isConnected
+
                     
                 ]
             );
@@ -290,10 +293,12 @@ class ArticleController extends AbstractController {
             // Génération d'un TOKEN
             $token = bin2hex(random_bytes(32));
             $_SESSION['token'] = $token;
+            if(isset($_SESSION['email'])){$isConnected = 1;}else{$isConnected = 0;}
             return $this->twig->render('index.html.twig',
                 [
                     'token' => $token,
-                    'filtre' => $listCategorie
+                    'filtre' => $listCategorie,
+                    'isConnected' => $isConnected
                 ]);
         }
 
@@ -312,9 +317,13 @@ class ArticleController extends AbstractController {
         //Récupération du rôle du compte
         $role = UserController::roleNeed();
 
+
+        if(isset($_SESSION['email'])){$isConnected = 1;}else{$isConnected = 0;}
+
         return $this->twig->render('Dashboard/listeArticles.html.twig',[
         'allArticles'=> $listArticles,
-        'role'=>$role
+        'role'=>$role,
+        'isConnected' => $isConnected
         ]);
 
 
@@ -326,8 +335,11 @@ class ArticleController extends AbstractController {
 
             var_dump($article);
 
+            if(isset($_SESSION['email'])){$isConnected = 1;}else{$isConnected = 0;}
+
             return $this->twig->render('Article/view.html.twig',[
-                'article' => $article
+                'article' => $article,
+                'isConnected' => $isConnected
             ]);
         
         

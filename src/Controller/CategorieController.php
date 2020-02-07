@@ -33,10 +33,12 @@ class CategorieController extends AbstractController {
                 $token = bin2hex(random_bytes(32));
                 $_SESSION['token'] = $token;
 
+                if(isset($_SESSION['email'])){$isConnected = 1;}else{$isConnected = 0;}
 
                 return $this->twig->render('Categorie/add.html.twig',
                     [
-                        'token' => $token
+                        'token' => $token,
+                        'isConnected' => $isConnected
                     ]);
             }
 
