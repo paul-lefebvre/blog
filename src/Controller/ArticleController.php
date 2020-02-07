@@ -202,16 +202,22 @@ class ArticleController extends AbstractController {
         }
     }
 
+
+    //Delete d'un article
     public function Delete($articleID){
         $articleSQL = new Article();
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
         $article->SqlDelete(BDD::getInstance(),$articleID);
-        if($article->getImageFileName() != ''){
-            unlink('./uploads/images/'.$article->getImageRepository().'/'.$article->getImageFileName());
+        if($article->getART_IMAGEFILENAME() != ''){
+            unlink('./uploads/images/'.$article->getART_IMAGEREPOSITORY().'/'.$article->getART_IMAGEFILENAME());
         }
 
-        header('Location:/');
+        $_SESSION['successMsg'] = "L'article a bien été supprimé";
+        header('Location:/dashboard');
     }
+
+
+
 
     public function Write(){
         $article = new Article();
