@@ -343,8 +343,6 @@ class ArticleController extends AbstractController {
             $articleSQL = new Article();
             $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
 
-            var_dump($article);
-
             if(isset($_SESSION['email'])){$isConnected = 1;}else{$isConnected = 0;}
 
             return $this->twig->render('Article/view.html.twig',[
