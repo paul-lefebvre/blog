@@ -87,7 +87,7 @@ class __TwigTemplate_673f4af991afc2efb7d84ccd9df40c804922fe38e93c906c0d890dff318
         // line 28
         if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
             // line 29
-            echo "            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            echo "            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             ";
@@ -260,7 +260,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 70), 2)) {
             <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
 
             {% if role == \"Redacteur\" or role == \"Administrateur\" %}
-            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             {% endif %}

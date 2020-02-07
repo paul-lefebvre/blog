@@ -86,7 +86,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
         // line 23
         if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
             // line 24
-            echo "            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            echo "            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             ";
@@ -108,24 +108,22 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
         </div>
       </section>
 
-
-      <div class=\"container-fluid\">
         ";
-        // line 41
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 41)) {
-            // line 42
+        // line 39
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", true, true, false, 39)) {
+            // line 40
             echo "          <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
             <div class=\"container\">
               <h1 class=\"display-4 text-center\">Bien joué !</h1>
               <p class=\"lead text-center \">";
-            // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 45), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "successMsg", [], "any", false, false, false, 43), "html", null, true);
             echo "</p>
             </div>
           </div>
         ";
         }
-        // line 49
+        // line 47
         echo "      </div>
       
     </div>
@@ -148,7 +146,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
 
     public function getDebugInfo()
     {
-        return array (  129 => 49,  122 => 45,  117 => 42,  115 => 41,  106 => 34,  100 => 30,  98 => 29,  95 => 28,  89 => 24,  87 => 23,  82 => 20,  66 => 12,  61 => 9,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  127 => 47,  120 => 43,  115 => 40,  113 => 39,  106 => 34,  100 => 30,  98 => 29,  95 => 28,  89 => 24,  87 => 23,  82 => 20,  66 => 12,  61 => 9,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -176,7 +174,7 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
             <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
 
             {% if role == \"Redacteur\" or role == \"Administrateur\" %}
-            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             {% endif %}
@@ -191,8 +189,6 @@ class __TwigTemplate_7027520c29a6c791f2328d4f2640dc6eb91b1bd4a3d3d80bedf2dcb026f
         </div>
       </section>
 
-
-      <div class=\"container-fluid\">
         {% if session.successMsg is defined %}
           <div class=\"row jumbotron jumbotron-fluid col-8 mx-auto\" style=\"background:#e1ffe1 !important;border-radius: 12px; margin-top: 3em;\">
             <div class=\"container\">
