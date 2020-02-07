@@ -56,37 +56,42 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
     {
         $macros = $this->macros;
         // line 6
-        if (0 === twig_compare(($context["mailSend"] ?? null), 1)) {
-            // line 7
-            echo "<p class=\"alert alert-success\">Votre mail est envoyé avec succée !</p>
-";
-        }
-        // line 9
         echo "
+
 <div class=\"jumbotron\">
+    
     <h2 class=\"display-3\"></h2>
     <hr class=\"my-4\">
     <div class=\"row\">
+    ";
+        // line 13
+        if ((isset($context["envoyer"]) || array_key_exists("envoyer", $context))) {
+            // line 14
+            echo "    
+    ";
+        }
+        // line 16
+        echo "    <p class=\"alert alert-success\">Votre mail est envoyé avec succée !</p>
         <h1>";
-        // line 14
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_TITRE", [], "any", false, false, false, 14), "html", null, true);
+        // line 17
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_TITRE", [], "any", false, false, false, 17), "html", null, true);
         echo "</h1>
         <img src=\"uploads/images/";
-        // line 15
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_IMAGEREPOSITORY", [], "any", false, false, false, 15), "html", null, true);
+        // line 18
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_IMAGEREPOSITORY", [], "any", false, false, false, 18), "html", null, true);
         echo "/";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_IMAGEFILENAME", [], "any", false, false, false, 15), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_IMAGEFILENAME", [], "any", false, false, false, 18), "html", null, true);
         echo "\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
         <p class=\"lead\">";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_DESCRIPTION", [], "any", false, false, false, 16), "html", null, true);
+        // line 19
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_DESCRIPTION", [], "any", false, false, false, 19), "html", null, true);
         echo "</p>
         <hr class=\"my-4\">
         <p>";
-        // line 18
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_AUTEUR", [], "any", false, false, false, 18), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_AUTEUR", [], "any", false, false, false, 21), "html", null, true);
         echo " - ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_DATEAJOUT", [], "any", false, false, false, 18), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_DATEAJOUT", [], "any", false, false, false, 21), "html", null, true);
         echo "</p>
         
         <a class=\"btn btn-secondary btn-lg\" href=\"/\" role=\"button\">Retour</a>
@@ -112,16 +117,16 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
                 <textarea name=\"content\" placeholder=\"Ecrire ici\" class=\"form-control\"></textarea>
             </div>
              <input type=\"hidden\" name=\"token\" value=\"";
-        // line 42
+        // line 45
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
              <input type=\"hidden\" name=\"Titre\" value=\"";
-        // line 43
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_TITRE", [], "any", false, false, false, 43), "html", null, true);
+        // line 46
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_TITRE", [], "any", false, false, false, 46), "html", null, true);
         echo "\">
              <input type=\"hidden\" name=\"id\" value=\"";
-        // line 44
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ID_ARTICLE", [], "any", false, false, false, 44), "html", null, true);
+        // line 47
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ID_ARTICLE", [], "any", false, false, false, 47), "html", null, true);
         echo "\">
             <div>
                 <input type=\"submit\" name=\"btn\" class=\"btn btn-primary\">
@@ -148,7 +153,7 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
 
     public function getDebugInfo()
     {
-        return array (  124 => 44,  120 => 43,  116 => 42,  87 => 18,  82 => 16,  76 => 15,  72 => 14,  65 => 9,  61 => 7,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  129 => 47,  125 => 46,  121 => 45,  92 => 21,  87 => 19,  81 => 18,  77 => 17,  74 => 16,  70 => 14,  68 => 13,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -158,14 +163,17 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
 
 
 {% block body %}
-{% if mailSend == 1 %}
-<p class=\"alert alert-success\">Votre mail est envoyé avec succée !</p>
-{%  endif %}
+
 
 <div class=\"jumbotron\">
+    
     <h2 class=\"display-3\"></h2>
     <hr class=\"my-4\">
     <div class=\"row\">
+    {% if envoyer is defined %}
+    
+    {%  endif %}
+    <p class=\"alert alert-success\">Votre mail est envoyé avec succée !</p>
         <h1>{{ article.ART_TITRE }}</h1>
         <img src=\"uploads/images/{{ article.ART_IMAGEREPOSITORY }}/{{ article.ART_IMAGEFILENAME }}\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
         <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>
