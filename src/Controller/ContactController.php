@@ -33,7 +33,7 @@ class ContactController extends AbstractController{
                     $this->twig->render('Contact/mail.html.twig',
                         [
                             'message' => $_POST["content"],
-                            'isConnected' => $isConnected
+                            'isConnected' => $isConnected,
                             'nom' =>$_POST["nom"],
                             'titre' => $_POST["Titre"]
                         ])
