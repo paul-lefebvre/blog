@@ -10,16 +10,12 @@
 <div class="container-fluid">
     <div class="row d-flex flex-wrap">
 
- <div class="alert alert-secondary text-center p-2 col-12" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}</div>
-
-
-    
-
+ <div class="alert alert-secondary text-center p-2 col-12" role="alert" style="margin-bottom: 0;">Bienvenue sur votre panel M. {{ user.MEM_NOM }} {{ user.MEM_PRENOM }}   |   Email: {{ user.MEM_EMAIL }}   |   Vous possédez les privilèges d'un {{ role }}</div>
 
       <section id="sidebar"> 
         <div id="sidebar-nav">
           <br><br>
-          <ul>
+
 
             {# PRIVILEGES DANS LE DASHBOARD #}
 

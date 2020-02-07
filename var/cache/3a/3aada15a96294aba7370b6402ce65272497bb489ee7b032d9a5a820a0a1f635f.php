@@ -27,6 +27,7 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
+            'js' => [$this, 'block_js'],
         ];
     }
 
@@ -98,7 +99,7 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
             <div class=\"form-group row\">
                 <label for=\"Description\" class=\"col-sm-2 col-form-label\">Description</label>
                 <div class=\"col-sm-10\">
-                    <textarea name=\"Description\" class=\"form-control\" rows=\"9\"></textarea>
+                    <div id=\"summernote\"></div>
                 </div>
             </div>
             <div class=\"form-group row\">
@@ -135,6 +136,24 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
     </div>
 </div>
 
+
+
+
+";
+    }
+
+    // line 75
+    public function block_js($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 76
+        echo "<script>
+      \$('#summernote').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+      });
+</script>
 ";
     }
 
@@ -150,7 +169,7 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
 
     public function getDebugInfo()
     {
-        return array (  131 => 63,  95 => 29,  84 => 27,  80 => 26,  59 => 7,  55 => 6,  47 => 3,  36 => 1,);
+        return array (  150 => 76,  146 => 75,  132 => 63,  96 => 29,  85 => 27,  81 => 26,  60 => 7,  56 => 6,  48 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -189,7 +208,7 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
             <div class=\"form-group row\">
                 <label for=\"Description\" class=\"col-sm-2 col-form-label\">Description</label>
                 <div class=\"col-sm-10\">
-                    <textarea name=\"Description\" class=\"form-control\" rows=\"9\"></textarea>
+                    <div id=\"summernote\"></div>
                 </div>
             </div>
             <div class=\"form-group row\">
@@ -223,6 +242,20 @@ class __TwigTemplate_743d7958ecd04fdef823129017675b626b3817a3d7924a4124654da538d
     </div>
 </div>
 
+
+
+
+{% endblock %}
+
+
+{% block js  %}
+<script>
+      \$('#summernote').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+      });
+</script>
 {% endblock %}", "Article/add.html.twig", "E:\\dev\\Tp\\blog\\templates\\Article\\add.html.twig");
     }
 }
