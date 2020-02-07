@@ -79,6 +79,25 @@ class User {
 
     }
 
+    function updateActicleValid(\PDO $bdd, $idArticle){
+
+        try{
+            $requete=$bdd->prepare("UPDATE t_articles 
+            SET `ART_STATUT`='1' 
+            WHERE  `ID_ARTICLE`=:verif;");
+            $requete->execute(['verif'=>$idArticle]);
+            $arrayUpdateArticle = $requete->fetch();
+
+            
+            return $arrayUpdateArticle;
+
+        }catch (\Exception $e){
+            die('Erreur : ' . $e->getMessage());
+        }
+        
+
+    }
+
 
     //=======================================================
     //  [Récupérer les informations de l'utilisateur]       =

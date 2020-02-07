@@ -90,6 +90,8 @@ $router->get('/validation/user/:iduser', 'User#validationInscription#iduser');
 //Page voir Article
 $router->get('/Article/view/:articleID','Article#justOneArticle#articleID');
 
+//Page validation Acticle
+$router->get('/validation/article/:idarticle', 'Article#validationArticle#idarticle');
 
 //Lancement des routes
 echo $router->run();
