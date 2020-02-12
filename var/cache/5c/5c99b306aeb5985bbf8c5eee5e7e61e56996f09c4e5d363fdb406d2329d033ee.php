@@ -87,7 +87,7 @@ class __TwigTemplate_576184cd9f67719f5eb87a957e133d724a1a06cc1b2e7c6f48f2d4723f4
         // line 28
         if ((0 === twig_compare(($context["role"] ?? null), "Redacteur") || 0 === twig_compare(($context["role"] ?? null), "Administrateur"))) {
             // line 29
-            echo "            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            echo "            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             ";
@@ -98,11 +98,12 @@ class __TwigTemplate_576184cd9f67719f5eb87a957e133d724a1a06cc1b2e7c6f48f2d4723f4
         // line 34
         if (0 === twig_compare(($context["role"] ?? null), "Administrateur")) {
             // line 35
-            echo "            <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
+            echo "            <li><a href=\"/Listemembr    e\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             ";
         }
-        // line 38
+        // line 39
         echo "
           </ul>
         </div>
@@ -124,47 +125,47 @@ class __TwigTemplate_576184cd9f67719f5eb87a957e133d724a1a06cc1b2e7c6f48f2d4723f4
         <tbody>
 
     ";
-        // line 58
+        // line 59
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["allContact"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["contact"]) {
-            // line 59
+            // line 60
             echo "              <tr>
                 <th scope=\"row\"><a href=\"\">";
-            // line 60
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ID_MEMBRE", [], "any", false, false, false, 60), "html", null, true);
+            // line 61
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ID_MEMBRE", [], "any", false, false, false, 61), "html", null, true);
             echo "</a></th>
                 <td>";
-            // line 61
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_NOM", [], "any", false, false, false, 61), "html", null, true);
-            echo "</td>
-                <td>";
             // line 62
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_PRENOM", [], "any", false, false, false, 62), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_NOM", [], "any", false, false, false, 62), "html", null, true);
             echo "</td>
                 <td>";
             // line 63
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_EMAIL", [], "any", false, false, false, 63), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_PRENOM", [], "any", false, false, false, 63), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 64
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_EMAIL", [], "any", false, false, false, 64), "html", null, true);
             echo "</td>
                 <td>
                 ";
-            // line 65
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 65), 0)) {
-                // line 66
+            // line 66
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 66), 0)) {
+                // line 67
                 echo "                    Visiteur
                 ";
-            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 67
-$context["contact"], "ROLE", [], "any", false, false, false, 67), 1)) {
-                // line 68
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 68
+$context["contact"], "ROLE", [], "any", false, false, false, 68), 1)) {
+                // line 69
                 echo "                    Rédacteur
                 ";
-            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 69
-$context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
-                // line 70
+            } elseif (0 === twig_compare(twig_get_attribute($this->env, $this->source,             // line 70
+$context["contact"], "ROLE", [], "any", false, false, false, 70), 2)) {
+                // line 71
                 echo "                    Administrateur
                 ";
             }
-            // line 72
+            // line 73
             echo "                </td>
 
                 <td>
@@ -172,26 +173,26 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
                     <div class=\"btn-group\" role=\"group\">
 
                         ";
-            // line 78
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_ACTIF", [], "any", false, false, false, 78), 0)) {
-                // line 79
+            // line 79
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "MEM_ACTIF", [], "any", false, false, false, 79), 0)) {
+                // line 80
                 echo "                        <a class=\"btn btn-success\" href=\"/validation/user/";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ID_MEMBRE", [], "any", false, false, false, 79), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "ID_MEMBRE", [], "any", false, false, false, 80), "html", null, true);
                 echo "\" data-toggle=\"tooltip\"  title=\"Valider l'inscription\"><i class=\"fas fa-user-check\"></i></a>
                         <a class=\"btn btn-warning\" href=\"\" data-toggle=\"tooltip\"  title=\"refuser l'inscription\"><i class=\"fas fa-times-circle\"></i></a>
                         ";
             }
-            // line 82
+            // line 83
             echo "                                                
                         
                         ";
-            // line 84
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 84), 1)) {
-                // line 85
+            // line 85
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["contact"], "ROLE", [], "any", false, false, false, 85), 1)) {
+                // line 86
                 echo "                        <a class=\"btn btn-danger\" href=\"\" data-toggle=\"tooltip\"  title=\"Supprimer l'utilisateur\"><i class=\"far fa-trash-alt\"></i></a>
                         ";
             }
-            // line 87
+            // line 88
             echo "                    </div>
 
                 </td>
@@ -201,7 +202,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contact'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 92
+        // line 93
         echo "
         </tbody>
     </table>
@@ -226,7 +227,7 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
 
     public function getDebugInfo()
     {
-        return array (  205 => 92,  195 => 87,  191 => 85,  189 => 84,  185 => 82,  178 => 79,  176 => 78,  168 => 72,  164 => 70,  162 => 69,  159 => 68,  157 => 67,  154 => 66,  152 => 65,  147 => 63,  143 => 62,  139 => 61,  135 => 60,  132 => 59,  128 => 58,  106 => 38,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
+        return array (  206 => 93,  196 => 88,  192 => 86,  190 => 85,  186 => 83,  179 => 80,  177 => 79,  169 => 73,  165 => 71,  163 => 70,  160 => 69,  158 => 68,  155 => 67,  153 => 66,  148 => 64,  144 => 63,  140 => 62,  136 => 61,  133 => 60,  129 => 59,  107 => 39,  101 => 35,  99 => 34,  96 => 33,  90 => 29,  88 => 28,  83 => 25,  67 => 13,  62 => 10,  59 => 8,  55 => 7,  47 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -259,14 +260,15 @@ $context["contact"], "ROLE", [], "any", false, false, false, 69), 2)) {
             <li><a href=\"/dashboard\"><i class=\"fa fa-desktop\"></i>Mon Profil</a></li>
 
             {% if role == \"Redacteur\" or role == \"Administrateur\" %}
-            <li><a href=\"/categories\"><i class=\"fa fa-sitemap\"></i>Catégories</a></li>
+            <li><a href=\"/categorie/add\"><i class=\"fa fa-sitemap\"></i>Ajouter une catégorie</a></li>
             <li><a href=\"/Article/Add\"><i class=\"far fa-newspaper\"></i>Ajouter un article</a></li>  
             <li><a href=\"/dashboard/articles\"><i class=\"far fa-newspaper\"></i>Liste des articles</a></li>
             {% endif %}
 
             {% if role == \"Administrateur\" %}
-            <li><a href=\"/Listemembre\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
+            <li><a href=\"/Listemembr    e\"><i class=\"fa fa-users\"></i class=\"text-center\">Utilisateurs</a></li>
             <li><a href=\"\"><i class=\"fa fa-desktop\"></i class=\"text-center\">Modfiier le CSS</a></li>
+            <li><a href=\"/Api/Article\"><i class=\"fa fa-desktop\"></i class=\"text-center\">API</a></li>
             {% endif %}
 
           </ul>

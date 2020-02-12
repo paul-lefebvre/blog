@@ -56,17 +56,14 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
     {
         $macros = $this->macros;
         // line 6
-        if (0 === twig_compare(($context["mailSend"] ?? null), 1)) {
-            // line 7
-            echo "<p class=\"alert alert-success\">Votre mail est envoyé avec succée !</p>
-";
-        }
-        // line 9
         echo "
+
 <div class=\"jumbotron\">
+    
     <h2 class=\"display-3\"></h2>
     <hr class=\"my-4\">
     <div class=\"row\">
+    
         <h1>";
         // line 14
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ART_TITRE", [], "any", false, false, false, 14), "html", null, true);
@@ -148,7 +145,7 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
 
     public function getDebugInfo()
     {
-        return array (  124 => 44,  120 => 43,  116 => 42,  87 => 18,  82 => 16,  76 => 15,  72 => 14,  65 => 9,  61 => 7,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  121 => 44,  117 => 43,  113 => 42,  84 => 18,  79 => 16,  73 => 15,  69 => 14,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -158,14 +155,14 @@ class __TwigTemplate_a17be18dad7e8424dd98331ba00e63b7d68a904b4db7565f9ac2590e178
 
 
 {% block body %}
-{% if mailSend == 1 %}
-<p class=\"alert alert-success\">Votre mail est envoyé avec succée !</p>
-{%  endif %}
+
 
 <div class=\"jumbotron\">
+    
     <h2 class=\"display-3\"></h2>
     <hr class=\"my-4\">
     <div class=\"row\">
+    
         <h1>{{ article.ART_TITRE }}</h1>
         <img src=\"uploads/images/{{ article.ART_IMAGEREPOSITORY }}/{{ article.ART_IMAGEFILENAME }}\" class=\"rounded\" alt=\"\" width=\"300\" height=\"300\">
         <p class=\"lead\">{{ article.ART_DESCRIPTION }}</p>

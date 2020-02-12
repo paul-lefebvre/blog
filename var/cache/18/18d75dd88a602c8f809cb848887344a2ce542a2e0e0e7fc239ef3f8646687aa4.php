@@ -52,12 +52,13 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
     <link rel=\"stylesheet\" href=\"../assets/css/main.css\">
-    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css\">
+    <link href=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.css\" rel=\"stylesheet\">
 
 ";
-        // line 13
+        // line 14
         $this->displayBlock('css', $context, $blocks);
-        // line 15
+        // line 16
         echo "
 <body>
 
@@ -79,21 +80,21 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
                     </a>
                     <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                         ";
-        // line 36
+        // line 37
         echo "                        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCategorie"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-            // line 37
+            // line 38
             echo "                        <a class=\"dropdown-item text-secondary\" href=\"/\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "CAT_NOM", [], "any", false, false, false, 38), "html", null, true);
             echo "</a>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 40
         echo "                    </div>
                 </li>
 
@@ -109,39 +110,39 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 
 
                 ";
-        // line 53
+        // line 54
         if (0 === twig_compare(($context["isConnected"] ?? null), 1)) {
-            // line 54
+            // line 55
             echo "                    <li class=\"nav-item dropdown ml-auto p-2\">
                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                             <i class=\"fa fa-user\">   </i>   ";
-            // line 56
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 56), "html", null, true);
+            // line 57
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_NOM", [], "any", false, false, false, 57), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 56), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_PRENOM", [], "any", false, false, false, 57), "html", null, true);
             echo "
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                         ";
-            // line 59
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_ACTIF", [], "any", false, false, false, 59), 1)) {
-                // line 60
+            // line 60
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "MEM_ACTIF", [], "any", false, false, false, 60), 1)) {
+                // line 61
                 echo "                            <a class=\"dropdown-item text-success\" href=\"/dashboard\">Panel</a>
                             <div class=\"dropdown-divider\"></div>
                         ";
             }
-            // line 63
+            // line 64
             echo "                            <a class=\"dropdown-item text-danger\" href=\"/logout\">Déconnexion</a>
                         </div>
                     </li>
                 ";
         }
-        // line 67
+        // line 68
         echo "
                 ";
-        // line 68
+        // line 69
         if (0 === twig_compare(($context["isConnected"] ?? null), 0)) {
-            // line 69
+            // line 70
             echo "                    <li class=\"nav-item ml-auto p-2\">
                         <a type=\"button\" class=\"btn btn-light btn-sm\" href=\"/Login\">Connexion</a>
                     </li>
@@ -151,13 +152,12 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
                     </li>
                 ";
         }
-        // line 77
+        // line 78
         echo "
 
             </ul>
         </div>
     </nav>
-
 
 
 
@@ -180,11 +180,16 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
     <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
     <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
 
 ";
-        // line 150
+        // line 155
         $this->displayBlock('javascript', $context, $blocks);
-        // line 152
+        // line 157
         echo "
 </body>
 </html>
@@ -198,7 +203,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
         echo "CESI BLOG";
     }
 
-    // line 13
+    // line 14
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -283,7 +288,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 ";
     }
 
-    // line 150
+    // line 155
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -301,7 +306,7 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 
     public function getDebugInfo()
     {
-        return array (  287 => 150,  253 => 110,  242 => 108,  238 => 107,  232 => 104,  218 => 92,  214 => 91,  208 => 87,  202 => 13,  195 => 5,  188 => 152,  186 => 150,  175 => 141,  173 => 91,  169 => 89,  167 => 87,  155 => 77,  145 => 69,  143 => 68,  140 => 67,  134 => 63,  129 => 60,  127 => 59,  119 => 56,  115 => 54,  113 => 53,  97 => 39,  88 => 37,  83 => 36,  61 => 15,  59 => 13,  48 => 5,  42 => 1,);
+        return array (  292 => 155,  258 => 110,  247 => 108,  243 => 107,  237 => 104,  223 => 92,  219 => 91,  213 => 87,  207 => 14,  200 => 5,  193 => 157,  191 => 155,  175 => 141,  173 => 91,  169 => 89,  167 => 87,  156 => 78,  146 => 70,  144 => 69,  141 => 68,  135 => 64,  130 => 61,  128 => 60,  120 => 57,  116 => 55,  114 => 54,  98 => 40,  89 => 38,  84 => 37,  62 => 16,  60 => 14,  48 => 5,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -316,7 +321,8 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
     <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
     <link rel=\"stylesheet\" href=\"../assets/css/main.css\">
-    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css\">
+    <link href=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.css\" rel=\"stylesheet\">
 
 {% block css %}
 {% endblock %}
@@ -391,7 +397,6 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
 
 
 
-
 {% block body %}
 {% endblock %}
 
@@ -454,6 +459,11 @@ class __TwigTemplate_e22a61fa5d80dff0f6b2b6158b6f76033c1463aed5b7a2c963ac0990539
     <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
     <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js\"></script>
+    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-bs4.min.js\"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
 
 {% block javascript %}
 {% endblock %}
